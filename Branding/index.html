@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custompedia — Branding Services 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1929;--cyan:#0999cd;--yellow:#f8bd17;
+  --white:#FFFFFF;--off:#F0F4FF;--gray:#8A9BC0;--gray-l:#C8D4F0;
+  --surf:#0F2040;--surf2:#162B50;--bdr:rgba(255,255,255,.08);
+  --green:#06D6A0;--pink:#FF6B9D;--purple:#A78BFA;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden;font-size:14px;}
+.bg-deco{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 50% at 80% 10%,rgba(248,189,23,.1) 0%,transparent 60%),
+             radial-gradient(ellipse 40% 40% at 10% 80%,rgba(9,153,205,.07) 0%,transparent 60%);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(11,25,41,.92);backdrop-filter:blur(16px);border-bottom:.5px solid var(--bdr);padding:0 40px;height:60px;display:flex;align-items:center;gap:14px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo svg{width:32px;height:27px;flex-shrink:0;}
+.nav-wordmark{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;letter-spacing:-.2px;color:var(--white);}
+.nav-spacer{flex:1;}
+.nav-pill{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--gray);border:.5px solid var(--bdr);padding:5px 14px;border-radius:20px;white-space:nowrap;}
+.nav-cta{display:flex;align-items:center;gap:7px;background:var(--yellow);color:#0B1929;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;padding:8px 18px;border-radius:8px;text-decoration:none;transition:opacity .18s;white-space:nowrap;}
+.nav-cta:hover{opacity:.88;}
+.nav-cta svg{width:14px;height:14px;flex-shrink:0;}
+
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 32px 80px;}
+
+/* HERO */
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;border-bottom:.5px solid var(--bdr);margin-bottom:60px;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;background:linear-gradient(135deg,#fff 40%,#f8bd17);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px;}
+.hero-sub{font-size:15px;color:var(--gray);line-height:1.6;max-width:520px;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.pill{padding:5px 12px;border-radius:20px;font-size:12px;border:.5px solid var(--bdr);color:var(--gray-l);background:rgba(255,255,255,.04);}
+.hero-stats{display:flex;flex-direction:column;gap:16px;text-align:right;}
+.stat-val{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--yellow);}
+.stat-lbl{font-size:11px;color:var(--gray);margin-top:2px;}
+
+/* SECTIONS */
+.sec{margin-bottom:72px;}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.sec-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase;background:rgba(9,153,205,.15);padding:4px 10px;border-radius:6px;border:.5px solid rgba(9,153,205,.3);}
+.sec-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.3px;}
+.sec-sub{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--gray-l);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;}
+
+/* INFO BOXES */
+.info-box{padding:14px 18px;border-radius:12px;font-size:12px;line-height:1.6;margin-bottom:20px;}
+.ib-blue{background:rgba(9,153,205,.12);border:.5px solid rgba(9,153,205,.25);color:#B0DEFF;}
+.ib-gold{background:rgba(248,189,23,.1);border:.5px solid rgba(248,189,23,.25);color:#FFE8A0;}
+.ib-green{background:rgba(6,214,160,.1);border:.5px solid rgba(6,214,160,.25);color:#a0ffdc;}
+
+/* CATEGORY CARDS */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+.cat-card{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:24px;transition:transform .2s;}
+.cat-card.c-gold{border-color:rgba(248,189,23,.3);}
+.cat-card.c-blue{border-color:rgba(9,153,205,.3);}
+.cat-card:hover{transform:translateY(-2px);}
+.cat-pill{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:6px;margin-bottom:12px;}
+.c-gold .cat-pill{background:rgba(248,189,23,.15);color:var(--yellow);border:.5px solid rgba(248,189,23,.3);}
+.c-blue .cat-pill{background:rgba(9,153,205,.15);color:#7dd3f7;border:.5px solid rgba(9,153,205,.3);}
+.cat-card h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px;}
+.cat-card p{font-size:12px;color:var(--gray);line-height:1.65;margin-bottom:16px;}
+.cat-for{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-bottom:8px;}
+.cat-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.cat-tag{font-size:11px;padding:3px 9px;border-radius:5px;border:.5px solid var(--bdr);color:var(--gray-l);background:rgba(255,255,255,.04);}
+.cat-from{padding-top:14px;border-top:.5px solid var(--bdr);font-size:11px;color:var(--gray);}
+.cat-from strong{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;display:block;margin-top:2px;}
+.c-gold .cat-from strong{color:var(--yellow);}
+.c-blue .cat-from strong{color:#7dd3f7;}
+
+/* USP BOX */
+.usp-box{background:rgba(6,214,160,.08);border:.5px solid rgba(6,214,160,.25);border-radius:16px;padding:22px 24px;}
+.usp-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:8px;}
+.usp-box h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;}
+.usp-box p{font-size:12px;color:var(--gray);line-height:1.65;margin-bottom:14px;}
+.usp-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.usp-tag{font-size:11px;padding:3px 9px;border-radius:5px;background:rgba(6,214,160,.1);border:.5px solid rgba(6,214,160,.25);color:var(--green);}
+
+/* WHICH PACKAGE CALLOUT */
+.which-box{background:var(--surf);border:.5px solid var(--bdr);border-radius:16px;padding:22px 24px;margin-bottom:20px;}
+.which-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--yellow);margin-bottom:12px;}
+.which-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.which-item{background:rgba(255,255,255,.03);border:.5px solid var(--bdr);border-radius:10px;padding:12px 14px;}
+.which-pkg{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.which-desc{font-size:11px;color:var(--gray);line-height:1.5;}
+
+/* PACKAGES */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.pkg{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+.pkg:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.pkg::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .2s;}
+.pkg:hover::before{opacity:1;}
+.pkg.feat-gold{background:linear-gradient(145deg,#1a2800,#162B50);border-color:rgba(248,189,23,.5);box-shadow:0 0 0 1px rgba(248,189,23,.15),0 20px 60px rgba(248,189,23,.08);}
+.pkg.feat-gold::before{opacity:1;background:linear-gradient(90deg,transparent,var(--yellow),transparent);}
+.pkg.feat-blue{background:linear-gradient(145deg,#0F3070,#162B50);border-color:rgba(9,153,205,.5);box-shadow:0 0 0 1px rgba(9,153,205,.2),0 20px 60px rgba(9,153,205,.12);}
+.pkg.feat-blue::before{opacity:1;background:linear-gradient(90deg,transparent,var(--cyan),transparent);}
+.pkg.ent{background:linear-gradient(145deg,#1a0f40,#0F2040);border-color:rgba(167,139,250,.3);}
+.pkg.ent::before{opacity:1;background:linear-gradient(90deg,transparent,var(--purple),transparent);}
+
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:14px;}
+.b-starter{background:rgba(255,255,255,.08);color:var(--gray-l);}
+.b-pop{background:rgba(248,189,23,.15);color:var(--yellow);border:.5px solid rgba(248,189,23,.3);}
+.b-prem{background:rgba(167,139,250,.15);color:var(--purple);border:.5px solid rgba(167,139,250,.3);}
+.b-corp{background:rgba(9,153,205,.2);color:#7dd3f7;border:.5px solid rgba(9,153,205,.3);}
+.b-rec{background:rgba(248,189,23,.15);color:var(--yellow);border:.5px solid rgba(248,189,23,.3);}
+.b-ent{background:rgba(167,139,250,.12);color:var(--purple);border:.5px solid rgba(167,139,250,.3);}
+
+.pkg-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:3px;}
+.pkg-sub{font-size:11px;color:var(--gray);margin-bottom:10px;font-style:italic;}
+.pkg-price{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:2px;}
+.pkg-price.gold{color:var(--yellow);}
+.pkg-price.blue{color:#7dd3f7;}
+.pkg-price-label{font-size:10px;color:var(--gray);margin-bottom:12px;}
+.pkg-meta{font-size:11px;color:var(--gray);margin-bottom:16px;padding-bottom:16px;border-bottom:.5px solid var(--bdr);}
+.pkg-for{font-size:10.5px;color:var(--gray);font-style:italic;margin-bottom:16px;line-height:1.45;}
+
+.feat-groups{flex:1;}
+.feat-group{margin-bottom:14px;}
+.feat-group:last-child{margin-bottom:0;}
+.feat-gl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gray);margin-bottom:7px;padding-bottom:5px;border-bottom:.5px solid rgba(255,255,255,.05);}
+.feat-list{list-style:none;}
+.feat-list li{font-size:11px;color:var(--gray-l);padding:3.5px 0;border-bottom:.5px solid rgba(255,255,255,.03);display:flex;gap:6px;align-items:flex-start;line-height:1.4;}
+.feat-list li:last-child{border-bottom:none;}
+.feat-list li::before{content:"—";color:var(--gray);flex-shrink:0;font-size:10px;margin-top:1px;}
+.feat-list li.hi{color:var(--white);}
+.feat-list li.hi::before{content:"✓";color:var(--cyan);font-weight:700;}
+.feat-list li.yhi{color:var(--white);}
+.feat-list li.yhi::before{content:"✓";color:var(--yellow);font-weight:700;}
+.feat-list li.off{opacity:.3;}
+.feat-list li.off::before{content:"—";}
+.badge-new{display:inline-block;font-size:9px;font-weight:700;background:rgba(6,214,160,.15);color:var(--green);border:.5px solid rgba(6,214,160,.25);padding:1px 6px;border-radius:4px;margin-left:4px;vertical-align:middle;}
+.badge-bonus{display:inline-block;font-size:9px;font-weight:700;background:rgba(248,189,23,.15);color:var(--yellow);border:.5px solid rgba(248,189,23,.3);padding:1px 6px;border-radius:4px;margin-left:4px;vertical-align:middle;}
+
+.pkg-btn-wrap{margin-top:18px;}
+.pkg-btn{display:block;width:100%;text-align:center;padding:10px 0;border-radius:10px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all .18s;border:.5px solid var(--bdr);color:var(--gray);background:rgba(255,255,255,.04);}
+.pkg-btn:hover{border-color:var(--white);color:var(--white);}
+.pkg-btn.btn-gold{background:var(--yellow);color:#0B1929;border-color:var(--yellow);}
+.pkg-btn.btn-gold:hover{opacity:.88;}
+.pkg-btn.btn-blue{background:rgba(9,153,205,.9);color:var(--white);border-color:var(--cyan);}
+.pkg-btn.btn-blue:hover{opacity:.88;}
+.pkg-btn.btn-purple{background:rgba(167,139,250,.2);color:var(--purple);border-color:rgba(167,139,250,.4);}
+.pkg-btn.btn-purple:hover{background:var(--purple);color:#0B1929;}
+
+/* ADD-ONS */
+.price-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;}
+.px{background:rgba(255,255,255,.05);border-radius:7px;padding:7px;text-align:center;}
+.px-lbl{font-size:9px;color:var(--gray);margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em;}
+.px-val{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;}
+.px.bundle{border:.5px solid rgba(248,189,23,.3);}
+.px.bundle .px-val{color:var(--yellow);}
+.addon-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.acard{background:var(--surf);border:.5px solid var(--bdr);border-radius:14px;padding:16px;transition:border-color .2s;}
+.acard:hover{border-color:rgba(248,189,23,.3);}
+.acard-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px;}
+.acard-desc{font-size:11px;color:var(--gray);line-height:1.55;margin-bottom:12px;}
+
+/* COMPARISON TABLE */
+.cmp-wrap{overflow-x:auto;}
+.cmp{width:100%;border-collapse:collapse;font-size:11px;}
+.cmp th{padding:9px 10px;font-family:'Syne',sans-serif;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);border-bottom:.5px solid var(--bdr);background:var(--surf);text-align:center;}
+.cmp th:first-child{text-align:left;min-width:160px;}
+.cmp td{padding:7px 10px;border-bottom:.5px solid rgba(255,255,255,.04);color:var(--gray-l);text-align:center;vertical-align:middle;}
+.cmp td:first-child{text-align:left;color:var(--off);}
+.cmp tr:hover td{background:rgba(255,255,255,.02);}
+.cmp tr.cat td{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:#7dd3f7;background:rgba(9,153,205,.08);text-align:left;letter-spacing:.05em;text-transform:uppercase;padding:9px 10px;}
+.ck{color:var(--cyan);font-weight:700;}
+.cky{color:var(--yellow);font-weight:700;}
+.cx{color:#E24B4A;opacity:.6;}
+.cmp-note{font-size:10px;color:var(--gray);margin-top:8px;}
+
+/* BUNDLE */
+.bundle-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.bcard{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:24px;}
+.bcard.b-gold{border-color:rgba(248,189,23,.3);}
+.bcard.b-blue{border-color:rgba(9,153,205,.3);}
+.bcard-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:5px;display:inline-block;margin-bottom:12px;}
+.b-gold .bcard-label{background:rgba(248,189,23,.12);color:var(--yellow);border:.5px solid rgba(248,189,23,.25);}
+.b-blue .bcard-label{background:rgba(9,153,205,.12);color:#7dd3f7;border:.5px solid rgba(9,153,205,.25);}
+.bcard h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:7px;}
+.bcard p{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:16px;}
+.bcard-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.bcard-chip{font-size:11px;padding:3px 9px;border-radius:5px;}
+.b-gold .bcard-chip{background:rgba(248,189,23,.08);color:var(--yellow);border:.5px solid rgba(248,189,23,.2);}
+.b-blue .bcard-chip{background:rgba(9,153,205,.08);color:#7dd3f7;border:.5px solid rgba(9,153,205,.2);}
+.bcard-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:.5px solid var(--bdr);}
+.bcard-save-lbl{font-size:11px;color:var(--gray);}
+.bcard-save-amt{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;}
+.b-gold .bcard-save-amt{color:var(--yellow);}
+.b-blue .bcard-save-amt{color:#7dd3f7;}
+
+/* COMPRO */
+.compro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.compro-card{background:var(--surf);border:.5px solid rgba(167,139,250,.3);border-radius:20px;padding:24px;transition:transform .2s;}
+.compro-card:hover{transform:translateY(-3px);}
+.compro-card::before{content:'';display:block;height:2px;background:linear-gradient(90deg,transparent,var(--purple),transparent);margin:-24px -24px 20px;border-radius:20px 20px 0 0;}
+.compro-card h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:6px;}
+.compro-price{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--purple);margin-bottom:2px;}
+.compro-price-label{font-size:10px;color:var(--gray);margin-bottom:14px;}
+.compro-list{list-style:none;margin-bottom:14px;}
+.compro-list li{font-size:11.5px;color:var(--gray-l);padding:3.5px 0;border-bottom:.5px solid rgba(255,255,255,.04);display:flex;gap:7px;align-items:flex-start;line-height:1.4;}
+.compro-list li:last-child{border-bottom:none;}
+.compro-list li::before{content:"—";color:var(--purple);flex-shrink:0;font-size:10px;margin-top:1px;}
+.compro-foot{font-size:10px;color:var(--gray);padding-top:12px;border-top:.5px solid var(--bdr);line-height:1.55;font-style:italic;}
+
+/* PAYMENT */
+.pay-box{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:28px;}
+.pay-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:16px 0;}
+.pay-step{padding:20px;text-align:center;position:relative;}
+.pay-step:not(:last-child)::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--gray);}
+.pay-num{width:36px;height:36px;border-radius:50%;background:var(--surf2);border:.5px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;margin:0 auto 10px;}
+.pay-title{font-weight:500;font-size:13px;margin-bottom:4px;}
+.pay-desc{font-size:11px;color:var(--gray);line-height:1.5;}
+.pay-amount{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin-top:6px;}
+
+/* NOTES */
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.note-card{background:var(--surf);border:.5px solid var(--bdr);border-radius:14px;padding:18px;}
+.note-icon{font-size:18px;margin-bottom:8px;}
+.note-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:5px;}
+.note-body{font-size:11px;color:var(--gray);line-height:1.6;}
+
+/* CTA */
+.cta-box{background:linear-gradient(135deg,#0F2A50 0%,#0B1929 60%,#0A2010 100%);border:1px solid rgba(9,153,205,.2);border-radius:24px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;margin-bottom:64px;}
+.cta-deco1{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(248,189,23,.08),transparent 70%);top:-80px;right:-80px;pointer-events:none;}
+.cta-deco2{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(9,153,205,.1),transparent 70%);bottom:-60px;left:-60px;pointer-events:none;}
+.cta-inner{position:relative;z-index:1;}
+.cta-badge{display:inline-block;background:rgba(37,211,102,.15);border:.5px solid rgba(37,211,102,.3);color:#4eda87;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+.cta-sub{font-size:14px;color:var(--gray);max-width:480px;margin:0 auto 32px;line-height:1.6;}
+.cta-buttons{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+.cta-btn-primary{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;text-decoration:none;padding:16px 32px;border-radius:50px;transition:all .2s;box-shadow:0 8px 32px rgba(37,211,102,.3);}
+.cta-btn-primary:hover{background:#20bf5a;transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,211,102,.4);}
+.cta-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gray-l);font-size:13px;font-weight:500;text-decoration:none;padding:14px 24px;border-radius:50px;border:.5px solid rgba(255,255,255,.15);transition:all .2s;}
+.cta-btn-secondary:hover{border-color:rgba(255,255,255,.35);color:var(--white);transform:translateY(-1px);}
+.cta-note{margin-top:16px;font-size:12px;color:var(--gray);}
+
+/* FOOTER */
+footer{text-align:center;padding:40px 0 0;border-top:.5px solid var(--bdr);font-size:12px;color:var(--gray);}
+.footer-brand{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;display:flex;align-items:center;gap:10px;justify-content:center;}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-top:14px;}
+.footer-links a{color:var(--gray);text-decoration:none;font-size:11px;}
+.footer-links a:hover{color:var(--white);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .nav-pill{display:none;}
+  .wrap{padding:0 16px 60px;}
+  .hero{grid-template-columns:1fr;gap:24px;}
+  .hero-stats{flex-direction:row;text-align:left;flex-wrap:wrap;gap:20px;}
+  .cat-grid,.pkg-grid,.compro-grid,.bundle-grid,.notes-grid,.pay-steps,.which-grid{grid-template-columns:1fr;}
+  .addon-grid4{grid-template-columns:1fr 1fr;}
+  .pay-step:not(:last-child)::after{display:none;}
+  .cta-box{padding:32px 20px;}
+  .cta-buttons{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="bg-deco"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg viewBox="260 260 490 420" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f8bd17" d="M509.74,274.01h108.97v309.03h-108.97c-85.28,0-154.51-69.23-154.51-154.51h0c0-85.28,69.23-154.51,154.51-154.51h0Z"/>
+      <path fill="#0999cd" d="M747.75,503.13v.4c0,77.93-63.18,141.11-141.11,141.11h-38.92l-75.03,60.2.76-60.2h-.08v-62.45h125v-219.69c72.44,5.96,129.38,66.64,129.38,140.63h0Z"/>
+      <path fill="#007ec8" d="M618.37,362.5v219.69h-125v-220.17h113.27c3.95,0,7.86.16,11.73.48h0Z"/>
+    </svg>
+    <span class="nav-wordmark">CUSTOMPEDIA</span>
+  </a>
+  <div class="nav-spacer"></div>
+  <span class="nav-pill">Branding Services 2026</span>
+  <a class="nav-cta" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20your%20Branding%20packages.%20Can%20we%20discuss%20further%3F" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat with Us
+  </a>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-title">Brand Identity<br>&amp; Branding Services</div>
+    <div class="hero-sub">We build visual identity systems that work at every touchpoint — from logo and guidelines to mascot and social media templates, from day one.</div>
+    <div class="hero-pills">
+      <span class="pill">One-time project · no retainer</span>
+      <span class="pill">Full in-house creative team</span>
+      <span class="pill">Strategy + design included</span>
+      <span class="pill">Coverage across Indonesia</span>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-val">100+</div><div class="stat-lbl">Brands built</div></div>
+    <div><div class="stat-val">6+</div><div class="stat-lbl">Years of experience</div></div>
+    <div><div class="stat-val">3</div><div class="stat-lbl">Tiers available</div></div>
+  </div>
+</div>
+
+<!-- 01: CHOOSE CATEGORY -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">01</div><div class="sec-title">Choose Your Category</div></div>
+  <div class="cat-grid">
+    <div class="cat-card c-gold">
+      <div class="cat-pill">SME / Startup</div>
+      <h3>Initial Branding</h3>
+      <p>For businesses starting out or growing that need a clean, credible visual identity ready to use immediately. Focused on logo, colors, guidelines, and core brand applications.</p>
+      <div class="cat-for">Best for</div>
+      <div class="cat-tags">
+        <span class="cat-tag">New businesses</span><span class="cat-tag">F&B / Culinary</span>
+        <span class="cat-tag">Fashion & Lifestyle</span><span class="cat-tag">Local services</span>
+        <span class="cat-tag">UMKM products</span><span class="cat-tag">Personal brand</span>
+      </div>
+      <div class="cat-from">Starting from<strong>IDR 8,500,000</strong></div>
+    </div>
+    <div class="cat-card c-blue">
+      <div class="cat-pill">Company / Corporate</div>
+      <h3>Corporate Branding</h3>
+      <p>For companies building a long-term reputation that need a complete, structured identity system. Includes brand strategy elements — not just design, but positioning.</p>
+      <div class="cat-for">Best for</div>
+      <div class="cat-tags">
+        <span class="cat-tag">PT / CV</span><span class="cat-tag">Incorporated startups</span>
+        <span class="cat-tag">Property & construction</span><span class="cat-tag">Manufacturing</span>
+        <span class="cat-tag">Professional services</span><span class="cat-tag">Rebranding</span>
+      </div>
+      <div class="cat-from">Starting from<strong>IDR 15,000,000</strong></div>
+    </div>
+  </div>
+  <div class="usp-box">
+    <div class="usp-label">// What Sets Custompedia Apart</div>
+    <h4>More than a logo — we build the strategic foundation of your brand</h4>
+    <p>In select packages, Custompedia includes elements rarely offered by agencies at this price point: Brand Story, Tagline Development, Brand Naming Consultation, Competitor Landscape Brief, and ready-to-use Social Media Templates — not just guidelines, but files you can post tomorrow.</p>
+    <div class="usp-tags">
+      <span class="usp-tag">Brand Story</span><span class="usp-tag">Tagline Development</span>
+      <span class="usp-tag">Brand Naming Consult</span><span class="usp-tag">Competitor Brief</span>
+      <span class="usp-tag">Social Media Templates</span><span class="usp-tag">Brand Launch Kit</span>
+      <span class="usp-tag">Mascot + Social Identity</span>
+    </div>
+  </div>
+</div>
+
+<!-- 02: INITIAL BRANDING -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">02</div><div class="sec-title">Initial Branding — SME &amp; Startup</div></div>
+  <div class="info-box ib-gold">All packages include: brand consultation session, logo files in multiple formats, color guidelines, logo guidelines (safe area, do &amp; don't, media application), and mockup applications. Prices are one-time — no monthly fees, no surprises.</div>
+
+  <div class="which-box">
+    <div class="which-title">Not sure which package fits?</div>
+    <div class="which-grid">
+      <div class="which-item"><div class="which-pkg">IGNITE</div><div class="which-desc">You're just starting out and need a clean, recognizable logo and basic identity to look professional immediately.</div></div>
+      <div class="which-item"><div class="which-pkg">MOMENTUM</div><div class="which-desc">You're already running but want to look more consistent across digital and offline — and you want a brand story and social templates to match.</div></div>
+      <div class="which-item"><div class="which-pkg">ELEVATE</div><div class="which-desc">You're launching seriously, pitching to investors or marketplaces, or doing a full rebrand — and you want the complete package including mascot.</div></div>
+    </div>
+  </div>
+
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-starter">Starter</div>
+      <div class="pkg-name">IGNITE</div>
+      <div class="pkg-sub">"Look polished and recognizable from day one"</div>
+      <div class="pkg-price gold">IDR 8,500,000</div>
+      <div class="pkg-price-label">/ one-time project</div>
+      <div class="pkg-meta">10–14 working days</div>
+      <div class="pkg-for">Best for: new ventures, F&B, home-based products, early-stage personal brands</div>
+      <div class="feat-groups">
+        <div class="feat-group">
+          <div class="feat-gl">Logo Design</div>
+          <ul class="feat-list">
+            <li class="hi">2 main logo concepts (3 rounds of revisions)</li>
+            <li class="hi">1 finalized logo</li>
+            <li class="hi">Files: JPG, PNG (transparent), PDF, SVG</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Core Brand Identity</div>
+          <ul class="feat-list">
+            <li class="hi">Primary color palette</li>
+            <li class="hi">Logo guidelines (safe area, min size, do &amp; don't)</li>
+            <li class="hi">Font recommendation (free license)</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Mockups &amp; Application</div>
+          <ul class="feat-list">
+            <li class="hi">Merchandise mockups (t-shirt, polo, hoodie)</li>
+            <li class="hi">Marketing collateral mockups (banner, poster)</li>
+            <li class="hi">Stationery set (business card, letterhead, envelope)</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Not Included</div>
+          <ul class="feat-list">
+            <li class="off">Brand guidelines document</li>
+            <li class="off">Social media moodboard</li>
+            <li class="off">Brand story / tagline</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Ignite%20branding%20package.%20Can%20we%20discuss%20further%3F" target="_blank">Get Started</a></div>
+    </div>
+
+    <div class="pkg feat-gold">
+      <div class="badge b-pop">⭐ Most Popular</div>
+      <div class="pkg-name">MOMENTUM</div>
+      <div class="pkg-sub">"A consistent brand ready to show up anywhere"</div>
+      <div class="pkg-price gold">IDR 14,500,000</div>
+      <div class="pkg-price-label">/ one-time project</div>
+      <div class="pkg-meta">14–21 working days</div>
+      <div class="pkg-for">Best for: active businesses leveling up, brands targeting digital + offline consistency</div>
+      <div class="feat-groups">
+        <div class="feat-group">
+          <div class="feat-gl">Logo Design</div>
+          <ul class="feat-list">
+            <li class="hi">3 main logo concepts (3 rounds of revisions)</li>
+            <li class="hi">1 finalized logo</li>
+            <li class="hi">Files: JPG, PNG, PDF, SVG, AI, PSD</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Brand Identity</div>
+          <ul class="feat-list">
+            <li class="hi">Primary + secondary color palette with guidelines</li>
+            <li class="hi">Full logo guidelines</li>
+            <li class="hi">Font pairing (commercial license)</li>
+            <li class="hi">Mini brand guidelines PDF (3–5 pages)</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Mockups &amp; Social Media</div>
+          <ul class="feat-list">
+            <li class="hi">Unlimited branding kit mockups</li>
+            <li class="hi">Merchandise, collateral &amp; stationery — unlimited</li>
+            <li class="hi">Social media moodboard + guidelines</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Exclusive in This Package <span class="badge-new">NEW</span></div>
+          <ul class="feat-list">
+            <li class="yhi">Brand Story (1-page brand narrative)</li>
+            <li class="yhi">Tagline Development (3 tagline options)</li>
+            <li class="yhi">3 ready-to-post Instagram design templates</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-gold" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Momentum%20branding%20package.%20Can%20we%20discuss%20further%3F" target="_blank">Get Started</a></div>
+    </div>
+
+    <div class="pkg ent">
+      <div class="badge b-prem">Premium</div>
+      <div class="pkg-name">ELEVATE</div>
+      <div class="pkg-sub">"A complete brand identity — built to launch and scale"</div>
+      <div class="pkg-price gold">IDR 22,000,000</div>
+      <div class="pkg-price-label">/ one-time project</div>
+      <div class="pkg-meta">21–30 working days</div>
+      <div class="pkg-for">Best for: serious brand launches, investor/marketplace readiness, full rebranding</div>
+      <div class="feat-groups">
+        <div class="feat-group">
+          <div class="feat-gl">Logo Design</div>
+          <ul class="feat-list">
+            <li class="hi">4 main logo concepts (unlimited revisions)</li>
+            <li class="hi">1 finalized logo + horizontal / icon variations</li>
+            <li class="hi">Full file pack: JPG, PNG, PDF, SVG, AI, PSD</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Complete Brand Identity</div>
+          <ul class="feat-list">
+            <li class="hi">Extended color palette + full color guidelines</li>
+            <li class="hi">Custom font (exclusive rights)</li>
+            <li class="hi">Brand guideline book 20+ pages PDF</li>
+            <li class="hi">Brand personality, pattern &amp; brand elements</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Mockups &amp; Social Media</div>
+          <ul class="feat-list">
+            <li class="hi">Unlimited mockups + email signature + stamp</li>
+            <li class="hi">Social media moodboard + website header</li>
+            <li class="hi">10 ready-to-post Instagram design templates</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Exclusive <span class="badge-new">NEW</span></div>
+          <ul class="feat-list">
+            <li class="yhi">Brand Story + Tagline Development</li>
+            <li class="yhi">Mascot brand (2 concepts, 4 uniforms, 4+5 poses)</li>
+            <li class="yhi">Social media mascot identity (5 poses, 15 IG posts)</li>
+            <li class="yhi">Brand Launch Kit <span class="badge-bonus">BONUS</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-purple" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Elevate%20branding%20package.%20Can%20we%20discuss%20further%3F" target="_blank">Get Started</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- 03: CORPORATE BRANDING -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">03</div><div class="sec-title">Corporate Branding — Companies &amp; Enterprises</div></div>
+  <div class="info-box ib-blue">Corporate packages go beyond visual identity — each tier includes brand strategy elements to ensure your brand is not just visually consistent, but strategically positioned. Prices are one-time — no monthly fees.</div>
+
+  <div class="which-box">
+    <div class="which-title">Not sure which package fits?</div>
+    <div class="which-grid">
+      <div class="which-item"><div class="which-pkg">ESTABLISH</div><div class="which-desc">Your PT/CV is new or newly formalized. You need a professional identity that looks credible and is ready to deploy across all company materials.</div></div>
+      <div class="which-item"><div class="which-pkg">AUTHORITY</div><div class="which-desc">Your company is active and expanding. You want a complete brand system — including tone of voice, brand strategy, and templates your whole team can use.</div></div>
+      <div class="which-item"><div class="which-pkg">DOMINANCE</div><div class="which-desc">You're preparing for investor pitching, tender submission, or an enterprise-level rebrand. You need the most comprehensive brand system available.</div></div>
+    </div>
+  </div>
+
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-corp">Foundation</div>
+      <div class="pkg-name">ESTABLISH</div>
+      <div class="pkg-sub">"A professional company identity, ready to deploy"</div>
+      <div class="pkg-price blue">IDR 15,000,000</div>
+      <div class="pkg-price-label">/ one-time project</div>
+      <div class="pkg-meta">14–21 working days</div>
+      <div class="pkg-for">Best for: new PT/CV, recently incorporated startups, formalizing a brand</div>
+      <div class="feat-groups">
+        <div class="feat-group">
+          <div class="feat-gl">Logo Design</div>
+          <ul class="feat-list">
+            <li class="hi">3 logo concepts (3 rounds of revisions)</li>
+            <li class="hi">1 finalized logo + horizontal &amp; icon versions</li>
+            <li class="hi">Files: JPG, PNG, PDF, SVG, AI, PSD</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Brand Identity</div>
+          <ul class="feat-list">
+            <li class="hi">Primary + secondary colors with guidelines</li>
+            <li class="hi">Full logo guidelines + media application</li>
+            <li class="hi">Font pairing (commercial license)</li>
+            <li class="hi">Mini brand guidelines (5-page PDF)</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Stationery &amp; Mockups</div>
+          <ul class="feat-list">
+            <li class="hi">Full stationery set (biz card, letterhead, envelope, folder)</li>
+            <li class="hi">Email signature design</li>
+            <li class="hi">Unlimited branding kit mockups</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Exclusive <span class="badge-new">NEW</span></div>
+          <ul class="feat-list">
+            <li class="hi">Brand Naming Consultation</li>
+            <li class="hi">Competitor Landscape Brief (3 competitors)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Establish%20corporate%20branding%20package.%20Can%20we%20discuss%20further%3F" target="_blank">Get Started</a></div>
+    </div>
+
+    <div class="pkg feat-blue">
+      <div class="badge b-rec">⭐ Recommended</div>
+      <div class="pkg-name">AUTHORITY</div>
+      <div class="pkg-sub">"A powerful company brand built to be trusted"</div>
+      <div class="pkg-price blue">IDR 25,000,000</div>
+      <div class="pkg-price-label">/ one-time project</div>
+      <div class="pkg-meta">21–30 working days</div>
+      <div class="pkg-for">Best for: active companies rebranding, brand upgrade, expansion readiness</div>
+      <div class="feat-groups">
+        <div class="feat-group">
+          <div class="feat-gl">Logo Design</div>
+          <ul class="feat-list">
+            <li class="hi">4 logo concepts (3 rounds of revisions)</li>
+            <li class="hi">Logo system: primary, horizontal, monogram, icon</li>
+            <li class="hi">Full file pack including AI, PSD, SVG</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Brand Identity System</div>
+          <ul class="feat-list">
+            <li class="hi">Extended color system + full guidelines</li>
+            <li class="hi">Custom font pairing (licensed)</li>
+            <li class="hi">Brand guideline book 15–20 pages PDF</li>
+            <li class="hi">Brand personality, tone of voice, pattern system</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Stationery &amp; Digital</div>
+          <ul class="feat-list">
+            <li class="hi">Unlimited stationery + stamp + ID card template</li>
+            <li class="hi">Email signature + email header template</li>
+            <li class="hi">Social media moodboard + 5 ready-to-post templates</li>
+            <li class="hi">Website header + social media covers</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Brand Strategy Elements <span class="badge-new">NEW</span></div>
+          <ul class="feat-list">
+            <li class="yhi">Brand Story &amp; Brand Narrative document</li>
+            <li class="yhi">Tagline Development (5 options + rationale)</li>
+            <li class="yhi">Brand Naming Consultation</li>
+            <li class="yhi">Competitor Landscape Brief (5 competitors)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-blue" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Authority%20corporate%20branding%20package.%20Can%20we%20discuss%20further%3F" target="_blank">Get Started</a></div>
+    </div>
+
+    <div class="pkg ent">
+      <div class="badge b-ent">Enterprise</div>
+      <div class="pkg-name">DOMINANCE</div>
+      <div class="pkg-sub">"A full brand system for companies ready to lead"</div>
+      <div class="pkg-price blue">IDR 38,000,000</div>
+      <div class="pkg-price-label">/ one-time project</div>
+      <div class="pkg-meta">30–45 working days</div>
+      <div class="pkg-for">Best for: large corporates, investor/B2B expansion, tender preparation, IPO readiness</div>
+      <div class="feat-groups">
+        <div class="feat-group">
+          <div class="feat-gl">Full Logo System</div>
+          <ul class="feat-list">
+            <li class="hi">5 logo concepts (unlimited revisions)</li>
+            <li class="hi">Complete logo system (6+ variations)</li>
+            <li class="hi">Custom font (exclusive rights)</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Comprehensive Brand System</div>
+          <ul class="feat-list">
+            <li class="hi">Brand guideline book 30+ pages PDF (print-ready)</li>
+            <li class="hi">Full system: color, typography, grid, pattern</li>
+            <li class="hi">Brand elements, graphic language, brand architecture</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Full Implementation</div>
+          <ul class="feat-list">
+            <li class="hi">Stationery, merchandise, collateral — unlimited</li>
+            <li class="hi">Branded presentation template (PowerPoint/Canva)</li>
+            <li class="hi">10 ready-to-use social media templates</li>
+            <li class="hi">Signage mockup + vehicle wrap mockup</li>
+          </ul>
+        </div>
+        <div class="feat-group">
+          <div class="feat-gl">Full Brand Strategy <span class="badge-new">NEW</span></div>
+          <ul class="feat-list">
+            <li class="yhi">Brand Audit + Competitor Analysis Report</li>
+            <li class="yhi">Brand Story + Tagline + Brand Messaging Framework</li>
+            <li class="yhi">Brand Naming Consultation</li>
+            <li class="yhi">Mascot brand (2 concepts, full poses, full colors)</li>
+            <li class="yhi">1× Brand presentation to stakeholders <span class="badge-bonus">BONUS</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-purple" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Dominance%20corporate%20branding%20package.%20Can%20we%20discuss%20further%3F" target="_blank">Get Started</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- 04: COMPANY PROFILE -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">04</div><div class="sec-title">Company Profile</div></div>
+  <div class="info-box ib-blue">A professional company representation for websites, investor pitches, tender presentations, and social media. Custompedia has teams covering major cities across Indonesia — for locations outside our current coverage, additional travel costs may apply. Contact us first, we might already be nearby.</div>
+  <div class="compro-grid">
+    <div class="compro-card">
+      <h3>Company Photoshoot</h3>
+      <div class="compro-price">From IDR 6,000,000</div>
+      <div class="compro-price-label">/ session · one-time</div>
+      <ul class="compro-list">
+        <li>Professional photo session at your location</li>
+        <li>Team photos / employee headshots</li>
+        <li>Product or operational atmosphere photography</li>
+        <li>Professional editing — files ready to use immediately</li>
+        <li>Minimum 30 fully edited, full-resolution photos</li>
+      </ul>
+      <div class="compro-foot">Price depends on duration, location &amp; number of outputs. Additional travel costs may apply for locations outside our current coverage area.</div>
+    </div>
+    <div class="compro-card">
+      <h3>Company Profile Design</h3>
+      <div class="compro-price">From IDR 10,000,000</div>
+      <div class="compro-price-label">/ project · one-time</div>
+      <ul class="compro-list">
+        <li>Company profile design, 12–20 pages</li>
+        <li>Content structure: About Us, Services, Portfolio, Team</li>
+        <li>Custom layout aligned with your brand guidelines</li>
+        <li>2 rounds of revisions · Hi-res PDF + editable file</li>
+        <li>Digital version ready to share via email / WhatsApp</li>
+      </ul>
+      <div class="compro-foot">Copywriting not included. Content writing add-on: +IDR 2,500,000</div>
+    </div>
+    <div class="compro-card">
+      <h3>Company Profile Video</h3>
+      <div class="compro-price">From IDR 15,000,000</div>
+      <div class="compro-price-label">/ project · one-time</div>
+      <ul class="compro-list">
+        <li>Concept development, scriptwriting &amp; storyboard</li>
+        <li>1 full shooting day at your location</li>
+        <li>Full editing: color grading, motion graphics, music</li>
+        <li>Voice over (optional)</li>
+        <li>Final format: Full HD MP4 + master file</li>
+      </ul>
+      <div class="compro-foot">3–5 min from IDR 22,000,000 · 2-day shoot from IDR 25,000,000 · Full animation: custom quotation</div>
+    </div>
+  </div>
+</div>
+
+<!-- 05: ADD-ONS -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">05</div><div class="sec-title">Add-On Services</div></div>
+  <div class="info-box ib-gold">All add-ons can be combined with any branding package at a bundled rate, or ordered standalone. Bundle pricing is applied when taken together with a main package.</div>
+  <div class="addon-grid4">
+    <div class="acard">
+      <div class="acard-name">Mascot Design</div>
+      <div class="acard-desc">1 concept, 3 poses, full color. Ideal add-on for Ignite or Establish packages.</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Bundle</div><div class="px-val">+IDR 4M</div></div>
+        <div class="px"><div class="px-lbl">Standalone</div><div class="px-val">IDR 5M</div></div>
+      </div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Brand Naming</div>
+      <div class="acard-desc">Research + name recommendations, availability check, creative rationale.</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Bundle</div><div class="px-val">+IDR 2.5M</div></div>
+        <div class="px"><div class="px-lbl">Standalone</div><div class="px-val">IDR 3.5M</div></div>
+      </div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Tagline Development</div>
+      <div class="acard-desc">5 tagline options with creative rationale. Add-on or standalone.</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Bundle</div><div class="px-val">+IDR 1.5M</div></div>
+        <div class="px"><div class="px-lbl">Standalone</div><div class="px-val">IDR 2.5M</div></div>
+      </div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Social Media Templates</div>
+      <div class="acard-desc">5 ready-to-post IG/TikTok templates (feed + story) aligned to your brand.</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Bundle</div><div class="px-val">+IDR 2M</div></div>
+        <div class="px"><div class="px-lbl">Standalone</div><div class="px-val">IDR 3M</div></div>
+      </div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Presentation Template</div>
+      <div class="acard-desc">Branded PowerPoint/Canva — 15 slide layouts, ready for your team.</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Bundle</div><div class="px-val">+IDR 2.5M</div></div>
+        <div class="px"><div class="px-lbl">Standalone</div><div class="px-val">IDR 3.5M</div></div>
+      </div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Brand Audit</div>
+      <div class="acard-desc">Evaluation of existing identity: consistency, strengths, gap vs competitors.</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Bundle</div><div class="px-val">+IDR 3M</div></div>
+        <div class="px"><div class="px-lbl">Standalone</div><div class="px-val">IDR 4M</div></div>
+      </div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Packaging Design</div>
+      <div class="acard-desc">Product packaging (box, pouch, label) aligned to brand. Print-ready files.</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Bundle</div><div class="px-val">+IDR 2M</div></div>
+        <div class="px"><div class="px-lbl">Standalone</div><div class="px-val">IDR 3M</div></div>
+      </div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Brand Launch Kit</div>
+      <div class="acard-desc">9 IG feed posts, stories, captions &amp; hashtag sets — ready to post on launch day.</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Bundle</div><div class="px-val">+IDR 3M</div></div>
+        <div class="px"><div class="px-lbl">Standalone</div><div class="px-val">IDR 4.5M</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 06: COMPARISON TABLE — INITIAL BRANDING -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">06</div><div class="sec-title">Package Comparison</div></div>
+
+  <div class="sec-sub" style="margin-bottom:16px;">Initial Branding — SME &amp; Startup</div>
+  <div class="cmp-wrap" style="margin-bottom:32px;">
+  <table class="cmp">
+    <thead>
+      <tr>
+        <th style="text-align:left;">Feature</th>
+        <th>IGNITE<br>IDR 8.5M</th>
+        <th style="border:.5px solid rgba(248,189,23,.3);color:var(--yellow);">MOMENTUM<br>IDR 14.5M</th>
+        <th>ELEVATE<br>IDR 22M</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cat"><td colspan="4">Logo Design</td></tr>
+      <tr><td>Logo Concepts</td><td>2</td><td style="color:var(--yellow);">3</td><td>4</td></tr>
+      <tr><td>Revisions</td><td>3 rounds</td><td style="color:var(--yellow);">3 rounds</td><td>Unlimited</td></tr>
+      <tr><td>File Formats</td><td>JPG, PNG, PDF, SVG</td><td style="color:var(--yellow);">+ AI, PSD</td><td>+ AI, PSD</td></tr>
+      <tr><td>Logo Variations</td><td><span class="cx">—</span></td><td style="color:var(--yellow);"><span class="cx">—</span></td><td>Horizontal + Icon</td></tr>
+      <tr class="cat"><td colspan="4">Brand Identity</td></tr>
+      <tr><td>Color Palette</td><td>Primary only</td><td style="color:var(--yellow);">Primary + Secondary</td><td>Extended palette</td></tr>
+      <tr><td>Font</td><td>Recommendation (free)</td><td style="color:var(--yellow);">Pairing (commercial)</td><td>Custom (exclusive rights)</td></tr>
+      <tr><td>Logo Guidelines</td><td><span class="ck">✓</span></td><td style="color:var(--yellow);"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+      <tr><td>Brand Guideline Book</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);">Mini (3–5 pages)</td><td>Full (20+ pages)</td></tr>
+      <tr><td>Brand Personality &amp; Pattern</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);"><span class="cx">❌</span></td><td><span class="ck">✓</span></td></tr>
+      <tr class="cat"><td colspan="4">Mockups &amp; Application</td></tr>
+      <tr><td>Branding Kit Mockups</td><td>Standard</td><td style="color:var(--yellow);">Unlimited</td><td>Unlimited</td></tr>
+      <tr><td>Email Signature + Stamp</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);"><span class="cx">❌</span></td><td><span class="ck">✓</span></td></tr>
+      <tr><td>Social Media Moodboard</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+      <tr><td>IG Templates (ready to post)</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);">3 templates</td><td>10 templates</td></tr>
+      <tr><td>Website Header</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);"><span class="cx">❌</span></td><td><span class="ck">✓</span></td></tr>
+      <tr class="cat"><td colspan="4">Brand Strategy (Exclusive)</td></tr>
+      <tr><td>Brand Story</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);"><span class="cky">✓</span></td><td><span class="cky">✓</span></td></tr>
+      <tr><td>Tagline Development</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);">3 options</td><td>Full development</td></tr>
+      <tr><td>Mascot Brand</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);"><span class="cx">❌</span></td><td><span class="cky">✓ Full</span></td></tr>
+      <tr><td>Social Media Mascot Identity</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);"><span class="cx">❌</span></td><td>5 poses · 15 IG posts</td></tr>
+      <tr><td>Brand Launch Kit</td><td><span class="cx">❌</span></td><td style="color:var(--yellow);"><span class="cx">❌</span></td><td><span class="cky">✓ BONUS</span></td></tr>
+      <tr class="cat"><td colspan="4">Timeline</td></tr>
+      <tr><td>Working Days</td><td>10–14 days</td><td style="color:var(--yellow);">14–21 days</td><td>21–30 days</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="sec-sub" style="margin-bottom:16px;">Corporate Branding — Companies &amp; Enterprises</div>
+  <div class="cmp-wrap">
+  <table class="cmp">
+    <thead>
+      <tr>
+        <th style="text-align:left;">Feature</th>
+        <th>ESTABLISH<br>IDR 15M</th>
+        <th style="border:.5px solid rgba(9,153,205,.4);color:#7dd3f7;">AUTHORITY<br>IDR 25M</th>
+        <th>DOMINANCE<br>IDR 38M</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cat"><td colspan="4">Logo Design</td></tr>
+      <tr><td>Logo Concepts</td><td>3</td><td style="color:#7dd3f7;">4</td><td>5</td></tr>
+      <tr><td>Revisions</td><td>3 rounds</td><td style="color:#7dd3f7;">3 rounds</td><td>Unlimited</td></tr>
+      <tr><td>Logo System</td><td>Primary + horizontal + icon</td><td style="color:#7dd3f7;">Primary + horizontal + monogram + icon</td><td>6+ variations</td></tr>
+      <tr><td>Custom Font</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;">Pairing (licensed)</td><td>Exclusive rights</td></tr>
+      <tr class="cat"><td colspan="4">Brand Identity System</td></tr>
+      <tr><td>Color System</td><td>Primary + secondary</td><td style="color:#7dd3f7;">Extended</td><td>Comprehensive</td></tr>
+      <tr><td>Brand Guideline Book</td><td>Mini (5 pages)</td><td style="color:#7dd3f7;">15–20 pages</td><td>30+ pages (print-ready)</td></tr>
+      <tr><td>Tone of Voice</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+      <tr><td>Pattern System &amp; Brand Elements</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;"><span class="ck">✓</span></td><td><span class="ck">✓ + Architecture</span></td></tr>
+      <tr class="cat"><td colspan="4">Stationery &amp; Digital</td></tr>
+      <tr><td>Stationery Set</td><td>Full set</td><td style="color:#7dd3f7;">Unlimited + ID card</td><td>Unlimited + stamp</td></tr>
+      <tr><td>Email Signature</td><td><span class="ck">✓</span></td><td style="color:#7dd3f7;"><span class="ck">✓ + Header</span></td><td><span class="ck">✓</span></td></tr>
+      <tr><td>Presentation Template</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;"><span class="cx">❌</span></td><td><span class="ck">✓</span></td></tr>
+      <tr><td>Social Media Templates</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;">5 ready-to-post</td><td>10 ready-to-post</td></tr>
+      <tr><td>Signage + Vehicle Wrap Mockup</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;"><span class="cx">❌</span></td><td><span class="ck">✓</span></td></tr>
+      <tr class="cat"><td colspan="4">Brand Strategy (Exclusive)</td></tr>
+      <tr><td>Brand Naming Consultation</td><td><span class="ck">✓</span></td><td style="color:#7dd3f7;"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+      <tr><td>Competitor Landscape Brief</td><td>3 competitors</td><td style="color:#7dd3f7;">5 competitors</td><td>Full report</td></tr>
+      <tr><td>Brand Story &amp; Narrative</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;"><span class="cky">✓</span></td><td><span class="cky">✓</span></td></tr>
+      <tr><td>Tagline Development</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;">5 options + rationale</td><td>Full framework</td></tr>
+      <tr><td>Brand Audit</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;"><span class="cx">❌</span></td><td><span class="cky">✓</span></td></tr>
+      <tr><td>Mascot Brand</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;"><span class="cx">❌</span></td><td><span class="cky">✓ Full</span></td></tr>
+      <tr><td>Stakeholder Presentation</td><td><span class="cx">❌</span></td><td style="color:#7dd3f7;"><span class="cx">❌</span></td><td><span class="cky">✓ BONUS</span></td></tr>
+      <tr class="cat"><td colspan="4">Timeline</td></tr>
+      <tr><td>Working Days</td><td>14–21 days</td><td style="color:#7dd3f7;">21–30 days</td><td>30–45 days</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- 07: BUNDLE DEALS -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">07</div><div class="sec-title">Bundle Deals</div></div>
+  <div class="bundle-grid">
+    <div class="bcard b-gold">
+      <div class="bcard-label">SME Bundle</div>
+      <h4>Branding + Social Media Management</h4>
+      <p>The most natural next step after branding: once your identity is done, we handle your content — consistently, from day one. One ecosystem, one team, no brief repetition.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip">Any Initial Branding Package</span>
+        <span class="bcard-chip">SMM Min. 3 Months</span>
+        <span class="bcard-chip">Brand Launch Kit</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Save up to</span><span class="bcard-save-amt">IDR 4,500,000</span></div>
+    </div>
+    <div class="bcard b-blue">
+      <div class="bcard-label">Corporate Bundle</div>
+      <h4>Branding + Company Profile</h4>
+      <p>Complete your company's visual identity, then follow through with a company profile — design, video, or both — for pitching, tendering, or your website.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip">Authority Package</span>
+        <span class="bcard-chip">Company Profile Design/Video</span>
+        <span class="bcard-chip">1-Day Photoshoot</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Save up to</span><span class="bcard-save-amt">IDR 7,000,000</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 08: PAYMENT -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">08</div><div class="sec-title">Payment System</div></div>
+  <div class="pay-box">
+    <div class="pay-steps">
+      <div class="pay-step">
+        <div class="pay-num" style="border-color:rgba(9,153,205,.4);color:#7dd3f7;">1</div>
+        <div class="pay-title">Down Payment</div>
+        <div class="pay-desc">Upon project confirmation</div>
+        <div class="pay-amount">50%</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:4px;">of total project value</div>
+      </div>
+      <div class="pay-step">
+        <div class="pay-num" style="border-color:rgba(248,189,23,.3);color:var(--yellow);">2</div>
+        <div class="pay-title">Project Running</div>
+        <div class="pay-desc">Design, revisions &amp; production</div>
+        <div class="pay-amount" style="color:var(--gray);">—</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:4px;">no additional payment</div>
+      </div>
+      <div class="pay-step">
+        <div class="pay-num" style="border-color:rgba(6,214,160,.4);color:var(--green);">3</div>
+        <div class="pay-title">Final Payment</div>
+        <div class="pay-desc">Before final files are delivered</div>
+        <div class="pay-amount" style="color:var(--green);">50%</div>
+        <div style="font-size:10px;color:var(--gray);margin-top:4px;">remaining balance</div>
+      </div>
+    </div>
+    <div class="info-box ib-blue" style="margin-bottom:0;">Example — Momentum Package IDR 14,500,000: Down Payment IDR 7,250,000 upon confirmation · Production begins immediately · Final payment IDR 7,250,000 before final file delivery. Brief session begins after down payment is confirmed.</div>
+  </div>
+</div>
+
+<!-- 09: GOOD TO KNOW -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">09</div><div class="sec-title">Good to Know</div></div>
+  <div class="notes-grid">
+    <div class="note-card"><div class="note-icon">💳</div><div class="note-title">Payment Terms</div><div class="note-body">50% DP to confirm the project. 50% balance before final file delivery. No hidden fees — ever.</div></div>
+    <div class="note-card"><div class="note-icon">🔁</div><div class="note-title">Revisions</div><div class="note-body">Revision rounds as stated per package. "Unlimited" applies to minor adjustments (color, size, text) — not full concept changes.</div></div>
+    <div class="note-card"><div class="note-icon">📁</div><div class="note-title">File Ownership</div><div class="note-body">All final files belong to the client upon full payment. Custompedia may use work as portfolio unless an NDA is signed.</div></div>
+    <div class="note-card"><div class="note-icon">📅</div><div class="note-title">Timeline</div><div class="note-body">Timeline begins once the brief is complete and DP is confirmed. Client delays in feedback may affect delivery schedule.</div></div>
+    <div class="note-card"><div class="note-icon">💬</div><div class="note-title">Brief &amp; Consultation</div><div class="note-body">Every project starts with a free consultation session. Authority &amp; Dominance packages include a stakeholder presentation session.</div></div>
+    <div class="note-card"><div class="note-icon">📍</div><div class="note-title">Coverage &amp; Location</div><div class="note-body">Custompedia has teams covering major cities across Indonesia. For locations outside our current coverage, additional travel costs may apply — contact us first.</div></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-box">
+  <div class="cta-deco1"></div><div class="cta-deco2"></div>
+  <div class="cta-inner">
+    <div class="cta-badge">Ready to get started?</div>
+    <div class="cta-title">Let's build a brand<br>people remember.</div>
+    <div class="cta-sub">Tell us about your business and we'll help you find the right package. No commitment, just a conversation.</div>
+    <div class="cta-buttons">
+      <a class="cta-btn-primary" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20your%20Branding%20packages.%20Can%20we%20discuss%20further%3F" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat with Us on WhatsApp
+      </a>
+      <a class="cta-btn-secondary" href="mailto:hello@custompedia.agency?subject=Inquiry%20—%20Branding%20Services&body=Hi%20Custompedia%2C%0A%0AI%27m%20interested%20in%20your%20Branding%20packages.%20Can%20we%20discuss%20further%3F%0A%0AThank%20you." target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        hello@custompedia.agency
+      </a>
+    </div>
+    <div class="cta-note">+62 822-2617-1071 · Typically replies within 1 hour</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <svg width="28" height="28" viewBox="260 260 490 420" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f8bd17" d="M509.74,274.01h108.97v309.03h-108.97c-85.28,0-154.51-69.23-154.51-154.51h0c0-85.28,69.23-154.51,154.51-154.51h0Z"/>
+      <path fill="#0999cd" d="M747.75,503.13v.4c0,77.93-63.18,141.11-141.11,141.11h-38.92l-75.03,60.2.76-60.2h-.08v-62.45h125v-219.69c72.44,5.96,129.38,66.64,129.38,140.63h0Z"/>
+      <path fill="#007ec8" d="M618.37,362.5v219.69h-125v-220.17h113.27c3.95,0,7.86.16,11.73.48h0Z"/>
+    </svg>
+    CUSTOMPEDIA Creative Group
+  </div>
+  <div>Creative Marketing Agency · Indonesia</div>
+  <div class="footer-links">
+    <a href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20your%20Branding%20packages.%20Can%20we%20discuss%20further%3F" target="_blank">+62 822-2617-1071</a>
+    <a href="mailto:hello@custompedia.agency?subject=Inquiry%20—%20Branding%20Services&body=Hi%20Custompedia%2C%0A%0AI%27m%20interested%20in%20your%20Branding%20packages.%20Can%20we%20discuss%20further%3F%0A%0AThank%20you." target="_blank">hello@custompedia.agency</a>
+    <a href="https://instagram.com/custompedia" target="_blank">@custompedia</a>
+  </div>
+  <div style="margin-top:20px;font-size:10px;opacity:.4;">© 2026 Custompedia Creative Group · This document is confidential</div>
+</footer>
+
+</div>
+</body>
+</html>
