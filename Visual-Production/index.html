@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custompedia — Visual Production 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1929;--cyan:#0999cd;--yellow:#f8bd17;--white:#FFFFFF;--off:#F0F4FF;--gray:#8A9BC0;--gray-l:#C8D4F0;--surf:#0F2040;--surf2:#162B50;--bdr:rgba(255,255,255,.08);--green:#06D6A0;--pink:#FF6B9D;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden;font-size:14px;}
+.bg-deco{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 60% 50% at 80% 10%,rgba(9,153,205,.15) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(248,189,23,.08) 0%,transparent 60%);}
+nav{position:sticky;top:0;z-index:200;background:rgba(11,25,41,.92);backdrop-filter:blur(16px);border-bottom:.5px solid var(--bdr);padding:0 40px;height:60px;display:flex;align-items:center;gap:14px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo svg{width:32px;height:27px;flex-shrink:0;}
+.nav-wordmark{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;letter-spacing:-.2px;color:var(--white);}
+.nav-spacer{flex:1;}
+.nav-pill{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--gray);border:.5px solid var(--bdr);padding:5px 14px;border-radius:20px;white-space:nowrap;}
+.nav-cta{display:flex;align-items:center;gap:7px;background:var(--yellow);color:#0B1929;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;padding:8px 18px;border-radius:8px;text-decoration:none;transition:opacity .18s;white-space:nowrap;}
+.nav-cta:hover{opacity:.88;}.nav-cta svg{width:14px;height:14px;flex-shrink:0;}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 32px 80px;}
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;border-bottom:.5px solid var(--bdr);margin-bottom:60px;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;background:linear-gradient(135deg,#fff 40%,#0999cd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px;}
+.hero-sub{font-size:15px;color:var(--gray);line-height:1.6;max-width:520px;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.pill{padding:5px 12px;border-radius:20px;font-size:12px;border:.5px solid var(--bdr);color:var(--gray-l);background:rgba(255,255,255,.04);}
+.hero-stats{display:flex;flex-direction:column;gap:16px;text-align:right;}
+.stat-val{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--yellow);}
+.stat-lbl{font-size:11px;color:var(--gray);margin-top:2px;}
+.sec{margin-bottom:72px;}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.sec-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase;background:rgba(9,153,205,.15);padding:4px 10px;border-radius:6px;border:.5px solid rgba(9,153,205,.3);}
+.sec-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.3px;}
+.sec-sub{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--gray-l);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;}
+.info-box{padding:14px 18px;border-radius:12px;font-size:12px;line-height:1.6;margin-bottom:20px;}
+.ib-blue{background:rgba(9,153,205,.12);border:.5px solid rgba(9,153,205,.25);color:#B0DEFF;}
+.ib-gold{background:rgba(248,189,23,.1);border:.5px solid rgba(248,189,23,.25);color:#FFE8A0;}
+.ib-green{background:rgba(6,214,160,.1);border:.5px solid rgba(6,214,160,.25);color:#a0ffdc;}
+.val-banner{background:var(--surf);border:.5px solid rgba(248,189,23,.2);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px;}
+.val-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.val-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--yellow);margin-bottom:4px;}
+.val-body{font-size:11px;color:var(--gray);line-height:1.7;}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.pkg-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px;}
+.pkg{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+.pkg:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.pkg::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .2s;}
+.pkg:hover::before{opacity:1;}
+.pkg.feat{background:linear-gradient(145deg,#0F3070,#162B50);border-color:rgba(9,153,205,.5);box-shadow:0 0 0 1px rgba(9,153,205,.2),0 20px 60px rgba(9,153,205,.12);}
+.pkg.feat::before{opacity:1;background:linear-gradient(90deg,transparent,var(--yellow),transparent);}
+.pkg.ent{background:linear-gradient(145deg,#0F2A20,#0F2040);border-color:rgba(6,214,160,.3);}
+.pkg.ent::before{opacity:1;background:linear-gradient(90deg,transparent,var(--green),transparent);}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:14px;}
+.b-entry{background:rgba(255,255,255,.08);color:var(--gray-l);}
+.b-pop{background:rgba(248,189,23,.15);color:var(--yellow);border:.5px solid rgba(248,189,23,.3);}
+.b-best{background:rgba(6,214,160,.15);color:var(--green);border:.5px solid rgba(6,214,160,.3);}
+.b-prem{background:rgba(255,209,102,.15);color:#FFD166;border:.5px solid rgba(255,209,102,.3);}
+.b-ent{background:rgba(255,107,157,.12);color:var(--pink);border:.5px solid rgba(255,107,157,.3);}
+.b-cyan{background:rgba(9,153,205,.2);color:#7dd3f7;border:.5px solid rgba(9,153,205,.3);}
+.pkg-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:3px;}
+.pkg-plat{font-size:11px;color:var(--gray);margin-bottom:14px;}
+.pkg-price{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:3px;}
+.pkg-price span{font-size:12px;font-weight:400;color:var(--gray);}
+.pkg-contract{font-size:11px;color:var(--gray);margin-bottom:16px;padding-bottom:16px;border-bottom:.5px solid var(--bdr);}
+.pkg-body{flex:1;}
+.pkg-list{list-style:none;}
+.pkg-list li{font-size:11px;color:var(--gray-l);padding:4px 0;border-bottom:.5px solid rgba(255,255,255,.04);display:flex;gap:6px;align-items:flex-start;line-height:1.4;}
+.pkg-list li:last-child{border-bottom:none;}
+.pkg-list li::before{content:"—";color:var(--gray);flex-shrink:0;font-size:10px;margin-top:1px;}
+.pkg-list li.hi{color:var(--white);}.pkg-list li.hi::before{content:"✓";color:var(--cyan);font-weight:700;}
+.pkg-list li.yhi{color:var(--white);}.pkg-list li.yhi::before{content:"✓";color:var(--yellow);font-weight:700;}
+.pkg-note{margin-top:12px;padding:9px 11px;background:rgba(255,255,255,.04);border-radius:8px;font-size:10px;color:var(--gray);line-height:1.5;border-left:2px solid rgba(248,189,23,.4);}
+.pkg-note.warn{border-left-color:rgba(226,75,74,.5);color:#ffb0b0;}
+.pkg-btn-wrap{margin-top:16px;}
+.pkg-btn{display:block;width:100%;text-align:center;padding:10px 0;border-radius:10px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all .18s;border:.5px solid var(--bdr);color:var(--gray);background:rgba(255,255,255,.04);}
+.pkg-btn:hover{border-color:var(--white);color:var(--white);}
+.pkg-btn.btn-cyan{background:var(--cyan);color:#fff;border-color:var(--cyan);}.pkg-btn.btn-cyan:hover{opacity:.88;}
+.pkg-btn.btn-yellow{background:var(--yellow);color:#0B1929;border-color:var(--yellow);}.pkg-btn.btn-yellow:hover{opacity:.88;}
+.acard{background:var(--surf);border:.5px solid var(--bdr);border-radius:14px;padding:16px;transition:border-color .2s;}
+.acard:hover{border-color:rgba(9,153,205,.3);}
+.acard-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:2px;}
+.acard-type{font-size:10px;color:var(--gray);margin-bottom:10px;}
+.addon-sow{font-size:10px;color:var(--gray);line-height:1.6;}
+.addon-no{font-size:9px;color:#E24B4A;margin-top:6px;opacity:.8;line-height:1.6;}
+.bundle-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.bcard{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:24px;}
+.bcard.b-gold{border-color:rgba(248,189,23,.3);}.bcard.b-blue{border-color:rgba(9,153,205,.3);}.bcard.b-green{border-color:rgba(6,214,160,.3);}
+.bcard-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:5px;display:inline-block;margin-bottom:12px;}
+.b-gold .bcard-label{background:rgba(248,189,23,.12);color:var(--yellow);border:.5px solid rgba(248,189,23,.25);}
+.b-blue .bcard-label{background:rgba(9,153,205,.12);color:#7dd3f7;border:.5px solid rgba(9,153,205,.25);}
+.b-green .bcard-label{background:rgba(6,214,160,.12);color:var(--green);border:.5px solid rgba(6,214,160,.25);}
+.bcard h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:7px;}
+.bcard p{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:16px;}
+.bcard-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.bcard-chip{font-size:11px;padding:3px 9px;border-radius:5px;}
+.b-gold .bcard-chip{background:rgba(248,189,23,.08);color:var(--yellow);border:.5px solid rgba(248,189,23,.2);}
+.b-blue .bcard-chip{background:rgba(9,153,205,.08);color:#7dd3f7;border:.5px solid rgba(9,153,205,.2);}
+.b-green .bcard-chip{background:rgba(6,214,160,.08);color:var(--green);border:.5px solid rgba(6,214,160,.2);}
+.bcard-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:.5px solid var(--bdr);}
+.bcard-save-lbl{font-size:11px;color:var(--gray);}
+.bcard-save-amt{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;}
+.b-gold .bcard-save-amt{color:var(--yellow);}.b-blue .bcard-save-amt{color:#7dd3f7;}.b-green .bcard-save-amt{color:var(--green);}
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.note-card{background:var(--surf);border:.5px solid var(--bdr);border-radius:14px;padding:18px;}
+.note-card.warn{border-color:rgba(226,75,74,.3);}
+.note-icon{font-size:18px;margin-bottom:8px;}
+.note-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:5px;}
+.note-card.warn .note-title{color:#ffb0b0;}
+.note-body{font-size:11px;color:var(--gray);line-height:1.6;}
+.cta-box{background:linear-gradient(135deg,#0F2A50 0%,#0B1929 60%,#0A2010 100%);border:1px solid rgba(9,153,205,.2);border-radius:24px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;margin-bottom:64px;}
+.cta-deco1{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(248,189,23,.08),transparent 70%);top:-80px;right:-80px;pointer-events:none;}
+.cta-deco2{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(9,153,205,.1),transparent 70%);bottom:-60px;left:-60px;pointer-events:none;}
+.cta-inner{position:relative;z-index:1;}
+.cta-badge{display:inline-block;background:rgba(37,211,102,.15);border:.5px solid rgba(37,211,102,.3);color:#4eda87;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+.cta-sub{font-size:14px;color:var(--gray);max-width:480px;margin:0 auto 32px;line-height:1.6;}
+.cta-buttons{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+.cta-btn-primary{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;text-decoration:none;padding:16px 32px;border-radius:50px;transition:all .2s;box-shadow:0 8px 32px rgba(37,211,102,.3);}
+.cta-btn-primary:hover{background:#20bf5a;transform:translateY(-2px);}
+.cta-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gray-l);font-size:13px;font-weight:500;text-decoration:none;padding:14px 24px;border-radius:50px;border:.5px solid rgba(255,255,255,.15);transition:all .2s;}
+.cta-btn-secondary:hover{border-color:rgba(255,255,255,.35);color:var(--white);}
+.cta-note{margin-top:16px;font-size:12px;color:var(--gray);}
+footer{text-align:center;padding:40px 0 0;border-top:.5px solid var(--bdr);font-size:12px;color:var(--gray);}
+.footer-brand{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;display:flex;align-items:center;gap:10px;justify-content:center;}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-top:14px;}
+.footer-links a{color:var(--gray);text-decoration:none;font-size:11px;}
+.footer-links a:hover{color:var(--white);}
+@media(max-width:768px){
+  nav{padding:0 16px;}.nav-pill{display:none;}.wrap{padding:0 16px 60px;}
+  .hero{grid-template-columns:1fr;gap:24px;}.hero-stats{flex-direction:row;text-align:left;flex-wrap:wrap;gap:20px;}
+  .pkg-grid,.pkg-grid-4,.bundle-grid,.notes-grid{grid-template-columns:1fr;}
+  .cta-box{padding:32px 20px;}.cta-buttons{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="bg-deco"></div>
+<nav>
+  <a class="nav-logo" href="#">
+    <svg viewBox="260 260 490 420" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f8bd17" d="M509.74,274.01h108.97v309.03h-108.97c-85.28,0-154.51-69.23-154.51-154.51h0c0-85.28,69.23-154.51,154.51-154.51h0Z"/>
+      <path fill="#0999cd" d="M747.75,503.13v.4c0,77.93-63.18,141.11-141.11,141.11h-38.92l-75.03,60.2.76-60.2h-.08v-62.45h125v-219.69c72.44,5.96,129.38,66.64,129.38,140.63h0Z"/>
+      <path fill="#007ec8" d="M618.37,362.5v219.69h-125v-220.17h113.27c3.95,0,7.86.16,11.73.48h0Z"/>
+    </svg>
+    <span class="nav-wordmark">CUSTOMPEDIA</span>
+  </a>
+  <div class="nav-spacer"></div>
+  <span class="nav-pill">Visual Production 2026</span>
+  <a class="nav-cta" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20your%20Visual%20Production%20services.%20Can%20we%20discuss%20further%3F" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat with Us
+  </a>
+</nav>
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-title">Visual<br>Production</div>
+    <div class="hero-sub">From product flatlay to full brand campaigns — every visual asset your brand needs, produced with creative direction and delivered ready to use.</div>
+    <div class="hero-pills">
+      <span class="pill">Creative direction included</span>
+      <span class="pill">In-house photographer</span>
+      <span class="pill">Model roster available</span>
+      <span class="pill">Social-ready output</span>
+      <span class="pill">3-day turnaround</span>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-val">500+</div><div class="stat-lbl">Shoots completed</div></div>
+    <div><div class="stat-val">4.9★</div><div class="stat-lbl">Client satisfaction</div></div>
+    <div><div class="stat-val">5</div><div class="stat-lbl">Production categories</div></div>
+  </div>
+</div>
+
+<!-- 01 FLATLAY -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">01</div><div class="sec-title">Product Photography — Flatlay & Creative Desk</div></div>
+  <div class="val-banner">
+    <div class="val-icon">💡</div>
+    <div>
+      <div class="val-title">Most efficient revenue stream — no studio rental, no model needed</div>
+      <div class="val-body">Shot at Custompedia's in-house studio. Props and backgrounds provided. Output curated per platform (ratio, tone, brand consistency). 3-day turnaround. Ideal as a monthly add-on for SMM clients. Works for cosmetics, F&B, accessories, gadgets, skincare, and e-commerce products.</div>
+    </div>
+  </div>
+  <div class="info-box ib-blue">Shot at Custompedia's studio · Props and backgrounds provided · Ship or deliver your products to us · JPG high-res files via Google Drive in 3 business days · On-location shoots at client premises are not included — additional charges apply.</div>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-entry">Entry</div>
+      <div class="pkg-name">QUICK SHOOT</div>
+      <div class="pkg-plat">5 SKU · Flatlay / White Background</div>
+      <div class="pkg-price">Rp 750,000</div>
+      <div class="pkg-contract">Products shipped to studio · Ready in 3 business days</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>5 product SKUs</li>
+          <li class="hi">3 edited photos per SKU = 15 photos</li>
+          <li>1 concept / background theme</li>
+          <li>Studio props provided by Custompedia</li>
+          <li>Editing + color correction</li>
+          <li>JPG high-res files (e-commerce &amp; social media ready)</li>
+        </ul>
+        <div class="pkg-note">Great for brands just starting out or needing a photo refresh. Cost per photo: Rp 50,000 — editing and creative direction included.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Quick%20Shoot%20package%20(5%20SKU).%20Can%20we%20discuss%20further%3F" target="_blank">Get a Quote</a></div>
+    </div>
+    <div class="pkg">
+      <div class="badge b-entry">Standard</div>
+      <div class="pkg-name">CREATIVE FLATLAY</div>
+      <div class="pkg-plat">10 SKU · Flatlay + Lifestyle Props</div>
+      <div class="pkg-price">Rp 1,500,000</div>
+      <div class="pkg-contract">Products shipped to studio · Ready in 3 business days</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>10 product SKUs</li>
+          <li class="hi">4 edited photos per SKU = 40 photos</li>
+          <li class="hi">2 concept / color theme variations</li>
+          <li>Lifestyle props provided</li>
+          <li>Editing + brand-consistent color grading</li>
+          <li>JPG high-res files + social formats (1:1, 4:5)</li>
+        </ul>
+        <div class="pkg-note">For active brands on marketplaces and social media that need a steady flow of fresh visuals. Cost per photo: Rp 37,500.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Creative%20Flatlay%20package%20(10%20SKU).%20Can%20we%20discuss%3F" target="_blank">Get a Quote</a></div>
+    </div>
+    <div class="pkg feat">
+      <div class="badge b-pop">⭐ Most Popular</div>
+      <div class="pkg-name">BRAND VISUAL</div>
+      <div class="pkg-plat">20 SKU · Multi-Konsep</div>
+      <div class="pkg-price">Rp 2,500,000</div>
+      <div class="pkg-contract">Products shipped to studio · Ready in 3–4 business days</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>20 product SKUs</li>
+          <li class="hi">4 edited photos per SKU = 80 photos</li>
+          <li class="hi">3 concept / theme variations</li>
+          <li class="hi">Brand color tone applied consistently</li>
+          <li>Props premium disediakan</li>
+          <li>Editing + color grading</li>
+          <li class="yhi">Multi-format files (square, portrait, landscape)</li>
+          <li class="yhi">Priority delivery</li>
+        </ul>
+        <div class="pkg-note">Enough output for a full month of product content. Cost per photo: Rp 31,250 — most efficient rate in the range.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Brand%20Visual%20package%20(20%20SKU).%20Can%20we%20discuss%3F" target="_blank">Book This Package</a></div>
+    </div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:14px;margin-bottom:14px;">
+    <div class="pkg" style="border-color:rgba(6,214,160,.3);">
+      <div class="badge b-best">Volume</div>
+      <div class="pkg-name">CATALOG PACK</div>
+      <div class="pkg-plat">40 SKU · Full Catalog</div>
+      <div class="pkg-price">Rp 4,000,000</div>
+      <div class="pkg-contract">Products shipped to studio · Ready in 5 business days</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>40 product SKUs</li>
+          <li class="hi">3 edited photos per SKU = 120 photos</li>
+          <li class="hi">Multiple concepts / backgrounds</li>
+          <li>Props provided</li>
+          <li class="hi">Consistent color grading</li>
+          <li class="yhi">Rp 33,000/photo — lowest cost per photo</li>
+        </ul>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Catalog%20Pack%20(40%20SKU).%20Can%20we%20discuss%3F" target="_blank">Get a Quote</a></div>
+    </div>
+    <div style="display:flex;align-items:center;padding:24px;background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;">
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--yellow);margin-bottom:8px;">💰 Why Custompedia Flatlay beats a regular freelancer</div>
+        <div style="font-size:12px;color:var(--gray);line-height:1.7;">Freelance product photographers in Semarang charge Rp 50,000–150,000/photo with zero creative direction. At Custompedia, you get more than photos — we understand your brand DNA, especially if you're already an SMM client.<br><br><span style="color:var(--gray-l);">Output is curated, briefed, and ready to post — no back-and-forth revisions. No studio rental to arrange, no separate coordination. One vendor, everything covered.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 02 FASHION CATALOGUE -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">02</div><div class="sec-title">Fashion Catalogue — With Model</div></div>
+  <div class="val-banner">
+    <div class="val-icon">👗</div>
+    <div>
+      <div class="val-title">Custompedia models: not just a face — handpicked to fit your brand</div>
+      <div class="val-body">Models are curated from Custompedia's roster to match your brand character — not random freelancers. Coordination, brief, and styling guidance included. No hassle finding models, no no-show risk, no mismatched results. Shot by our in-house photographer, curated by our creative team.</div>
+    </div>
+  </div>
+  <div class="info-box ib-blue">Studio sessions at Custompedia-curated indoor venue · Semi-pro model from Custompedia's roster included · Products shipped or brought to the studio · Turnaround 3–5 business days · Premium/international models: custom quote, confirm at least 7 days ahead · Custompedia is not liable for product damage during shipping.</div>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-entry">Entry</div>
+      <div class="pkg-name">ESSENTIAL</div>
+      <div class="pkg-plat">10 SKU · 1 Model · Indoor Studio</div>
+      <div class="pkg-price">Rp 3,500,000</div>
+      <div class="pkg-contract">1 curated model · 1 look · MUA not included</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>10 fashion / product SKUs</li>
+          <li class="hi">4 edited photos per SKU = 40 photos</li>
+          <li class="hi">1 curated Custompedia model</li>
+          <li>1 look / theme, 1 background</li>
+          <li>Professional indoor studio</li>
+          <li>Editing + color grading</li>
+          <li>JPG high-res multi-format files</li>
+        </ul>
+        <div class="pkg-note warn">MUA not included — client handles model makeup or hires separately (Rp 600K add-on). Upgrade to Professional to include MUA.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Fashion%20Catalogue%20Essential.%20Can%20we%20discuss%3F" target="_blank">Get a Quote</a></div>
+    </div>
+    <div class="pkg feat">
+      <div class="badge b-pop">⭐ Recommended</div>
+      <div class="pkg-name">PROFESSIONAL</div>
+      <div class="pkg-plat">20 SKU · 1 Model · MUA Included</div>
+      <div class="pkg-price">Rp 6,000,000</div>
+      <div class="pkg-contract">1 semi-pro model + MUA included · 2 looks · Indoor studio</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>20 fashion / product SKUs</li>
+          <li class="hi">5 edited photos per SKU = 100 photos</li>
+          <li class="hi">1 curated Custompedia model</li>
+          <li class="hi">MUA (Makeup Artist) included</li>
+          <li>2 looks / outfit changes</li>
+          <li>Professional indoor studio</li>
+          <li>Consistent color grading</li>
+          <li class="yhi">JPG multi-format files (social + e-commerce ready)</li>
+        </ul>
+        <div class="pkg-note">Most popular with local fashion brands needing a full catalog for one collection. No separate MUA coordination needed.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Fashion%20Catalogue%20Professional.%20Can%20we%20discuss%3F" target="_blank">Book This Package</a></div>
+    </div>
+    <div class="pkg ent">
+      <div class="badge b-best">Full Collection</div>
+      <div class="pkg-name">CAMPAIGN</div>
+      <div class="pkg-plat">40 SKU · 1 Model · MUA + Video Bonus</div>
+      <div class="pkg-price">Rp 10,000,000</div>
+      <div class="pkg-contract">1 model + MUA + 1 bonus Reels · 3 looks · Indoor studio</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>40 fashion / product SKUs</li>
+          <li class="hi">5 edited photos per SKU = 200 photos</li>
+          <li class="hi">1 curated Custompedia model</li>
+          <li class="hi">MUA (Makeup Artist) included</li>
+          <li>3 looks / outfit changes</li>
+          <li class="yhi">1 Reels / TikTok video 30 sec BONUS</li>
+          <li>Editing + color grading</li>
+          <li class="yhi">Priority delivery in 4 business days</li>
+        </ul>
+        <div class="pkg-note">For a full season collection — photos and video in one shoot. Most cost-efficient when you need all visual assets at once.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-yellow" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Fashion%20Catalogue%20Campaign.%20Can%20we%20discuss%3F" target="_blank">Let's Discuss</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 LOOKBOOK -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">03</div><div class="sec-title">Lookbook & Fashion Editorial</div></div>
+  <div class="val-banner">
+    <div class="val-icon">📸</div>
+    <div>
+      <div class="val-title">A lookbook isn't product photography — it's the visual story that sells your brand</div>
+      <div class="val-body">Unlike a standard catalog, a lookbook is built for storytelling — every frame communicates brand character, mood, and aspiration. Output works directly as a website hero banner, social campaign, press kit, and Reels. Photos and video are included in one shoot — no separate sessions.</div>
+    </div>
+  </div>
+  <div class="info-box ib-blue">All packages are session-based, not per SKU · Semi-pro model from Custompedia's roster included · MUA included across all tiers · Reels/TikTok video is BUNDLED — no separate add-on · Turnaround 4–5 business days · Outdoor locations within Semarang area only — out-of-city travel charged separately.</div>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-entry">Studio</div>
+      <div class="pkg-name">STUDIO LOOKBOOK</div>
+      <div class="pkg-plat">Half Day · 4–5 jam · Indoor</div>
+      <div class="pkg-price">Rp 6,500,000</div>
+      <div class="pkg-contract">1 model + MUA · 2–3 looks · Indoor studio</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>Half-day session (4–5 hrs)</li>
+          <li class="hi">1 curated Custompedia model</li>
+          <li class="hi">MUA included</li>
+          <li>2–3 looks / outfit changes</li>
+          <li>Professional indoor studio</li>
+          <li class="hi">30 edited photos, ready to use</li>
+          <li class="yhi">2 Reels / TikTok cuts (30 sec) INCLUDED</li>
+          <li>Editorial color grading</li>
+          <li>Multi-format files (1:1, 4:5, 9:16)</li>
+        </ul>
+        <div class="pkg-note">Enough output for 2–3 weeks of social content. Includes 2 Reels videos at no extra cost — that's what sets this apart from a regular photo studio.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Studio%20Lookbook%20package.%20Can%20we%20discuss%3F" target="_blank">Get a Quote</a></div>
+    </div>
+    <div class="pkg feat">
+      <div class="badge b-pop">⭐ Most Popular</div>
+      <div class="pkg-name">OUTDOOR LOOKBOOK</div>
+      <div class="pkg-plat">Half Day · 4–5 jam · Outdoor Curated Location</div>
+      <div class="pkg-price">Rp 8,000,000</div>
+      <div class="pkg-contract">1 model + MUA · 2–3 looks · Outdoor Semarang</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>Half-day session (4–5 hrs)</li>
+          <li class="hi">1 curated Custompedia model</li>
+          <li class="hi">MUA included</li>
+          <li>2–3 looks / outfit changes</li>
+          <li class="hi">Curated outdoor location (Semarang area)</li>
+          <li class="hi">30 edited photos, ready to use</li>
+          <li class="yhi">2 Reels / TikTok cuts (30 sec) INCLUDED</li>
+          <li>Editorial color grading + lifestyle tone</li>
+          <li class="yhi">Lifestyle storytelling — impossible to replicate in-studio</li>
+        </ul>
+        <div class="pkg-note">Location scouted by Custompedia. Locations outside Semarang: travel costs apply. Free reschedule if weather doesn't allow shooting.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Outdoor%20Lookbook%20package.%20Can%20we%20discuss%3F" target="_blank">Book This Package</a></div>
+    </div>
+    <div class="pkg ent">
+      <div class="badge b-prem">Full Campaign</div>
+      <div class="pkg-name">BRAND CAMPAIGN</div>
+      <div class="pkg-plat">Full Day · 7–8 jam · Mix Location</div>
+      <div class="pkg-price">Rp 15,000,000</div>
+      <div class="pkg-contract">2 models + MUA + Stylist · 4–5 looks · Mix indoor &amp; outdoor</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>Full-day session (7–8 hrs)</li>
+          <li class="hi">2 model kuratorial Custompedia</li>
+          <li class="hi">MUA included</li>
+          <li class="hi">Stylist included</li>
+          <li class="hi">4–5 looks / multi-theme</li>
+          <li>Mix of indoor + curated outdoor locations</li>
+          <li class="hi">60 edited photos, ready to use</li>
+          <li class="yhi">5 Reels / TikTok cuts INCLUDED</li>
+          <li class="yhi">1 campaign video 60–90 sec INCLUDED</li>
+          <li>Cinematic color grading</li>
+        </ul>
+        <div class="pkg-note">One shoot day, three months of assets. For brands that want a full visual campaign without managing multiple vendors.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-yellow" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Brand%20Campaign%20Lookbook.%20Can%20we%20discuss%3F" target="_blank">Let's Discuss</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 F&B -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">04</div><div class="sec-title">F&B Photography</div></div>
+  <div class="val-banner">
+    <div class="val-icon">🍽️</div>
+    <div>
+      <div class="val-title">Food that looks delicious sells more — this is strategy, not just aesthetics</div>
+      <div class="val-body">Custompedia's team understands food styling, color temperature, and angles that make F&B products irresistible on screen. Output optimized for social feed, digital menus, ads, and marketplace. Ideal for restaurants, cafes, beverage brands, catering, and FMCG.</div>
+    </div>
+  </div>
+  <div class="info-box ib-gold">Sessions at client's location or Custompedia's studio (by agreement) · Food/ingredients prepared by client, ready to shoot — not by Custompedia · Morning sessions recommended for best results · Food stylist available as an add-on · Out-of-Semarang locations: travel charges apply.</div>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-entry">Basic</div>
+      <div class="pkg-name">MENU ESSENTIALS</div>
+      <div class="pkg-plat">Half Day · 10–15 Menu Item</div>
+      <div class="pkg-price">Rp 2,500,000</div>
+      <div class="pkg-contract">Half-day session · Ingredients from client · Ready in 3 business days</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>10–15 menu items</li>
+          <li class="hi">3 edited photos per item = 30–45 photos</li>
+          <li>1 styling concept</li>
+          <li>Supporting props provided by Custompedia</li>
+          <li>Editing + color correction</li>
+          <li>JPG high-res files, social &amp; digital menu ready</li>
+        </ul>
+        <div class="pkg-note warn">Ingredients must be prepared by the client, ready to shoot. Custompedia handles props and visual setup only — not food preparation.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20F%26B%20Menu%20Essentials.%20Can%20we%20discuss%3F" target="_blank">Get a Quote</a></div>
+    </div>
+    <div class="pkg feat">
+      <div class="badge b-pop">⭐ Recommended</div>
+      <div class="pkg-name">BRAND CAFÉ</div>
+      <div class="pkg-plat">Full Day · 25–35 Item + Video Bonus</div>
+      <div class="pkg-price">Rp 5,000,000</div>
+      <div class="pkg-contract">Full-day session · 2 styling concepts · 1 bonus highlight video</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>25–35 menu items</li>
+          <li class="hi">3 edited photos per item = 75–105 photos</li>
+          <li class="hi">2 styling concept variations</li>
+          <li>Premium props provided</li>
+          <li>Editing + brand-consistent color grading</li>
+          <li class="yhi">1 highlight reel video 30 sec BONUS</li>
+          <li>JPG high-res multi-format files</li>
+        </ul>
+        <div class="pkg-note warn">Ingredients from client. Lifestyle shots with hands or talent in frame can be arranged — additional talent fee may apply.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20F%26B%20Brand%20Cafe%20package.%20Can%20we%20discuss%3F" target="_blank">Book This Package</a></div>
+    </div>
+    <div class="pkg ent">
+      <div class="badge b-best">Premium</div>
+      <div class="pkg-name">F&B CAMPAIGN</div>
+      <div class="pkg-plat">Full Day · Lifestyle + Model + Video</div>
+      <div class="pkg-price">Rp 8,500,000</div>
+      <div class="pkg-contract">Full day · 1 model + MUA included · Multi-format output</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>30 menu items + lifestyle shots</li>
+          <li class="hi">80+ edited photos total</li>
+          <li class="hi">1 model + MUA included</li>
+          <li class="hi">3 styling concepts (product, lifestyle, ambience)</li>
+          <li class="yhi">3 video pieces: 1 Reels + 1 TikTok + 1 brand video 60 sec</li>
+          <li>Cinematic color grading</li>
+          <li class="yhi">Complete asset set for a full month of social campaigns</li>
+        </ul>
+        <div class="pkg-note warn">Ingredients from client. This package delivers a complete asset set — from menu photos to lifestyle videos ready for Meta Ads.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-yellow" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20F%26B%20Campaign%20package.%20Can%20we%20discuss%3F" target="_blank">Let's Discuss</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 EVENT -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">05</div><div class="sec-title">Social Content Coverage — Event</div></div>
+  <div class="val-banner">
+    <div class="val-icon">🎯</div>
+    <div>
+      <div class="val-title">Not just event documentation — content that's ready to post the same day</div>
+      <div class="val-body">Custompedia's photographers and videographers know what to capture for social content that actually performs. Output is curated, edited to your brand tone, and delivered in the right format (9:16, 4:5, 1:1). Not raw files — ready-to-post content. Landscape After Movie also available for YouTube, website, or display screens.</div>
+    </div>
+  </div>
+  <div class="info-box ib-blue">Covers: product launches, grand openings, brand events, corporate gatherings, press conferences · Duration counted from team arrival on-site · Semarang area: no travel surcharge · Outside Semarang: travel costs apply · Photos delivered within 24 hrs, video within 48–72 hrs post-event.</div>
+
+  <div class="sec-sub">Social Content Coverage — Social Media Output (Vertical &amp; Square)</div>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-entry">Mini</div>
+      <div class="pkg-name">CONTENT MOMENT</div>
+      <div class="pkg-plat">3 Hrs · 1 Photographer · Photos + 1 Reels</div>
+      <div class="pkg-price">Rp 2,500,000</div>
+      <div class="pkg-contract">1 photographer · 3 hrs on-location · Delivered in 24 hrs</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>1 professional photographer</li>
+          <li class="hi">30 edited photos, ready to post</li>
+          <li class="hi">Multi-platform formats (1:1, 4:5, 9:16)</li>
+          <li class="yhi">1 Reels / TikTok highlight (30–45 sec)</li>
+          <li>Brand-consistent color grading</li>
+          <li>Delivered via Google Drive within 24 hrs</li>
+        </ul>
+        <div class="pkg-note">For short events: soft openings, small launches, community gatherings. Not suitable for full-day events — consider Content Full.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Content%20Moment%20package.%20Can%20we%20discuss%3F" target="_blank">Get a Quote</a></div>
+    </div>
+    <div class="pkg feat">
+      <div class="badge b-pop">⭐ Most Popular</div>
+      <div class="pkg-name">CONTENT FULL</div>
+      <div class="pkg-plat">Full Day · 1 Photographer + 1 Videographer</div>
+      <div class="pkg-price">Rp 6,000,000</div>
+      <div class="pkg-contract">1 photographer + 1 videographer · Full day · Delivered in 48 hrs</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>1 photographer + 1 videographer</li>
+          <li class="hi">60 edited photos, ready to post</li>
+          <li class="hi">Multi-platform formats (1:1, 4:5, 9:16)</li>
+          <li class="yhi">3 Reels / TikTok cuts (varied duration &amp; angle)</li>
+          <li class="yhi">1 highlight video 2 min landscape 16:9 BONUS</li>
+          <li>Brand-consistent color grading</li>
+          <li>Delivered via Google Drive within 48 hrs</li>
+        </ul>
+        <div class="pkg-note">Most popular for grand openings, product launches, and corporate events. Full output for 1–2 weeks of social content.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Content%20Full%20package.%20Can%20we%20discuss%3F" target="_blank">Book This Package</a></div>
+    </div>
+    <div class="pkg ent">
+      <div class="badge b-prem">Premium</div>
+      <div class="pkg-name">CONTENT PREMIUM</div>
+      <div class="pkg-plat">Full Day Extended · Multi-Crew</div>
+      <div class="pkg-price">Rp 10,000,000</div>
+      <div class="pkg-contract">2 photographers + 1 videographer · Extended full day · Delivered in 72 hrs</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li>2 photographers + 1 videographer</li>
+          <li class="hi">100 edited photos, ready to post</li>
+          <li class="hi">Multi-angle / multi-area event coverage</li>
+          <li class="yhi">5 different Reels / TikTok cuts</li>
+          <li class="yhi">1 full event highlight 3–5 min landscape INCLUDED</li>
+          <li class="yhi">BTS / behind-the-scenes content</li>
+          <li>Cinematic color grading</li>
+          <li>Delivered within 72 hrs</li>
+        </ul>
+        <div class="pkg-note">For large-scale events: conferences, exhibitions, brand launches, multi-stage productions. Every moment captured from every angle.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-yellow" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Content%20Premium%20package.%20Can%20we%20discuss%3F" target="_blank">Let's Discuss</a></div>
+    </div>
+  </div>
+
+  <div class="sec-sub" style="margin-top:32px;">After Movie — Landscape Video (16:9)</div>
+  <div class="info-box ib-gold">Horizontal video format for YouTube, website hero sections, event display screens, media distribution, or stakeholder reports. Available standalone or combined with any Content Coverage package. Existing SMM clients: 15% discount applied automatically.</div>
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-entry">Edit Only</div>
+      <div class="pkg-name">AFTER MOVIE ESSENTIAL</div>
+      <div class="pkg-plat">Editing from client footage · 3–5 min · Landscape</div>
+      <div class="pkg-price">Rp 1,000,000</div>
+      <div class="pkg-contract">Client provides raw footage · Ready in 3 business days</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li class="hi">Editing from client-supplied footage</li>
+          <li>Duration 3–5 min, landscape 16:9</li>
+          <li class="hi">Color grading + color correction</li>
+          <li class="hi">Licensed music (Epidemic Sound / Artlist)</li>
+          <li>Opening title + closing credits + logo</li>
+          <li>MP4 H.264 export, YouTube &amp; screen ready</li>
+        </ul>
+        <div class="pkg-note warn">Footage must be organized by segment/label. Unorganized or below-standard footage may affect the result — discuss before ordering. Raw files are not returned.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20After%20Movie%20Essential%20(edit%20only).%20Can%20we%20discuss%3F" target="_blank">Get a Quote</a></div>
+    </div>
+    <div class="pkg feat">
+      <div class="badge b-pop">⭐ Best Value</div>
+      <div class="pkg-name">AFTER MOVIE + SHOOT</div>
+      <div class="pkg-plat">Half-Day Shoot + Editing · 3–5 min · Landscape</div>
+      <div class="pkg-price">Rp 2,500,000</div>
+      <div class="pkg-contract">1 videographer half day (4 hrs) + full editing · Ready in 4 business days</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li class="hi">1 Custompedia videographer (half day, 4 hrs)</li>
+          <li class="hi">On-location shooting at client's chosen venue</li>
+          <li>After movie 3–5 min, landscape 16:9</li>
+          <li class="hi">Cinematic color grading</li>
+          <li class="hi">Licensed music</li>
+          <li>Opening title + closing + brand logo</li>
+          <li class="yhi">Multi-format export: YouTube + IGTV</li>
+        </ul>
+        <div class="pkg-note">No need to find a separate videographer or edit footage yourself. One package, one ready-to-publish after movie. Most cost-efficient for half-day events.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20After%20Movie%20%2B%20Shoot.%20Can%20we%20discuss%3F" target="_blank">Book This Package</a></div>
+    </div>
+    <div class="pkg ent">
+      <div class="badge b-prem">Sinematik</div>
+      <div class="pkg-name">CINEMATIC EVENT FILM</div>
+      <div class="pkg-plat">Full-Day Shoot + Full Production · 5–8 min</div>
+      <div class="pkg-price">Rp 5,000,000</div>
+      <div class="pkg-contract">1 videographer full day (7–8 hrs) + full production</div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li class="hi">1 Custompedia videographer (full day)</li>
+          <li class="hi">Multi-angle coverage: wide, medium, close-up</li>
+          <li>Event film 5–8 min, landscape 16:9</li>
+          <li class="hi">Cinematic color grading profesional</li>
+          <li class="hi">Premium licensed music</li>
+          <li class="yhi">Opening sequence + talking head / interview (optional)</li>
+          <li class="yhi">4K export available + YouTube version + LCD screen version</li>
+        </ul>
+        <div class="pkg-note">For major corporate events, product launches, or moments you want as flagship brand content. Production house quality, agency pricing.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-yellow" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20the%20Cinematic%20Event%20Film%20package.%20Can%20we%20discuss%3F" target="_blank">Let's Discuss</a></div>
+    </div>
+  </div>
+  <div class="info-box ib-green" style="margin-top:16px;">💚 <strong>For existing Custompedia SMM clients:</strong> 15% discount applied automatically to all Content Coverage and After Movie packages. Event output integrates directly into your monthly content strategy — no rebriefing, no extra coordination.</div>
+</div>
+
+<!-- 06 ADD-ONS -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">06</div><div class="sec-title">Add-On Services</div></div>
+  <div class="info-box ib-gold">All add-ons can be combined with any package. Confirm add-ons at the time of booking — some require additional lead time.</div>
+  <div class="pkg-grid-4">
+    <div class="acard">
+      <div class="acard-name">Upgrade Model</div>
+      <div class="acard-type">Model profesional / jam terbang tinggi</div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;">Custom</div>
+      <div class="addon-sow">Rate set after profile consultation and brand needs assessment. Starting from Rp 2,000,000/session — may be higher depending on experience and demand.</div>
+      <div class="addon-no">✗ Confirm at least 7 days in advance · ✗ Cannot be guaranteed without early booking</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Tambah Model</div>
+      <div class="acard-type">Second model from Custompedia's roster</div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;">Rp 1,500,000</div>
+      <div class="addon-sow">Add a second semi-pro model from Custompedia's roster to the same session. Great for couple lookbooks, duo outfits, or brands needing diverse representation.</div>
+      <div class="addon-no">✗ Same session only · ✗ Confirm at least 5 days in advance</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">MUA Standalone</div>
+      <div class="acard-type">Makeup Artist profesional</div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;">Rp 600,000</div>
+      <div class="addon-sow">MUA from Custompedia's network, experienced in commercial photo shoots. For packages that don't include MUA (e.g. Fashion Catalogue Essential).</div>
+      <div class="addon-no">✗ Makeup products not included · ✗ Makeup requirements discussed at briefing</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Stylist</div>
+      <div class="acard-type">Fashion / wardrobe coordination</div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;">Rp 600,000</div>
+      <div class="addon-sow">Fashion stylist for wardrobe coordination, accessories, and overall look. Highly recommended for Lookbook and Campaign packages.</div>
+      <div class="addon-no">✗ Wardrobe/clothing from client · ✗ Confirm at least 5 days in advance</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Outdoor Location Fee</div>
+      <div class="acard-type">Paid outdoor location access fee</div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;">Rp 400,000</div>
+      <div class="addon-sow">For locations requiring an entry fee or access charge: paid parks, rooftops, or private venues. Out-of-city travel costs calculated separately.</div>
+      <div class="addon-no">✗ Outside Semarang: travel costs apply · ✗ Confirm location before booking</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Extra Video Reels</div>
+      <div class="acard-type">Add 1 video (30 sec) from existing session footage</div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;">Rp 750,000</div>
+      <div class="addon-sow">Add one 30-sec Reels/TikTok cut from existing session footage. Editing and licensed music included. No reshooting.</div>
+      <div class="addon-no">✗ From same-session footage only — no reshooting · ✗ Must be requested before editing begins</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Rush Delivery</div>
+      <div class="acard-type">Rush output delivery</div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;">+25%</div>
+      <div class="addon-sow">Accelerated delivery: photos in 24 hrs, video in 48 hrs. Subject to editing team availability. Confirm at booking — not always guaranteed.</div>
+      <div class="addon-no">✗ Not always available — confirm first · ✗ Do not assume without written confirmation</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Drone Shot</div>
+      <div class="acard-type">Aerial footage / outdoor drone shot</div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;">Rp 1,500,000</div>
+      <div class="addon-sow">Aerial footage or photos for outdoor events, lifestyle locations, or campaigns needing an aerial perspective. Drone footage included in the edited final output.</div>
+      <div class="addon-no">✗ Outdoor only · ✗ Subject to local drone flight regulations · ✗ Confirm at least 7 days in advance</div>
+    </div>
+  </div>
+</div>
+
+<!-- 07 BUNDLE -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">07</div><div class="sec-title">Bundle Deals</div></div>
+  <div class="info-box ib-green">Combine Visual Production with other Custompedia services for maximum value. Bundle pricing applies automatically when two qualifying services are taken together.</div>
+  <div class="bundle-grid">
+    <div class="bcard b-gold">
+      <div class="bcard-label">Monthly Bundle</div>
+      <h4>SMM + Monthly Product Shoot</h4>
+      <p>SMM clients on Growth Starter and above get 1 Creative Flatlay session (10 SKU) free per month. Your social content stays fresh — no separate order needed each month.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip">SMM Growth Starter or above</span>
+        <span class="bcard-chip">1x Creative Flatlay/month</span>
+        <span class="bcard-chip">Auto-integrated into content plan</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Monthly benefit value</span><span class="bcard-save-amt">Rp 1,500,000</span></div>
+    </div>
+    <div class="bcard b-blue">
+      <div class="bcard-label">New Brand Bundle</div>
+      <h4>Branding + Visual Production + SMM</h4>
+      <p>New brands that need everything: visual identity, product photos, and social media management — in one ecosystem. Brief once, execute everything. No multi-vendor coordination.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip">Branding Package</span>
+        <span class="bcard-chip">Fashion / Product Shoot</span>
+        <span class="bcard-chip">SMM min. 3 months</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Bundle discount</span><span class="bcard-save-amt">15%</span></div>
+    </div>
+    <div class="bcard b-green">
+      <div class="bcard-label">Event Bundle</div>
+      <h4>Content Coverage + After Movie + Post-Event Content</h4>
+      <p>Event wrapped, content goes live immediately. Clients without an SMM plan get a 2-week post-event content management trial (curation + captions + posting) at a flat rate.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip">Content Coverage (any tier)</span>
+        <span class="bcard-chip">After Movie (any tier)</span>
+        <span class="bcard-chip">2-week post-event content</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Post-event content value</span><span class="bcard-save-amt">Rp 1,500,000</span></div>
+    </div>
+    <div class="bcard" style="border-color:rgba(255,107,157,.3);">
+      <div class="bcard-label" style="background:rgba(255,107,157,.12);color:var(--pink);border:.5px solid rgba(255,107,157,.25);">Loyalty</div>
+      <h4>Repeat Order Discount</h4>
+      <p>3 Visual Production orders within 3 consecutive months — earn a permanent 10% discount on all future Visual Production orders. Valid as long as you remain an active client.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip" style="background:rgba(255,107,157,.08);color:var(--pink);border:.5px solid rgba(255,107,157,.2);">3 orders in 3 months</span>
+        <span class="bcard-chip" style="background:rgba(255,107,157,.08);color:var(--pink);border:.5px solid rgba(255,107,157,.2);">Permanent 10% discount</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Discount on future orders</span><span class="bcard-save-amt" style="color:var(--pink);">10%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 08 GOOD TO KNOW -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">08</div><div class="sec-title">Good to Know</div></div>
+  <div class="notes-grid">
+    <div class="note-card">
+      <div class="note-icon">📦</div>
+      <div class="note-title">Shipping Products to Studio</div>
+      <div class="note-body">Ship products via courier to Custompedia's office or drop them off directly. Products are returned after the session. Custompedia is not liable for damage during shipping to/from the client.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">🗓️</div>
+      <div class="note-title">Booking &amp; Session Scheduling</div>
+      <div class="note-body">Book at least 5 business days before your session (7 days for packages with models). Schedule is tentative — final confirmation 2 days prior. Cancellations within 48 hrs are charged 30% of the package total.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">🔁</div>
+      <div class="note-title">Output Revisions</div>
+      <div class="note-body">Minor revisions (brightness, contrast, crop) FREE 1x per order. Concept or theme changes after the session is completed incur additional charges. Revision requests must be submitted within 3 days of file delivery.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">©️</div>
+      <div class="note-title">Copyright &amp; Usage Rights</div>
+      <div class="note-body">All photos and videos become the client's property upon full payment. Custompedia may use the output as portfolio material unless an NDA is signed before the session.</div>
+    </div>
+    <div class="note-card warn">
+      <div class="note-icon">📍</div>
+      <div class="note-title">Service Area &amp; Travel Costs</div>
+      <div class="note-body">On-location within Semarang city: NO additional travel charges. Outside Semarang (Demak, Kendal, Ungaran, Salatiga): travel costs apply based on distance. Other cities (Yogyakarta, Solo, Surabaya, Jakarta): contact us for a travel quote.</div>
+    </div>
+    <div class="note-card warn">
+      <div class="note-icon">⚠️</div>
+      <div class="note-title">Not Included — Important</div>
+      <div class="note-body">Premium models outside standard roster · Wardrobe/clothing (client's responsibility) · F&B ingredients (client's responsibility) · Paid venue/location access fees · Travel costs outside Semarang · Special props beyond studio inventory · Heavy retouching beyond standard editing · Raw/unedited files.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">💳</div>
+      <div class="note-title">Payment Terms</div>
+      <div class="note-body">50% deposit required upon booking confirmation. Remaining 50% due the day before the session. Packages under Rp 2,000,000: full payment upfront. No session starts until payment is confirmed.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">🌦️</div>
+      <div class="note-title">Weather &amp; Field Conditions</div>
+      <div class="note-body">For outdoor sessions, Custompedia reserves the right to reschedule if weather is unsuitable (heavy rain, strong winds). No rescheduling fee. The call to reschedule is Custompedia's — made in the interest of output quality.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">📁</div>
+      <div class="note-title">File Format &amp; Delivery</div>
+      <div class="note-body">Photos: JPG high-resolution. Video: MP4 H.264. Delivered via Google Drive link. Raw files not included unless separately agreed. Files stored on Custompedia's server for 30 days after delivery.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-box">
+  <div class="cta-deco1"></div><div class="cta-deco2"></div>
+  <div class="cta-inner">
+    <div class="cta-badge">Ready to shoot?</div>
+    <div class="cta-title">Your brand's visuals are<br>the first thing you sell.</div>
+    <div class="cta-sub">Tell us what your brand needs and we'll find the right package. Free consultation, no commitment.</div>
+    <div class="cta-buttons">
+      <a class="cta-btn-primary" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I%27m%20interested%20in%20your%20Visual%20Production%20services.%20Can%20we%20discuss%20further%3F%20Bisa%20konsultasi%20gratis%3F" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat with Us on WhatsApp
+      </a>
+      <a class="cta-btn-secondary" href="mailto:hello@custompedia.agency?subject=Inquiry%20—%20Visual%20Production&body=Hi%20Custompedia%2C%0A%0AI%27m%20interested%20in%20your%20Visual%20Production%20services.%20Can%20we%20discuss%20further%3F%0A%0AThank%20you." target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        hello@custompedia.agency
+      </a>
+    </div>
+    <div class="cta-note">+62 822-2617-1071 · Typically replies within 1 hour</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <svg width="28" height="28" viewBox="260 260 490 420" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f8bd17" d="M509.74,274.01h108.97v309.03h-108.97c-85.28,0-154.51-69.23-154.51-154.51h0c0-85.28,69.23-154.51,154.51-154.51h0Z"/>
+      <path fill="#0999cd" d="M747.75,503.13v.4c0,77.93-63.18,141.11-141.11,141.11h-38.92l-75.03,60.2.76-60.2h-.08v-62.45h125v-219.69c72.44,5.96,129.38,66.64,129.38,140.63h0Z"/>
+      <path fill="#007ec8" d="M618.37,362.5v219.69h-125v-220.17h113.27c3.95,0,7.86.16,11.73.48h0Z"/>
+    </svg>
+    CUSTOMPEDIA Creative Group
+  </div>
+  <div>Creative Marketing Agency · Semarang, Indonesia</div>
+  <div class="footer-links">
+    <a href="https://wa.me/6282226171071" target="_blank">+62 822-2617-1071</a>
+    <a href="mailto:hello@custompedia.agency" target="_blank">hello@custompedia.agency</a>
+    <a href="https://instagram.com/custompedia" target="_blank">@custompedia</a>
+  </div>
+  <div style="margin-top:20px;font-size:10px;opacity:.4;">© 2026 Custompedia Creative Group · This document is confidential</div>
+</footer>
+
+</div>
+</body>
+</html>
