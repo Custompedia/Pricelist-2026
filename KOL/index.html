@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custompedia — KOL Management 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1929;--cyan:#0999cd;--yellow:#f8bd17;--white:#FFFFFF;--off:#F0F4FF;--gray:#8A9BC0;--gray-l:#C8D4F0;--surf:#0F2040;--surf2:#162B50;--bdr:rgba(255,255,255,.08);--green:#06D6A0;--pink:#FF6B9D;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden;font-size:14px;}
+.bg-deco{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 60% 50% at 80% 10%,rgba(9,153,205,.15) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(248,189,23,.08) 0%,transparent 60%);}
+nav{position:sticky;top:0;z-index:200;background:rgba(11,25,41,.92);backdrop-filter:blur(16px);border-bottom:.5px solid var(--bdr);padding:0 40px;height:60px;display:flex;align-items:center;gap:14px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo svg{width:32px;height:27px;flex-shrink:0;}
+.nav-wordmark{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;letter-spacing:-.2px;color:var(--white);}
+.nav-spacer{flex:1;}
+.nav-pill{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--gray);border:.5px solid var(--bdr);padding:5px 14px;border-radius:20px;white-space:nowrap;}
+.nav-cta{display:flex;align-items:center;gap:7px;background:var(--yellow);color:#0B1929;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;padding:8px 18px;border-radius:8px;text-decoration:none;transition:opacity .18s;white-space:nowrap;}
+.nav-cta:hover{opacity:.88;}.nav-cta svg{width:14px;height:14px;flex-shrink:0;}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 32px 80px;}
+
+/* HERO */
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;border-bottom:.5px solid var(--bdr);margin-bottom:60px;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;background:linear-gradient(135deg,#fff 40%,#0999cd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px;}
+.hero-sub{font-size:15px;color:var(--gray);line-height:1.6;max-width:520px;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.pill{padding:5px 12px;border-radius:20px;font-size:12px;border:.5px solid var(--bdr);color:var(--gray-l);background:rgba(255,255,255,.04);}
+.hero-stats{display:flex;flex-direction:column;gap:16px;text-align:right;}
+.stat-val{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--yellow);}
+.stat-lbl{font-size:11px;color:var(--gray);margin-top:2px;}
+
+/* SECTION */
+.sec{margin-bottom:72px;}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.sec-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase;background:rgba(9,153,205,.15);padding:4px 10px;border-radius:6px;border:.5px solid rgba(9,153,205,.3);}
+.sec-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.3px;}
+.sec-sub{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--gray-l);margin-bottom:12px;text-transform:uppercase;letter-spacing:.06em;}
+.info-box{padding:14px 18px;border-radius:12px;font-size:12px;line-height:1.6;margin-bottom:20px;}
+.ib-blue{background:rgba(9,153,205,.12);border:.5px solid rgba(9,153,205,.25);color:#B0DEFF;}
+.ib-gold{background:rgba(248,189,23,.1);border:.5px solid rgba(248,189,23,.25);color:#FFE8A0;}
+.ib-green{background:rgba(6,214,160,.1);border:.5px solid rgba(6,214,160,.25);color:#a0ffdc;}
+.val-banner{background:var(--surf);border:.5px solid rgba(248,189,23,.2);border-radius:14px;padding:16px 20px;margin-bottom:20px;display:flex;align-items:flex-start;gap:14px;}
+.val-icon{font-size:22px;flex-shrink:0;margin-top:2px;}
+.val-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--yellow);margin-bottom:4px;}
+.val-body{font-size:11px;color:var(--gray);line-height:1.7;}
+
+/* PACKAGE CARDS */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.pkg-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:14px;}
+.pkg-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px;}
+.pkg{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+.pkg:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.pkg::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .2s;}
+.pkg:hover::before{opacity:1;}
+.pkg.feat{background:linear-gradient(145deg,#0F3070,#162B50);border-color:rgba(9,153,205,.5);box-shadow:0 0 0 1px rgba(9,153,205,.2),0 20px 60px rgba(9,153,205,.12);}
+.pkg.feat::before{opacity:1;background:linear-gradient(90deg,transparent,var(--yellow),transparent);}
+.pkg.ent{background:linear-gradient(145deg,#0F2A20,#0F2040);border-color:rgba(6,214,160,.3);}
+.pkg.ent::before{opacity:1;background:linear-gradient(90deg,transparent,var(--green),transparent);}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:14px;}
+.b-entry{background:rgba(255,255,255,.08);color:var(--gray-l);}
+.b-pop{background:rgba(248,189,23,.15);color:var(--yellow);border:.5px solid rgba(248,189,23,.3);}
+.b-best{background:rgba(6,214,160,.15);color:var(--green);border:.5px solid rgba(6,214,160,.3);}
+.b-prem{background:rgba(255,209,102,.15);color:#FFD166;border:.5px solid rgba(255,209,102,.3);}
+.b-ent{background:rgba(255,107,157,.12);color:var(--pink);border:.5px solid rgba(255,107,157,.3);}
+.b-cyan{background:rgba(9,153,205,.2);color:#7dd3f7;border:.5px solid rgba(9,153,205,.3);}
+.b-perf{background:rgba(255,107,157,.12);color:var(--pink);border:.5px solid rgba(255,107,157,.3);}
+.pkg-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:3px;}
+.pkg-plat{font-size:11px;color:var(--gray);margin-bottom:14px;}
+.pkg-price{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:3px;}
+.pkg-price span{font-size:12px;font-weight:400;color:var(--gray);}
+.pkg-contract{font-size:11px;color:var(--gray);margin-bottom:16px;padding-bottom:16px;border-bottom:.5px solid var(--bdr);}
+.pkg-body{flex:1;}
+.pkg-list{list-style:none;}
+.pkg-list li{font-size:11px;color:var(--gray-l);padding:4px 0;border-bottom:.5px solid rgba(255,255,255,.04);display:flex;gap:6px;align-items:flex-start;line-height:1.4;}
+.pkg-list li:last-child{border-bottom:none;}
+.pkg-list li::before{content:"—";color:var(--gray);flex-shrink:0;font-size:10px;margin-top:1px;}
+.pkg-list li.hi{color:var(--white);}.pkg-list li.hi::before{content:"✓";color:var(--cyan);font-weight:700;}
+.pkg-list li.yhi{color:var(--white);}.pkg-list li.yhi::before{content:"✓";color:var(--yellow);font-weight:700;}
+.pkg-list li.no{color:rgba(255,255,255,.25);}.pkg-list li.no::before{content:"✗";color:rgba(255,255,255,.2);}
+.pkg-note{margin-top:12px;padding:9px 11px;background:rgba(255,255,255,.04);border-radius:8px;font-size:10px;color:var(--gray);line-height:1.5;border-left:2px solid rgba(248,189,23,.4);}
+.pkg-note.warn{border-left-color:rgba(226,75,74,.5);color:#ffb0b0;}
+.pkg-btn-wrap{margin-top:16px;}
+.pkg-btn{display:block;width:100%;text-align:center;padding:10px 0;border-radius:10px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all .18s;border:.5px solid var(--bdr);color:var(--gray);background:rgba(255,255,255,.04);}
+.pkg-btn:hover{border-color:var(--white);color:var(--white);}
+.pkg-btn.btn-cyan{background:var(--cyan);color:#fff;border-color:var(--cyan);}.pkg-btn.btn-cyan:hover{opacity:.88;}
+.pkg-btn.btn-yellow{background:var(--yellow);color:#0B1929;border-color:var(--yellow);}.pkg-btn.btn-yellow:hover{opacity:.88;}
+
+/* VETTING STEPS GRID */
+.vetting-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px;}
+.vstep{background:var(--surf);border:.5px solid var(--bdr);border-radius:14px;padding:18px 16px;position:relative;overflow:hidden;transition:border-color .2s;}
+.vstep:hover{border-color:rgba(9,153,205,.3);}
+.vstep-num{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:rgba(248,189,23,.12);line-height:1;margin-bottom:10px;}
+.vstep-icon{font-size:18px;margin-bottom:8px;}
+.vstep-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--white);margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em;}
+.vstep-desc{font-size:10px;color:var(--gray);line-height:1.6;}
+.vstep-metric{display:inline-block;background:rgba(248,189,23,.1);border:.5px solid rgba(248,189,23,.25);color:var(--yellow);font-size:9px;padding:2px 7px;border-radius:3px;margin-top:8px;font-weight:600;}
+
+/* BRIEF CARDS */
+.brief-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.bcard-brief{background:var(--surf);border:.5px solid var(--bdr);border-radius:16px;padding:22px;transition:border-color .2s;}
+.bcard-brief:hover{border-color:rgba(248,189,23,.25);}
+.bcard-brief-icon{font-size:22px;margin-bottom:12px;}
+.bcard-brief-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:8px;}
+.bcard-brief-list{list-style:none;}
+.bcard-brief-list li{font-size:11px;color:var(--gray-l);padding:4px 0;border-bottom:.5px solid rgba(255,255,255,.04);display:flex;gap:6px;align-items:flex-start;line-height:1.4;}
+.bcard-brief-list li:last-child{border-bottom:none;}
+.bcard-brief-list li::before{content:"→";color:var(--yellow);flex-shrink:0;font-size:10px;margin-top:1px;}
+
+/* REPORT PREVIEW */
+.report-box{background:var(--surf);border:.5px solid rgba(9,153,205,.2);border-radius:20px;overflow:hidden;max-width:820px;margin:0 auto;}
+.report-header{background:#0a1520;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:.5px solid rgba(9,153,205,.15);}
+.report-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow);flex-shrink:0;}
+.report-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--yellow);letter-spacing:.06em;}
+.report-badge{background:rgba(6,214,160,.12);border:.5px solid rgba(6,214,160,.25);color:var(--green);font-size:10px;padding:3px 10px;border-radius:5px;font-weight:600;}
+.report-body{padding:24px;}
+.report-sec-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);margin-bottom:12px;padding-bottom:6px;border-bottom:.5px solid rgba(9,153,205,.15);}
+.report-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+.rmetric{background:rgba(255,255,255,.03);border:.5px solid rgba(255,255,255,.06);border-radius:10px;padding:12px;text-align:center;}
+.rmetric-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;}
+.rmetric-val.g{color:var(--green);}.rmetric-val.y{color:var(--yellow);}
+.rmetric-lbl{font-size:10px;color:var(--gray);margin-top:2px;}
+.kol-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:.5px solid rgba(255,255,255,.04);font-size:11px;}
+.kol-row:last-child{border-bottom:none;}
+.kol-name{color:var(--white);font-weight:600;min-width:130px;}
+.kol-er{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;}
+.kol-er.g{color:var(--green);}.kol-er.y{color:var(--yellow);}.kol-er.r{color:#E24B4A;}
+.kol-rec{font-size:9px;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:.04em;}
+.rec-retain{background:rgba(6,214,160,.12);color:var(--green);border:.5px solid rgba(6,214,160,.25);}
+.rec-review{background:rgba(248,189,23,.1);color:var(--yellow);border:.5px solid rgba(248,189,23,.2);}
+.rec-replace{background:rgba(226,75,74,.1);color:#ff8080;border:.5px solid rgba(226,75,74,.25);}
+.insight-block{background:rgba(248,189,23,.05);border:.5px solid rgba(248,189,23,.15);border-radius:10px;padding:14px 18px;margin-top:14px;}
+.insight-title{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:var(--yellow);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;}
+.insight-item{font-size:11px;color:var(--gray-l);padding:4px 0 4px 14px;position:relative;line-height:1.5;}
+.insight-item::before{content:"✦";position:absolute;left:0;color:var(--yellow);font-size:8px;top:6px;}
+
+/* TABS */
+.tab-wrap{display:flex;gap:4px;background:rgba(255,255,255,.04);border:.5px solid var(--bdr);border-radius:10px;padding:4px;width:fit-content;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{padding:8px 20px;border-radius:7px;border:none;background:transparent;color:var(--gray);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .18s;white-space:nowrap;}
+.tab-btn.active{background:var(--surf2);color:var(--white);border:.5px solid rgba(9,153,205,.2);}
+.tab-btn:hover:not(.active){color:var(--white);}
+.tab-panel{display:none;}.tab-panel.active{display:block;}
+
+/* RETAINER CARDS */
+.retainer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+
+/* PERFORMANCE */
+.perf-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;}
+.perf-explain{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:24px;}
+.perf-formula{background:#0a1520;border:.5px solid rgba(9,153,205,.2);border-radius:10px;padding:16px;margin:16px 0;}
+.perf-formula-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);margin-bottom:10px;}
+.perf-formula-eq{font-family:'Syne',sans-serif;font-size:13px;color:var(--white);line-height:2;}
+.perf-formula-eq .hl{color:var(--yellow);}
+.perf-example{background:var(--surf);border:.5px solid rgba(248,189,23,.2);border-radius:20px;padding:24px;}
+.perf-example h4{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--yellow);text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px;}
+.calc-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:.5px solid rgba(255,255,255,.05);font-size:12px;}
+.calc-row:last-child{border-bottom:none;}
+.calc-label{color:var(--gray);}
+.calc-val{font-family:'Syne',sans-serif;font-weight:700;color:var(--white);}
+.calc-val.total{color:var(--yellow);font-size:18px;}
+.calc-total-row{margin-top:10px;padding-top:10px;border-top:.5px solid rgba(248,189,23,.2);}
+
+/* BUDGET TABLE */
+.budget-table{width:100%;border-collapse:collapse;border:.5px solid var(--bdr);border-radius:14px;overflow:hidden;}
+.budget-table thead{background:rgba(9,153,205,.08);border-bottom:.5px solid rgba(9,153,205,.2);}
+.budget-table th{padding:13px 18px;font-family:'Syne',sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--cyan);text-align:left;font-weight:700;}
+.budget-table td{padding:12px 18px;font-size:12px;color:var(--gray-l);border-bottom:.5px solid rgba(255,255,255,.04);}
+.budget-table tr:last-child td{border-bottom:none;}
+.budget-table tr:hover td{background:rgba(255,255,255,.02);}
+.tier-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+.dot-nano{background:var(--gray);}.dot-micro{background:var(--cyan);}.dot-mid{background:var(--yellow);}.dot-macro{background:#e87040;}.dot-mega{background:#E24B4A;}
+.est-range{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--white);}
+
+/* ADDON CARDS */
+.acard{background:var(--surf);border:.5px solid var(--bdr);border-radius:14px;padding:16px;transition:border-color .2s;}
+.acard:hover{border-color:rgba(9,153,205,.3);}
+.acard-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:2px;}
+.acard-type{font-size:10px;color:var(--gray);margin-bottom:10px;}
+.addon-price{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--yellow);margin:10px 0 6px;}
+.addon-sow{font-size:10px;color:var(--gray);line-height:1.6;}
+.addon-no{font-size:9px;color:#E24B4A;margin-top:6px;opacity:.8;line-height:1.6;}
+
+/* BUNDLE */
+.bundle-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.bcard{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:24px;}
+.bcard.b-gold{border-color:rgba(248,189,23,.3);}.bcard.b-blue{border-color:rgba(9,153,205,.3);}.bcard.b-green{border-color:rgba(6,214,160,.3);}
+.bcard-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:5px;display:inline-block;margin-bottom:12px;}
+.b-gold .bcard-label{background:rgba(248,189,23,.12);color:var(--yellow);border:.5px solid rgba(248,189,23,.25);}
+.b-blue .bcard-label{background:rgba(9,153,205,.12);color:#7dd3f7;border:.5px solid rgba(9,153,205,.25);}
+.b-green .bcard-label{background:rgba(6,214,160,.12);color:var(--green);border:.5px solid rgba(6,214,160,.25);}
+.bcard h4{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:7px;}
+.bcard p{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:16px;}
+.bcard-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.bcard-chip{font-size:11px;padding:3px 9px;border-radius:5px;}
+.b-gold .bcard-chip{background:rgba(248,189,23,.08);color:var(--yellow);border:.5px solid rgba(248,189,23,.2);}
+.b-blue .bcard-chip{background:rgba(9,153,205,.08);color:#7dd3f7;border:.5px solid rgba(9,153,205,.2);}
+.b-green .bcard-chip{background:rgba(6,214,160,.08);color:var(--green);border:.5px solid rgba(6,214,160,.2);}
+.bcard-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:.5px solid var(--bdr);}
+.bcard-save-lbl{font-size:11px;color:var(--gray);}
+.bcard-save-amt{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;}
+.b-gold .bcard-save-amt{color:var(--yellow);}.b-blue .bcard-save-amt{color:#7dd3f7;}.b-green .bcard-save-amt{color:var(--green);}
+
+/* COMPARE */
+.compare-table{width:100%;border-collapse:collapse;}
+.compare-table th{padding:14px 16px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;border-bottom:.5px solid var(--bdr);text-align:center;}
+.compare-table th:first-child{text-align:left;}
+.compare-table .col-us{background:rgba(248,189,23,.04);border-left:.5px solid rgba(248,189,23,.15);border-right:.5px solid rgba(248,189,23,.15);color:var(--yellow);}
+.compare-table td{padding:11px 16px;font-size:11px;color:var(--gray-l);border-bottom:.5px solid rgba(255,255,255,.04);}
+.compare-table td:first-child{color:var(--white);font-weight:500;}
+.compare-table td.col-us{background:rgba(248,189,23,.02);}
+.compare-table tr:last-child td{border-bottom:none;}
+.cy{color:var(--green);font-size:13px;font-weight:700;}.cn{color:rgba(255,255,255,.2);font-size:13px;}.cp{color:var(--yellow);font-size:11px;}
+
+/* NOTES */
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.note-card{background:var(--surf);border:.5px solid var(--bdr);border-radius:14px;padding:18px;}
+.note-card.warn{border-color:rgba(226,75,74,.3);}
+.note-icon{font-size:18px;margin-bottom:8px;}
+.note-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:5px;}
+.note-card.warn .note-title{color:#ffb0b0;}
+.note-body{font-size:11px;color:var(--gray);line-height:1.6;}
+
+/* CTA */
+.cta-box{background:linear-gradient(135deg,#0F2A50 0%,#0B1929 60%,#0A2010 100%);border:1px solid rgba(9,153,205,.2);border-radius:24px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;margin-bottom:64px;}
+.cta-deco1{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(248,189,23,.08),transparent 70%);top:-80px;right:-80px;pointer-events:none;}
+.cta-deco2{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(9,153,205,.1),transparent 70%);bottom:-60px;left:-60px;pointer-events:none;}
+.cta-inner{position:relative;z-index:1;}
+.cta-badge{display:inline-block;background:rgba(37,211,102,.15);border:.5px solid rgba(37,211,102,.3);color:#4eda87;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+.cta-sub{font-size:14px;color:var(--gray);max-width:480px;margin:0 auto 32px;line-height:1.6;}
+.cta-buttons{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+.cta-btn-primary{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;text-decoration:none;padding:16px 32px;border-radius:50px;transition:all .2s;box-shadow:0 8px 32px rgba(37,211,102,.3);}
+.cta-btn-primary:hover{background:#20bf5a;transform:translateY(-2px);}
+.cta-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gray-l);font-size:13px;font-weight:500;text-decoration:none;padding:14px 24px;border-radius:50px;border:.5px solid rgba(255,255,255,.15);transition:all .2s;}
+.cta-btn-secondary:hover{border-color:rgba(255,255,255,.35);color:var(--white);}
+.cta-note{margin-top:16px;font-size:12px;color:var(--gray);}
+footer{text-align:center;padding:40px 0 0;border-top:.5px solid var(--bdr);font-size:12px;color:var(--gray);}
+.footer-brand{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;display:flex;align-items:center;gap:10px;justify-content:center;}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-top:14px;}
+.footer-links a{color:var(--gray);text-decoration:none;font-size:11px;}
+.footer-links a:hover{color:var(--white);}
+@media(max-width:768px){
+  nav{padding:0 16px;}.nav-pill{display:none;}.wrap{padding:0 16px 60px;}
+  .hero{grid-template-columns:1fr;gap:24px;}.hero-stats{flex-direction:row;text-align:left;flex-wrap:wrap;gap:20px;}
+  .pkg-grid,.pkg-grid-2,.pkg-grid-4,.retainer-grid,.bundle-grid,.notes-grid,.perf-grid,.brief-grid,.vetting-grid{grid-template-columns:1fr;}
+  .report-metrics{grid-template-columns:repeat(2,1fr);}
+  .cta-box{padding:32px 20px;}.cta-buttons{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<div class="bg-deco"></div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg viewBox="260 260 490 420" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f8bd17" d="M509.74,274.01h108.97v309.03h-108.97c-85.28,0-154.51-69.23-154.51-154.51h0c0-85.28,69.23-154.51,154.51-154.51h0Z"/>
+      <path fill="#0999cd" d="M747.75,503.13v.4c0,77.93-63.18,141.11-141.11,141.11h-38.92l-75.03,60.2.76-60.2h-.08v-62.45h125v-219.69c72.44,5.96,129.38,66.64,129.38,140.63h0Z"/>
+      <path fill="#007ec8" d="M618.37,362.5v219.69h-125v-220.17h113.27c3.95,0,7.86.16,11.73.48h0Z"/>
+    </svg>
+    <span class="nav-wordmark">CUSTOMPEDIA</span>
+  </a>
+  <div class="nav-spacer"></div>
+  <span class="nav-pill">KOL Management 2026</span>
+  <a class="nav-cta" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20your%20KOL%20Management%20service.%20Can%20we%20discuss%20further?" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat with Us
+  </a>
+</nav>
+
+<div class="wrap">
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-title">KOL<br>Management</div>
+    <div class="hero-sub">From initial dealing to final report — every KOL touchpoint managed with data, strategy, and full accountability. Not just building a list. Running campaigns that perform.</div>
+    <div class="hero-pills">
+      <span class="pill">5-step KOL vetting</span>
+      <span class="pill">Strategic brief — not templates</span>
+      <span class="pill">Contract per KOL</span>
+      <span class="pill">Post-campaign intelligence</span>
+      <span class="pill">1 dedicated PIC</span>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-val">5-Step</div><div class="stat-lbl">KOL Vetting Process</div></div>
+    <div><div class="stat-val">100%</div><div class="stat-lbl">Contract Coverage</div></div>
+    <div><div class="stat-val">3 Models</div><div class="stat-lbl">Pricing Options</div></div>
+  </div>
+</div>
+
+<!-- 01 HOW WE SELECT KOL -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">01</div><div class="sec-title">How We Select KOL — 5-Step Vetting Framework</div></div>
+  <div class="val-banner">
+    <div class="val-icon">🎯</div>
+    <div>
+      <div class="val-title">Every KOL on a Custompedia campaign passes a 5-point vetting framework — selected for fit and performance potential, not follower count alone.</div>
+      <div class="val-body">Most KOL agencies build a shortlist based on niche and tier, then proceed straight to outreach. Every KOL shortlisted for a Custompedia campaign is first evaluated against five criteria before any approach is made. Inflated audiences, brand safety risks, and off-niche accounts are filtered out before they can affect campaign performance or budget allocation.</div>
+    </div>
+  </div>
+  <div class="vetting-grid">
+    <div class="vstep">
+      <div class="vstep-num">01</div>
+      <div class="vstep-icon">📊</div>
+      <div class="vstep-title">Engagement Rate Audit</div>
+      <div class="vstep-desc">Real engagement vs. follower ratio. Filters out inflated or purchased audiences before any deal is made.</div>
+      <span class="vstep-metric">Min ER: Nano 3% / Micro 2% / Mid 1%</span>
+    </div>
+    <div class="vstep">
+      <div class="vstep-num">02</div>
+      <div class="vstep-icon">🎯</div>
+      <div class="vstep-title">Audience Match</div>
+      <div class="vstep-desc">KOL audience demographics cross-matched against your target customer: age, gender, location, interest cluster.</div>
+      <span class="vstep-metric">Platform insights data</span>
+    </div>
+    <div class="vstep">
+      <div class="vstep-num">03</div>
+      <div class="vstep-icon">🔍</div>
+      <div class="vstep-title">Content History Review</div>
+      <div class="vstep-desc">3-month content scan: niche consistency, tone-of-voice alignment, and no past collaboration with direct competitors.</div>
+      <span class="vstep-metric">3-month scan minimum</span>
+    </div>
+    <div class="vstep">
+      <div class="vstep-num">04</div>
+      <div class="vstep-icon">⚡</div>
+      <div class="vstep-title">Activity Check</div>
+      <div class="vstep-desc">KOL who only posts when paid is a red flag. We validate consistent organic posting before approaching.</div>
+      <span class="vstep-metric">Min. 3 posts/week avg</span>
+    </div>
+    <div class="vstep">
+      <div class="vstep-num">05</div>
+      <div class="vstep-icon">🛡️</div>
+      <div class="vstep-title">Brand Safety Screen</div>
+      <div class="vstep-desc">Scan for controversial content, sensitive topics, and past conflicts that create reputational risk for your brand.</div>
+      <span class="vstep-metric">Zero-tolerance policy</span>
+    </div>
+  </div>
+  <div class="info-box ib-blue">Custompedia maintains a growing internal KOL whitelist and blacklist database — built from real campaign performance data, updated after every engagement. Returning clients benefit from accumulated scoring on KOL previously managed, making selection faster and more accurate over time.</div>
+</div>
+
+<!-- 02 BRIEF, QC & CONTRACT -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">02</div><div class="sec-title">Dealing, Brief, QC & Guarantee — Full Management, Start to Finish</div></div>
+  <div class="val-banner">
+    <div class="val-icon">🤝</div>
+    <div>
+      <div class="val-title">All communication is handled by our team — every outreach, reminder, follow-up, and renegotiation. Clients receive a ready campaign, not a process to manage.</div>
+      <div class="val-body">The most time-consuming part of a KOL campaign is rarely the strategy — it is the follow-through. Confirming KOL availability, chasing posting deadlines, handling revision rounds. Custompedia manages all of it end-to-end. Clients are only consulted when a decision is required, not when something needs to be chased.<br><br>This is made possible by the depth of our KOL relationships. We operate on ongoing, genuine connections across niches and tiers — not one-off cold outreach. That translates to faster turnarounds, better-negotiated rates, and a reliable backup network when a KOL becomes unavailable. <strong style="color:var(--white);">Should any KOL drop out for any reason, we source a replacement at no additional cost</strong> — up to 3 replacement slots per campaign. We stand behind this guarantee because our network is wide, our relationships are real, and our KOL database grows with every campaign we run.</div>
+    </div>
+  </div>
+  <div class="brief-grid" style="grid-template-columns:repeat(2,1fr);">
+    <div class="bcard-brief">
+      <div class="bcard-brief-icon">💬</div>
+      <div class="bcard-brief-title">Full KOL Communication & Dealing</div>
+      <ul class="bcard-brief-list">
+        <li>Initial outreach, rate negotiation, and deal confirmation — all managed by Custompedia</li>
+        <li>All reminders, follow-ups, and escalations handled end-to-end on behalf of the client</li>
+        <li>Availability confirmation and posting slot lock-in per KOL</li>
+        <li>Rate renegotiation managed if adjustments are requested mid-campaign</li>
+        <li>Client is only consulted on decisions requiring approval — not on day-to-day follow-through</li>
+        <li>Established KOL relationships enable better rates than cold, transactional outreach</li>
+      </ul>
+    </div>
+    <div class="bcard-brief">
+      <div class="bcard-brief-icon">📋</div>
+      <div class="bcard-brief-title">Strategic Brief Construction</div>
+      <ul class="bcard-brief-list">
+        <li>Campaign goal and KPI defined per KOL (reach / clicks / conversions)</li>
+        <li>Key message hierarchy: primary message and secondary talking points</li>
+        <li>Tone-of-voice guide aligned to the client's brand character</li>
+        <li>Platform-specific format requirements (Reels vs. TikTok vs. Stories)</li>
+        <li>Mandatory elements: product placement, disclosure requirements, hashtag usage</li>
+        <li>Visual reference or mood board included (enhanced with Visual Brief Kit add-on)</li>
+      </ul>
+    </div>
+    <div class="bcard-brief">
+      <div class="bcard-brief-icon">🗓️</div>
+      <div class="bcard-brief-title">Strategic Posting Timeline</div>
+      <ul class="bcard-brief-list">
+        <li>Staggered posting schedule — awareness-phase KOL activated before conversion-phase KOL</li>
+        <li>Peak-hour posting recommendations per platform and per day</li>
+        <li>Blackout dates set to avoid overlap with competitor campaign windows</li>
+        <li>All posting reminders and follow-ups managed directly by Custompedia to each KOL</li>
+        <li>Posting schedule coordinated with client's campaign dates, product launches, or promotional windows</li>
+      </ul>
+    </div>
+    <div class="bcard-brief">
+      <div class="bcard-brief-icon">✅</div>
+      <div class="bcard-brief-title">Content QC Before Posting</div>
+      <ul class="bcard-brief-list">
+        <li>Caption review: key message compliance and tone alignment check</li>
+        <li>Visual and video thumbnail review: brand-safe, on-brief</li>
+        <li>Hashtag and disclosure compliance (#ad / #partnership / #collaboration)</li>
+        <li>Product mention accuracy check: correct naming, no misleading claims</li>
+        <li>Revision requests communicated to KOL by Custompedia — 24-hour turnaround SLA</li>
+      </ul>
+    </div>
+    <div class="bcard-brief">
+      <div class="bcard-brief-icon">🛡️</div>
+      <div class="bcard-brief-title">KOL Replacement Guarantee</div>
+      <ul class="bcard-brief-list">
+        <li>If any KOL becomes unavailable for any reason, Custompedia sources a replacement at no additional cost</li>
+        <li>Accountability rests with us — we conducted the vetting and made the recommendation</li>
+        <li>Replacement KOL goes through the same 5-step vetting before confirmation</li>
+        <li>Up to 3 replacement slots per campaign cycle</li>
+        <li>Replacement does not reset campaign timeline or extend the agreed campaign period</li>
+        <li>Guarantee is backed by a broad, continuously growing KOL network — not a static cold database</li>
+      </ul>
+    </div>
+    <div class="bcard-brief">
+      <div class="bcard-brief-icon">📄</div>
+      <div class="bcard-brief-title">KOL Contract Drafting</div>
+      <ul class="bcard-brief-list">
+        <li>Deliverables and posting timeline specified in writing per KOL</li>
+        <li>Exclusivity clause: no competitor content published during the campaign window</li>
+        <li>Content usage rights for the brand: reposts, ads whitelisting, marketing materials</li>
+        <li>Payment terms and penalty clause for non-delivery or missed posting deadlines</li>
+        <li>Confidentiality clause covering sensitive brief content and unreleased product information</li>
+      </ul>
+    </div>
+  </div>
+  <div class="info-box ib-gold" style="margin-top:14px;">💡 <strong>Custompedia advantage:</strong> As a full-service creative agency, Custompedia can produce a branded visual brief kit — key visuals, mood boards, and reference photos shot by our in-house production team — distributed to all KOL as part of the brief package. Visual consistency across 30 or 100 KOL, guaranteed. Available as an add-on.</div>
+</div>
+
+<!-- 03 POST-CAMPAIGN INTELLIGENCE -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">03</div><div class="sec-title">Post-Campaign Intelligence Report</div></div>
+  <div class="val-banner">
+    <div class="val-icon">📊</div>
+    <div>
+      <div class="val-title">Most agencies deliver a screenshot deck. Custompedia delivers a strategy document in report form.</div>
+      <div class="val-body">Every Custompedia KOL report goes beyond standard metrics. Each report includes individual KOL performance scoring, a clear Retain / Review / Replace recommendation per KOL, and a dedicated "So What?" section — three actionable strategic insights for the next campaign. The KOL database gets more refined with every cycle completed.</div>
+    </div>
+  </div>
+  <div class="report-box">
+    <div class="report-header">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="report-dot"></div>
+        <div class="report-label">CUSTOMPEDIA // POST-CAMPAIGN INTELLIGENCE REPORT</div>
+      </div>
+      <span class="report-badge">SAMPLE FORMAT</span>
+    </div>
+    <div class="report-body">
+      <div style="margin-bottom:20px;">
+        <div class="report-sec-label">Campaign Summary Metrics</div>
+        <div class="report-metrics">
+          <div class="rmetric"><div class="rmetric-val g">4.2M</div><div class="rmetric-lbl">Total Reach</div></div>
+          <div class="rmetric"><div class="rmetric-val y">3.8%</div><div class="rmetric-lbl">Avg. Engagement</div></div>
+          <div class="rmetric"><div class="rmetric-val">28K</div><div class="rmetric-lbl">Link Clicks</div></div>
+          <div class="rmetric"><div class="rmetric-val g">126%</div><div class="rmetric-lbl">vs. KPI Target</div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div>
+          <div class="report-sec-label">Individual KOL Performance & Recommendation</div>
+          <div class="kol-row"><span class="kol-name">@beautybykana</span><span class="kol-er g">ER 6.2%</span><span style="font-size:10px;color:var(--gray);">Reach 280K</span><span class="kol-rec rec-retain">RETAIN</span></div>
+          <div class="kol-row"><span class="kol-name">@lifewithsabrina</span><span class="kol-er y">ER 3.1%</span><span style="font-size:10px;color:var(--gray);">Reach 190K</span><span class="kol-rec rec-review">REVIEW</span></div>
+          <div class="kol-row"><span class="kol-name">@fashionxmika</span><span class="kol-er r">ER 0.8%</span><span style="font-size:10px;color:var(--gray);">Reach 95K</span><span class="kol-rec rec-replace">REPLACE</span></div>
+        </div>
+        <div>
+          <div class="report-sec-label">"So What?" — Next Campaign Recommendations</div>
+          <div class="insight-block">
+            <div class="insight-title">✦ Strategic Insights</div>
+            <div class="insight-item">Beauty + lifestyle crossover KOL outperformed pure fashion by 2.3x. Recommend shifting 40% of budget here.</div>
+            <div class="insight-item">Posts at 7–9 PM drove 3x higher saves vs. afternoon. Adjust schedule next cycle.</div>
+            <div class="insight-item">Nano KOL drove disproportionate CTR. Increase nano/micro ratio from 40% to 60%.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 04 PRICING -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">04</div><div class="sec-title">Pricing — Choose Your Model</div></div>
+  <div class="info-box ib-blue">Three ways to work with us. Per campaign for one-off runs, monthly retainer for recurring campaigns, or performance-based for trackable affiliate campaigns. All management fees exclude KOL fees, product costs, and platform tools — billed separately.</div>
+
+  <div class="tab-wrap">
+    <button class="tab-btn active" onclick="switchTab('ev','campaign')">Per Campaign</button>
+    <button class="tab-btn" onclick="switchTab('ev','retainer')">Monthly Retainer</button>
+    <button class="tab-btn" onclick="switchTab('ev','performance')">Performance-Based</button>
+  </div>
+
+  <!-- PER CAMPAIGN -->
+  <div id="ev-campaign" class="tab-panel active">
+    <div class="sec-sub">Event & Campaign Management</div>
+    <div class="info-box ib-blue" style="margin-bottom:14px;">Suitable for product launches, brand events, and seasonal campaigns. Single-engagement, no ongoing commitment required. Management fee only — excludes KOL fees and products.<br><br><strong>Campaign period applies to all tiers.</strong> This is the active window during which KOL availability is locked and Custompedia's management scope is in effect. If a campaign is delayed beyond the agreed period due to client-side factors, a period extension will apply. KOL availability cannot be guaranteed beyond the original lock period without re-dealing.</div>
+    <div class="pkg-grid" style="margin-bottom:28px;">
+      <div class="pkg">
+        <div class="badge b-entry">Entry</div>
+        <div class="pkg-name">STARTER</div>
+        <div class="pkg-plat">5 – 10 KOL · IG / TikTok</div>
+        <div class="pkg-price">Rp 1.500.000</div>
+        <div class="pkg-contract">Campaign period: <strong style="color:var(--white);">1 month</strong> · Excl. KOL fee & product</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">5-step KOL vetting & shortlist</li>
+            <li class="hi">Full dealing, negotiation & communication</li>
+            <li class="hi">Strategic brief creation</li>
+            <li class="hi">Posting timeline strategy</li>
+            <li class="hi">Content QC before posting</li>
+            <li class="hi">Monitoring + all follow-ups handled</li>
+            <li class="hi">KOL contract per collaboration</li>
+            <li class="hi">Reporting & evaluation</li>
+            <li class="hi">KOL replacement guarantee (up to 3x)</li>
+            <li class="no">Post-campaign intelligence report</li>
+          </ul>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Event%20Starter%20package." target="_blank">Get a Quote</a></div>
+      </div>
+      <div class="pkg feat">
+        <div class="badge b-pop">⭐ Most Popular</div>
+        <div class="pkg-name">GROWTH</div>
+        <div class="pkg-plat">11 – 20 KOL · IG / TikTok</div>
+        <div class="pkg-price">Rp 3.000.000</div>
+        <div class="pkg-contract">Campaign period: <strong style="color:var(--white);">2 months</strong> · Excl. KOL fee & product</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">5-step KOL vetting & shortlist</li>
+            <li class="hi">Full dealing, negotiation & communication</li>
+            <li class="hi">Strategic brief creation</li>
+            <li class="hi">Posting timeline strategy</li>
+            <li class="hi">Content QC before posting</li>
+            <li class="hi">Monitoring + all follow-ups handled</li>
+            <li class="hi">KOL contract per collaboration</li>
+            <li class="hi">Reporting & evaluation</li>
+            <li class="hi">KOL replacement guarantee (up to 3x)</li>
+            <li class="yhi">Post-campaign intelligence report</li>
+          </ul>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Event%20Growth%20package." target="_blank">Book This Package</a></div>
+      </div>
+      <div class="pkg ent">
+        <div class="badge b-best">Scale</div>
+        <div class="pkg-name">SCALE</div>
+        <div class="pkg-plat">50 – 100 KOL · All Platforms</div>
+        <div class="pkg-price">Rp 6.000.000</div>
+        <div class="pkg-contract">Campaign period: <strong style="color:var(--white);">3 – 4 months</strong> · Excl. KOL fee & product</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">5-step KOL vetting & shortlist</li>
+            <li class="hi">Full dealing, negotiation & communication</li>
+            <li class="hi">Strategic brief creation</li>
+            <li class="hi">Posting timeline strategy</li>
+            <li class="hi">Content QC before posting</li>
+            <li class="hi">Monitoring + all follow-ups handled</li>
+            <li class="hi">KOL contract per collaboration</li>
+            <li class="hi">Reporting & evaluation</li>
+            <li class="hi">KOL replacement guarantee (up to 3x)</li>
+            <li class="yhi">Post-campaign intelligence report</li>
+          </ul>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn btn-yellow" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Event%20Scale%20package." target="_blank">Let's Discuss</a></div>
+      </div>
+    </div>
+
+    <div class="sec-sub" style="margin-top:8px;">Affiliate / Performance-Based Campaign</div>
+    <div class="info-box ib-gold" style="margin-bottom:14px;">For campaigns with trackable conversions via promo code or affiliate link (Shopee, Tokopedia, TikTok Shop, UTM). <strong>Product delivery to KOL is handled directly by the client.</strong> Custompedia compiles a complete, organized KOL address list — name, address, and contact number — formatted for the client's shipping team or courier. Campaign timeline begins upon confirmation of product receipt by each KOL, not from the shipping date.</div>
+    <div class="pkg-grid">
+      <div class="pkg">
+        <div class="badge b-entry">Entry</div>
+        <div class="pkg-name">STARTER</div>
+        <div class="pkg-plat">20 – 30 KOL · Affiliate Campaign</div>
+        <div class="pkg-price">Rp 3.500.000</div>
+        <div class="pkg-contract">Campaign period: <strong style="color:var(--white);">1 – 2 months</strong> · Excl. KOL fee & product</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">5-step KOL vetting & shortlist</li>
+            <li class="hi">Full dealing, negotiation & communication</li>
+            <li class="hi">Affiliate link / promo code coordination</li>
+            <li class="hi">KOL address list compilation for product shipping</li>
+            <li class="hi">Content QC & monitoring</li>
+            <li class="hi">All follow-ups & reminders handled</li>
+            <li class="hi">KOL contract per collaboration</li>
+            <li class="hi">KOL replacement guarantee (up to 3x, no extra cost)</li>
+            <li class="hi">Reporting & evaluation</li>
+            <li class="no">Post-campaign intelligence report</li>
+          </ul>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Affiliate%20Starter." target="_blank">Get a Quote</a></div>
+      </div>
+      <div class="pkg feat">
+        <div class="badge b-pop">⭐ Recommended</div>
+        <div class="pkg-name">GROWTH</div>
+        <div class="pkg-plat">50 – 100 KOL · Affiliate Campaign</div>
+        <div class="pkg-price">Rp 7.500.000</div>
+        <div class="pkg-contract">Campaign period: <strong style="color:var(--white);">2 – 3 months</strong> · Excl. KOL fee & product</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">5-step KOL vetting & shortlist</li>
+            <li class="hi">Full dealing, negotiation & communication</li>
+            <li class="hi">Affiliate link / promo code coordination</li>
+            <li class="hi">KOL address list compilation for product shipping</li>
+            <li class="hi">Content QC & monitoring</li>
+            <li class="hi">All follow-ups & reminders handled</li>
+            <li class="hi">KOL contract per collaboration</li>
+            <li class="hi">KOL replacement guarantee (up to 3x, no extra cost)</li>
+            <li class="hi">Reporting & evaluation</li>
+            <li class="yhi">Post-campaign intelligence report</li>
+          </ul>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Affiliate%20Growth." target="_blank">Book This Package</a></div>
+      </div>
+      <div class="pkg ent">
+        <div class="badge b-best">Scale</div>
+        <div class="pkg-name">SCALE</div>
+        <div class="pkg-plat">101 – 200 KOL · Affiliate Campaign</div>
+        <div class="pkg-price">Rp 12.000.000</div>
+        <div class="pkg-contract">Campaign period: <strong style="color:var(--white);">3 – 4 months</strong> · Excl. KOL fee & product</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">5-step KOL vetting & shortlist</li>
+            <li class="hi">Full dealing, negotiation & communication</li>
+            <li class="hi">Affiliate link / promo code coordination</li>
+            <li class="hi">KOL address list compilation for product shipping</li>
+            <li class="hi">Content QC & monitoring</li>
+            <li class="hi">All follow-ups & reminders handled</li>
+            <li class="hi">KOL contract per collaboration</li>
+            <li class="hi">KOL replacement guarantee (up to 3x, no extra cost)</li>
+            <li class="hi">Reporting & evaluation</li>
+            <li class="yhi">Post-campaign intelligence report</li>
+          </ul>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn btn-yellow" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Affiliate%20Scale." target="_blank">Let's Discuss</a></div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--gray);margin-top:14px;font-style:italic;">* All pricing shown is indicative. Pricing reflects management effort per campaign — a higher KOL count means more dealing, more QC cycles, more contracts, and a longer management window. Each tier is priced to reflect that effort. Campaign period is the active window for KOL lock-in and management scope. Delays caused by client-side factors may require a period extension.</div>
+  </div>
+
+  <!-- RETAINER -->
+  <div id="ev-retainer" class="tab-panel">
+    <div class="val-banner">
+      <div class="val-icon">🔄</div>
+      <div>
+        <div class="val-title">Brands running recurring monthly campaigns save up to 25% compared to per-campaign pricing.</div>
+        <div class="val-body">A retainer commitment secures a dedicated KOL pool maintained for the brand, priority scheduling across all campaigns, and a PIC who is already fully briefed — no re-onboarding each cycle. Campaigns launch faster, cost less per run, and the internal KOL whitelist database grows in value the longer the engagement runs.</div>
+      </div>
+    </div>
+    <div class="retainer-grid">
+      <div class="pkg">
+        <div class="badge b-entry">3-Month</div>
+        <div class="pkg-name">LAUNCH</div>
+        <div class="pkg-plat">Up to 2 campaigns/month · Up to 20 KOL/month</div>
+        <div class="pkg-price">Rp 3.000.000 <span>/ month</span></div>
+        <div class="pkg-contract">3-month minimum · Billed monthly · Save ~14% vs per-campaign</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">Dedicated KOL specialist PIC</li>
+            <li class="hi">Maintained vetted KOL pool</li>
+            <li class="hi">Monthly brief & strategy session</li>
+            <li class="hi">Content QC & contract per campaign</li>
+            <li class="hi">Monthly consolidated report</li>
+            <li class="hi">Priority WA/email response within 4 hours</li>
+            <li>Platform: IG + TikTok</li>
+          </ul>
+          <div class="pkg-note">Good entry point for brands running 1–2 monthly campaigns without complex affiliate tracking.</div>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Retainer%20Launch." target="_blank">Get a Quote</a></div>
+      </div>
+      <div class="pkg feat">
+        <div class="badge b-pop">⭐ Best Value</div>
+        <div class="pkg-name">MOMENTUM</div>
+        <div class="pkg-plat">Up to 3 campaigns/month · Up to 60 KOL/month</div>
+        <div class="pkg-price">Rp 6.000.000 <span>/ month</span></div>
+        <div class="pkg-contract">6-month minimum · Billed monthly · Save ~20% vs per-campaign</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">Dedicated KOL specialist PIC</li>
+            <li class="hi">Curated monthly KOL pool (60+ vetted)</li>
+            <li class="hi">Monthly strategy & campaign planning</li>
+            <li class="hi">Full brief, QC, contract per campaign</li>
+            <li class="yhi">Monthly post-campaign intelligence report</li>
+            <li class="yhi">KOL whitelist/blacklist database maintained</li>
+            <li class="yhi">Priority response: within 2 hours</li>
+            <li>Platform: IG + TikTok + Shopee/Tokped Affiliate</li>
+          </ul>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Retainer%20Momentum." target="_blank">Book This</a></div>
+      </div>
+      <div class="pkg ent">
+        <div class="badge b-best">12-Month</div>
+        <div class="pkg-name">PARTNER</div>
+        <div class="pkg-plat">Unlimited campaigns · Up to 120 KOL/month</div>
+        <div class="pkg-price">Rp 10.000.000 <span>/ month</span></div>
+        <div class="pkg-contract">12-month minimum · Billed monthly · Save ~25% vs per-campaign</div>
+        <div class="pkg-body">
+          <ul class="pkg-list">
+            <li class="hi">Dedicated senior PIC (no junior handoff)</li>
+            <li class="hi">Exclusive KOL pool maintained for brand</li>
+            <li class="hi">Quarterly strategy review & planning</li>
+            <li class="hi">Full brief, QC, contract per campaign</li>
+            <li class="yhi">Monthly post-campaign intelligence report</li>
+            <li class="yhi">KOL whitelist/blacklist database</li>
+            <li class="yhi">SLA: 1-hour response guaranteed</li>
+            <li class="yhi">Brand ambassador identification & management</li>
+            <li>Platform: IG + TikTok + YouTube + X + All affiliate platforms</li>
+          </ul>
+        </div>
+        <div class="pkg-btn-wrap"><a class="pkg-btn btn-yellow" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20KOL%20Retainer%20Partner." target="_blank">Let's Discuss</a></div>
+      </div>
+    </div>
+    <div class="info-box ib-green" style="margin-top:14px;">💚 <strong>For existing Custompedia SMM or Visual Production clients:</strong> KOL retainer is integrated directly into the brand's existing ecosystem — same team, same brand context, no re-briefing required. Content produced by Custompedia's visual production team can serve as KOL brief reference material at no additional cost.</div>
+  </div>
+
+  <!-- PERFORMANCE -->
+  <div id="ev-performance" class="tab-panel">
+    <div class="val-banner">
+      <div class="val-icon">📈</div>
+      <div>
+        <div class="val-title">Shared incentive — Custompedia earns more when the campaign performs better.</div>
+        <div class="val-body">For affiliate campaigns with trackable conversions (Shopee, Tokopedia, TikTok Shop, or UTM link), Custompedia offers a reduced flat management fee plus a capped success percentage on tracked GMV. The structure creates a direct incentive for sharper KOL selection and stronger campaign optimization. Available after one completed per-campaign engagement with Custompedia.</div>
+      </div>
+    </div>
+    <div class="perf-grid">
+      <div class="perf-explain">
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.3px;margin-bottom:10px;">How It Works</div>
+        <p style="font-size:12px;color:var(--gray);line-height:1.7;margin-bottom:16px;">A reduced flat fee is charged upfront, plus a small success percentage on tracked conversions. The total fee is capped — the maximum exposure is known before the campaign begins.</p>
+        <div class="perf-formula">
+          <div class="perf-formula-label">Pricing Formula</div>
+          <div class="perf-formula-eq">
+            Total Fee = <span class="hl">Flat Fee</span> + <span class="hl">Success Fee</span><br>
+            Flat Fee = <span class="hl">Rp 2.500.000</span> / campaign<br>
+            Success Fee = <span class="hl">10%</span> of tracked GMV<br>
+            (capped at <span class="hl">Rp 5.000.000</span> max)
+          </div>
+        </div>
+        <div style="font-size:11px;color:var(--gray);line-height:1.7;">
+          <div style="margin-bottom:4px;">• Available for affiliate campaigns with trackable conversions only</div>
+          <div style="margin-bottom:4px;">• Minimum 20 KOL, minimum 4-week campaign window</div>
+          <div style="margin-bottom:4px;">• GMV tracked via Shopee Affiliate, Tokopedia, TikTok Shop, or UTM link</div>
+          <div style="margin-bottom:4px;">• Success fee is capped — maximum fee exposure confirmed before campaign starts</div>
+          <div>• Available after one completed per-campaign engagement with Custompedia</div>
+        </div>
+      </div>
+      <div class="perf-example">
+        <h4>Example Calculation</h4>
+        <div class="calc-row"><span class="calc-label">Management flat fee</span><span class="calc-val">Rp 2.500.000</span></div>
+        <div class="calc-row"><span class="calc-label">KOL count</span><span class="calc-val">30 KOL</span></div>
+        <div class="calc-row"><span class="calc-label">Tracked GMV from campaign</span><span class="calc-val">Rp 20.000.000</span></div>
+        <div class="calc-row"><span class="calc-label">Success fee (10% of GMV)</span><span class="calc-val">Rp 2.000.000</span></div>
+        <div class="calc-row calc-total-row">
+          <span class="calc-label" style="color:var(--white);font-weight:700;">Total Management Fee</span>
+          <span class="calc-val total">Rp 4.500.000</span>
+        </div>
+        <div style="margin-top:16px;padding:12px;background:rgba(6,214,160,.08);border:.5px solid rgba(6,214,160,.2);border-radius:8px;font-size:11px;color:var(--gray-l);line-height:1.6;">
+          <strong style="color:var(--green);">ROI context:</strong> A Rp 4.5JT management fee driving Rp 20JT in tracked sales represents a <strong style="color:var(--white);">4.4x return</strong> on management cost alone — before factoring in brand awareness and organic reach.
+        </div>
+        <div style="margin-top:10px;font-size:10px;color:var(--gray);font-style:italic;line-height:1.6;">* Performance model is available after one completed per-campaign engagement with Custompedia. All first-time campaigns run on the per-campaign model.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 05 KOL BUDGET GUIDE -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">05</div><div class="sec-title">KOL Budget Guide — What to Expect Beyond Management Fee</div></div>
+  <div class="val-banner">
+    <div class="val-icon">💰</div>
+    <div>
+      <div class="val-title">Total campaign budget transparency — management fee is only part of the picture.</div>
+      <div class="val-body">Most agencies quote management fee and leave the client to estimate KOL costs independently. Custompedia provides an honest reference guide so total campaign investment can be planned from the outset. Custompedia negotiates KOL rates on behalf of the client — established network relationships consistently produce better terms than direct, cold outreach.</div>
+    </div>
+  </div>
+  <table class="budget-table">
+    <thead>
+      <tr>
+        <th>KOL Tier</th>
+        <th>Follower Range</th>
+        <th>Est. Rate / Post (IG / TikTok)</th>
+        <th>Best Use Case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="tier-dot dot-nano"></span>Nano</td><td>1K – 10K</td><td><span class="est-range">Rp 100K – 500K</span></td><td>Niche communities, product seeding, high-trust referrals</td></tr>
+      <tr><td><span class="tier-dot dot-micro"></span>Micro</td><td>10K – 100K</td><td><span class="est-range">Rp 500K – 3JT</span></td><td>Mid-funnel awareness, high ER, cost-efficient for affiliate</td></tr>
+      <tr><td><span class="tier-dot dot-mid"></span>Mid-Tier</td><td>100K – 500K</td><td><span class="est-range">Rp 3JT – 15JT</span></td><td>Broad awareness + credibility, social proof at scale</td></tr>
+      <tr><td><span class="tier-dot dot-macro"></span>Macro</td><td>500K – 1M</td><td><span class="est-range">Rp 15JT – 40JT</span></td><td>Mass awareness, brand legitimacy, major product launches</td></tr>
+      <tr><td><span class="tier-dot dot-mega"></span>Mega / Celebrity</td><td>1M+</td><td><span class="est-range">Rp 40JT+</span></td><td>National-scale campaigns, celebrity endorsement programs</td></tr>
+    </tbody>
+  </table>
+  <div class="info-box ib-blue" style="margin-top:14px;"><strong>How Custompedia helps:</strong> KOL fee negotiations are handled on behalf of the client and reported transparently — no hidden markups. Established network relationships, built across multiple campaigns, consistently yield better rates compared to approaching KOL directly without prior engagement history.</div>
+</div>
+
+<!-- 06 ADD-ONS -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">06</div><div class="sec-title">Add-On Services</div></div>
+  <div class="info-box ib-gold">All add-ons can be combined with any package or retainer tier. Add-ons must be confirmed at the time of booking — some require additional lead time.</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;">
+    <div class="acard">
+      <div class="acard-name">KOL Visual Brief Kit</div>
+      <div class="acard-type">Produced by Custompedia Visual Production team</div>
+      <div class="addon-price">+ Rp 1.500.000</div>
+      <div class="addon-sow">A branded visual reference kit produced by Custompedia's in-house team — mood board, key visuals, and reference photos or video. Distributed to all KOL as part of the brief package to ensure visual consistency across every piece of content. Exclusive to Custompedia — not available through a standalone KOL agency.</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Spark Ads / Whitelisting Setup</div>
+      <div class="acard-type">Amplify top-performing KOL content via paid channels</div>
+      <div class="addon-price">+ Rp 750K setup</div>
+      <div class="addon-sow">Custompedia manages the boosting of top-performing KOL content via Spark Ads (TikTok) or Instagram Partnership Ads. Ads spend budget is billed separately — Custompedia handles setup and targeting configuration.</div>
+      <div class="addon-no">✗ Ads spend billed separately · ✗ Requires at least one completed campaign first</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Extended Post Monitoring</div>
+      <div class="acard-type">+2 weeks monitoring after campaign closes</div>
+      <div class="addon-price">+ Rp 500K</div>
+      <div class="addon-sow">Long-tail reach and delayed engagement tracked for two additional weeks after all posts go live. Recommended for campaigns where delayed awareness effects are expected.</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Extra KOL Slots</div>
+      <div class="acard-type">Add KOL beyond tier limit without full upgrade</div>
+      <div class="addon-price">Rp 150K – 300K / KOL</div>
+      <div class="addon-sow">Individual KOL slots added outside the selected tier without requiring a full package upgrade. Rate varies by tier level and volume. Final rate confirmed at time of booking.</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Brand Ambassador Identification</div>
+      <div class="acard-type">Surface top KOL candidates for long-term roles</div>
+      <div class="addon-price">+ Rp 1.000.000</div>
+      <div class="addon-sow">Post-campaign analysis identifying the top 3–5 KOL candidates for long-term brand ambassador roles, based on performance data, audience fit, and brand alignment scoring.</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">KOL × Event Coverage</div>
+      <div class="acard-type">KOL management combined with Visual Production event coverage</div>
+      <div class="addon-price">See Bundle →</div>
+      <div class="addon-sow">Running a brand event and want KOL to attend and post? KOL Management and Event Content Coverage from Custompedia's Visual Production team can be coordinated as a single, unified campaign.</div>
+    </div>
+    <div class="acard">
+      <div class="acard-name">Rush Campaign Launch</div>
+      <div class="acard-type">Expedited KOL sourcing and brief turnaround</div>
+      <div class="addon-price">+25%</div>
+      <div class="addon-sow">For campaigns required to go live within 5 business days. Rush processing applies across KOL sourcing, dealing, brief construction, and contract. Subject to team availability — confirm availability before booking.</div>
+      <div class="addon-no">✗ Not always available · ✗ Written availability confirmation required before proceeding</div>
+    </div>
+  </div>
+</div>
+
+<!-- 07 BUNDLE DEALS -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">07</div><div class="sec-title">Bundle Deals — Cross-Service Integration</div></div>
+  <div class="info-box ib-green">Custompedia operates as a full-service creative agency. KOL Management connects naturally with other service lines — an integration no standalone KOL agency can offer. Bundle discounts apply automatically when qualifying services are taken together.</div>
+  <div class="bundle-grid">
+    <div class="bcard b-gold">
+      <div class="bcard-label">Launch Bundle</div>
+      <h4>Branding + KOL Campaign Launch</h4>
+      <p>For brands that have completed a branding project with Custompedia, a KOL campaign is the natural next activation. The team already has full context on the brand — no re-briefing, straight to execution.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip">Any Branding Package</span>
+        <span class="bcard-chip">KOL Event Campaign (any tier)</span>
+        <span class="bcard-chip">Briefed from brand assets</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Bundle discount</span><span class="bcard-save-amt">10%</span></div>
+    </div>
+    <div class="bcard b-blue">
+      <div class="bcard-label">Content Sync Bundle</div>
+      <h4>KOL Management + Visual Brief Kit</h4>
+      <p>Clients taking both KOL Management and a Visual Production shoot receive a branded KOL brief kit built directly from the same session — mood boards, key visuals, and reference materials — at a bundled rate. All KOL work from the same visual reference, ensuring consistent output across the campaign.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip">KOL Campaign (any tier)</span>
+        <span class="bcard-chip">Any Visual Production package</span>
+        <span class="bcard-chip">Brief kit auto-built from shoot</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Included at</span><span class="bcard-save-amt">Rp 750K</span></div>
+    </div>
+    <div class="bcard b-green">
+      <div class="bcard-label">Event Bundle</div>
+      <h4>Event Coverage + KOL Management</h4>
+      <p>For brand events where KOL attendance, posting, and amplification are part of the plan, both sides are coordinated under one team. Custompedia's production crew covers the event while KOL Management handles invitations, briefs, and posting alignment — unified timeline, single point of contact.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip">Content Coverage (any tier)</span>
+        <span class="bcard-chip">KOL Event Management</span>
+        <span class="bcard-chip">Unified brief & timeline</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">Bundle discount</span><span class="bcard-save-amt">10%</span></div>
+    </div>
+    <div class="bcard" style="border-color:rgba(255,107,157,.3);">
+      <div class="bcard-label" style="background:rgba(255,107,157,.12);color:var(--pink);border:.5px solid rgba(255,107,157,.25);">Full Ecosystem</div>
+      <h4>SMM + KOL Management</h4>
+      <p>Existing Custompedia SMM clients receive KOL campaign integration at a discounted rate. KOL output is coordinated directly into the monthly content plan — no separate brief, no duplication. One ecosystem, full alignment.</p>
+      <div class="bcard-chips">
+        <span class="bcard-chip" style="background:rgba(255,107,157,.08);color:var(--pink);border:.5px solid rgba(255,107,157,.2);">SMM Growth Starter or above</span>
+        <span class="bcard-chip" style="background:rgba(255,107,157,.08);color:var(--pink);border:.5px solid rgba(255,107,157,.2);">KOL Campaign (any tier)</span>
+      </div>
+      <div class="bcard-bottom"><span class="bcard-save-lbl">SMM client discount</span><span class="bcard-save-amt" style="color:var(--pink);">15%</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 08 WHY CUSTOMPEDIA -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">08</div><div class="sec-title">Why Custompedia vs. Agency vs. Freelancer</div></div>
+  <div style="overflow-x:auto;">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-us" style="font-family:'Syne',sans-serif;font-size:13px;font-weight:800;">CUSTOMPEDIA</th>
+          <th>Typical Agency</th>
+          <th>Freelancer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>5-step KOL vetting framework</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cp">Varies</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>Strategic brief (not a template)</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cp">Varies</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>Posting timeline strategy</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cn">✗</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>Content QC before every post</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cp">Some</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>KOL replacement guarantee — no extra cost</td><td class="col-us" style="text-align:center;"><span class="cy">✓ All tiers</span></td><td style="text-align:center;"><span class="cp">Paid add-on</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>Legal contract per KOL collaboration</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cp">Large agencies</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>"So What?" actionable post-campaign report</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cn">✗</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>1 dedicated PIC — no junior handoff</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cn">✗</span></td><td style="text-align:center;"><span class="cy">✓</span></td></tr>
+        <tr><td>KOL budget transparency guide</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cn">✗</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>Performance-based pricing option</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cn">✗</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>Integrated visual production for KOL briefs</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cn">✗</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>Internal KOL whitelist/blacklist database</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cp">Large agencies</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+        <tr><td>Cross-service integration (SMM / Branding / Event)</td><td class="col-us" style="text-align:center;"><span class="cy">✓</span></td><td style="text-align:center;"><span class="cn">✗</span></td><td style="text-align:center;"><span class="cn">✗</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 09 GOOD TO KNOW -->
+<div class="sec">
+  <div class="sec-head"><div class="sec-num">09</div><div class="sec-title">Good to Know</div></div>
+  <div class="notes-grid">
+    <div class="note-card">
+      <div class="note-icon">⏱️</div>
+      <div class="note-title">Campaign Lead Time</div>
+      <div class="note-body">Minimum 5 business days from confirmed booking to first KOL posting date. For campaigns involving 50 or more KOL, allow 7–10 business days to complete vetting, dealing, and contract signing. Rush campaigns are available with a surcharge — subject to team availability.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">📦</div>
+      <div class="note-title">Product Seeding — Shipping Handled by Client</div>
+      <div class="note-body">For affiliate or seeding campaigns, product delivery to each KOL is handled directly by the client. Custompedia compiles a complete, organized KOL address list — name, address, and phone number — formatted and ready for your shipping team or courier. Campaign timeline begins upon confirmation of product receipt by each KOL, not from the shipping date. Client is responsible for ensuring timely delivery.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">🔁</div>
+      <div class="note-title">KOL Replacement — Included, No Extra Cost</div>
+      <div class="note-body">If any KOL drops out or becomes unavailable for any reason, Custompedia replaces them at no additional charge — up to 3 replacement slots per campaign. We vetted them, we recommended them: the accountability is ours. Replacement KOL passes the same 5-step vetting. Replacement does not reset campaign timeline or period.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">©️</div>
+      <div class="note-title">Content Usage Rights</div>
+      <div class="note-body">KOL content usage rights — including reposts, whitelisting, and use in ads — are specified in the contract drafted by Custompedia. Scope and duration are defined per campaign. Extended rights beyond the standard scope can be negotiated prior to contract signing.</div>
+    </div>
+    <div class="note-card warn">
+      <div class="note-icon">⚠️</div>
+      <div class="note-title">What Is Not Included</div>
+      <div class="note-body">KOL fees and talent payments · Product costs and shipping · Platform tools or third-party analytics subscriptions · Ads spend for Spark Ads or Partnership Ads · Premium or celebrity KOL rates (custom quote required) · Any guaranteed outcome on organic reach, engagement, or sales.</div>
+    </div>
+    <div class="note-card warn">
+      <div class="note-icon">📋</div>
+      <div class="note-title">No Organic Performance Guarantee</div>
+      <div class="note-body">KOL Management is a fully managed service. Custompedia does not guarantee specific reach, engagement, or sales results from organic KOL activity. The Performance-Based pricing model (Section 04) creates a shared incentive structure for affiliate campaigns. Organic outcomes depend on KOL quality, content execution, and timing — all of which Custompedia optimizes, but does not control.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">💳</div>
+      <div class="note-title">Payment Terms</div>
+      <div class="note-body">Per campaign: 50% deposit upon booking confirmation, 50% due upon campaign launch. Retainer: monthly invoicing, due within 7 days of invoice date. KOL fees are invoiced separately — paid to Custompedia, which disburses to each KOL directly. No campaign is activated until the deposit is confirmed.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">🔒</div>
+      <div class="note-title">Confidentiality</div>
+      <div class="note-body">All campaign briefs, budget details, and KOL selection data are handled confidentially. An NDA is available upon request for clients with sensitive product information or unreleased campaign materials.</div>
+    </div>
+    <div class="note-card">
+      <div class="note-icon">📍</div>
+      <div class="note-title">Service Coverage</div>
+      <div class="note-body">KOL management is conducted remotely and carries no geographic limitation. Custompedia manages KOL across Indonesia — including Jabodetabek, Java, Sumatra, Kalimantan, and national campaigns. The KOL database spans all major cities and primary content niches.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-box">
+  <div class="cta-deco1"></div><div class="cta-deco2"></div>
+  <div class="cta-inner">
+    <div class="cta-badge">Ready to run it?</div>
+    <div class="cta-title">Share the campaign brief.<br>We'll build the right plan.</div>
+    <div class="cta-sub">Provide the campaign objective, estimated KOL count, platform, and timeline — a tailored proposal will be returned within 24 hours. No commitment required to start the conversation.</div>
+    <div class="cta-buttons">
+      <a class="cta-btn-primary" href="https://wa.me/6282226171071?text=Hi%20Custompedia!%20I'm%20interested%20in%20your%20KOL%20Management%20service.%20Can%20we%20discuss%20my%20campaign?" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat with Us on WhatsApp
+      </a>
+      <a class="cta-btn-secondary" href="mailto:hello@custompedia.agency?subject=Inquiry%20—%20KOL%20Management&body=Hi%20Custompedia%2C%0A%0AI'm%20interested%20in%20your%20KOL%20Management%20service.%20Here%20are%20my%20campaign%20details%3A%0A%0AObjective%3A%0AKOL%20Count%3A%0APlatform%3A%0ATimeline%3A%0A%0AThank%20you." target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        hello@custompedia.agency
+      </a>
+    </div>
+    <div class="cta-note">+62 822-2617-1071 · Typically replies within 1 hour</div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <svg width="28" height="28" viewBox="260 260 490 420" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#f8bd17" d="M509.74,274.01h108.97v309.03h-108.97c-85.28,0-154.51-69.23-154.51-154.51h0c0-85.28,69.23-154.51,154.51-154.51h0Z"/>
+      <path fill="#0999cd" d="M747.75,503.13v.4c0,77.93-63.18,141.11-141.11,141.11h-38.92l-75.03,60.2.76-60.2h-.08v-62.45h125v-219.69c72.44,5.96,129.38,66.64,129.38,140.63h0Z"/>
+      <path fill="#007ec8" d="M618.37,362.5v219.69h-125v-220.17h113.27c3.95,0,7.86.16,11.73.48h0Z"/>
+    </svg>
+    CUSTOMPEDIA Creative Group
+  </div>
+  <div>KOL & Influencer Management · Indonesia</div>
+  <div class="footer-links">
+    <a href="https://wa.me/6282226171071" target="_blank">+62 822-2617-1071</a>
+    <a href="mailto:hello@custompedia.agency">hello@custompedia.agency</a>
+    <a href="https://instagram.com/custompedia" target="_blank">@custompedia</a>
+  </div>
+  <div style="margin-top:20px;font-size:10px;opacity:.4;">© 2026 Custompedia Creative Group · This document is confidential</div>
+</footer>
+
+</div>
+<script>
+function switchTab(prefix, id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(prefix + '-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
