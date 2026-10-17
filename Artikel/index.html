@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custompedia — Artikel SEO 2026</title>
+<meta name="description" content="Artikel SEO berbasis data dan AI, dikerjakan bersama tim Custompedia. Paket mulai Rp1.000.000/bulan, langganan tahunan hemat 20%.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1929;--cyan:#0999cd;--yellow:#f8bd17;
+  --white:#FFFFFF;--off:#F0F4FF;--gray:#8A9BC0;--gray-l:#C8D4F0;
+  --surf:#0F2040;--surf2:#162B50;--bdr:rgba(255,255,255,.08);
+  --green:#06D6A0;--pink:#FF6B9D;--purple:#A78BFA;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;overflow-x:hidden;font-size:14px;}
+a:focus-visible{outline:2px solid var(--yellow);outline-offset:3px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.bg-deco{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 60% 50% at 80% 10%,rgba(167,139,250,.13) 0%,transparent 60%),
+             radial-gradient(ellipse 40% 40% at 10% 80%,rgba(9,153,205,.08) 0%,transparent 60%);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(11,25,41,.92);backdrop-filter:blur(16px);border-bottom:.5px solid var(--bdr);padding:0 40px;height:60px;display:flex;align-items:center;gap:14px;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo svg{width:32px;height:27px;flex-shrink:0;}
+.nav-wordmark{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;letter-spacing:-.2px;color:var(--white);}
+.nav-spacer{flex:1;}
+.nav-pill{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--gray);border:.5px solid var(--bdr);padding:5px 14px;border-radius:20px;white-space:nowrap;}
+.nav-cta{display:flex;align-items:center;gap:7px;background:var(--yellow);color:#0B1929;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;padding:8px 18px;border-radius:8px;text-decoration:none;transition:opacity .18s;white-space:nowrap;}
+.nav-cta:hover{opacity:.88;}
+.nav-cta svg{width:14px;height:14px;flex-shrink:0;}
+
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 32px 80px;}
+
+/* HERO */
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;border-bottom:.5px solid var(--bdr);margin-bottom:60px;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;background:linear-gradient(135deg,#fff 40%,#A78BFA);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px;}
+.hero-sub{font-size:15px;color:var(--gray);line-height:1.6;max-width:520px;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;list-style:none;}
+.pill{padding:5px 12px;border-radius:20px;font-size:12px;border:.5px solid var(--bdr);color:var(--gray-l);background:rgba(255,255,255,.04);}
+.hero-stats{display:flex;flex-direction:column;gap:16px;text-align:right;}
+.stat-val{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--yellow);}
+.stat-lbl{font-size:11px;color:var(--gray);margin-top:2px;}
+
+/* SECTIONS */
+.sec{margin-bottom:72px;}
+.sec-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+.sec-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase;background:rgba(9,153,205,.15);padding:4px 10px;border-radius:6px;border:.5px solid rgba(9,153,205,.3);}
+.sec-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.3px;}
+
+/* INFO BOXES */
+.info-box{padding:14px 18px;border-radius:12px;font-size:12px;line-height:1.6;margin-bottom:20px;}
+.info-box strong{color:var(--white);font-weight:600;}
+.ib-blue{background:rgba(9,153,205,.12);border:.5px solid rgba(9,153,205,.25);color:#B0DEFF;}
+.ib-gold{background:rgba(248,189,23,.1);border:.5px solid rgba(248,189,23,.25);color:#FFE8A0;}
+.ib-green{background:rgba(6,214,160,.1);border:.5px solid rgba(6,214,160,.25);color:#a0ffdc;}
+
+/* PACKAGES */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.pkg{background:var(--surf);border:.5px solid var(--bdr);border-radius:20px;padding:22px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+.pkg:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.pkg::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:0;transition:opacity .2s;}
+.pkg:hover::before{opacity:1;}
+.pkg.feat{background:linear-gradient(145deg,#0F3070,#162B50);border-color:rgba(9,153,205,.5);box-shadow:0 0 0 1px rgba(9,153,205,.2),0 20px 60px rgba(9,153,205,.12);}
+.pkg.feat::before{opacity:1;background:linear-gradient(90deg,transparent,var(--yellow),transparent);}
+.pkg.ent{background:linear-gradient(145deg,#0F2A20,#0F2040);border-color:rgba(6,214,160,.3);}
+.pkg.ent::before{opacity:1;background:linear-gradient(90deg,transparent,var(--green),transparent);}
+
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:14px;}
+.b-entry{background:rgba(255,255,255,.08);color:var(--gray-l);}
+.b-pop{background:rgba(248,189,23,.15);color:var(--yellow);border:.5px solid rgba(248,189,23,.3);}
+.b-best{background:rgba(6,214,160,.15);color:var(--green);border:.5px solid rgba(6,214,160,.3);}
+
+.pkg-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.3px;margin-bottom:3px;}
+.pkg-plat{font-size:11px;color:var(--gray);margin-bottom:14px;}
+.pkg-price{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;letter-spacing:-1px;margin-bottom:3px;}
+.pkg-price span{font-size:12px;font-weight:400;color:var(--gray);letter-spacing:0;}
+.pkg-contract{font-size:11px;color:var(--gray);margin-bottom:16px;padding-bottom:16px;border-bottom:.5px solid var(--bdr);}
+.pkg-body{flex:1;}
+.pkg-list{list-style:none;}
+.pkg-list li{font-size:11px;color:var(--gray-l);padding:4px 0;border-bottom:.5px solid rgba(255,255,255,.04);display:flex;gap:6px;align-items:flex-start;line-height:1.4;}
+.pkg-list li:last-child{border-bottom:none;}
+.pkg-list li::before{content:"—";color:var(--gray);flex-shrink:0;font-size:10px;margin-top:1px;}
+.pkg-list li.hi{color:var(--white);}
+.pkg-list li.hi::before{content:"✓";color:var(--cyan);font-weight:700;}
+.pkg-note{margin-top:12px;padding:9px 11px;background:rgba(255,255,255,.04);border-radius:8px;font-size:10px;color:var(--gray);line-height:1.5;border-left:2px solid rgba(248,189,23,.4);}
+.pkg-note.free{border-left-color:rgba(6,214,160,.6);color:#a0ffdc;}
+.pkg-btn-wrap{margin-top:16px;}
+.pkg-btn{display:block;width:100%;text-align:center;padding:10px 0;border-radius:10px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;text-decoration:none;transition:all .18s;border:.5px solid var(--bdr);color:var(--gray);background:rgba(255,255,255,.04);}
+.pkg-btn:hover{border-color:var(--white);color:var(--white);}
+.pkg-btn.btn-cyan{background:var(--cyan);color:#fff;border-color:var(--cyan);}
+.pkg-btn.btn-cyan:hover{opacity:.88;}
+.pkg-btn.btn-green{background:var(--green);color:#0B1929;border-color:var(--green);}
+.pkg-btn.btn-green:hover{opacity:.88;}
+
+/* ANNUAL PRICE ROW */
+.price-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;}
+.px{background:rgba(255,255,255,.05);border-radius:7px;padding:7px;text-align:center;}
+.px-lbl{font-size:9px;color:var(--gray);margin-bottom:2px;text-transform:uppercase;letter-spacing:.04em;}
+.px-val{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;}
+.px.bundle{border:.5px solid rgba(9,153,205,.3);}
+.px.bundle .px-val{color:#7dd3f7;}
+
+/* INCLUDED / NOTES */
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;list-style:none;}
+.note-card{background:var(--surf);border:.5px solid var(--bdr);border-radius:14px;padding:18px;}
+.note-icon{font-size:18px;margin-bottom:8px;}
+.note-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:5px;}
+.note-body{font-size:11px;color:var(--gray);line-height:1.6;}
+
+/* COMPARISON TABLE */
+.cmp-wrap{overflow-x:auto;}
+.cmp{width:100%;border-collapse:collapse;font-size:11px;min-width:560px;}
+.cmp th{padding:9px 10px;font-family:'Syne',sans-serif;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);border-bottom:.5px solid var(--bdr);background:var(--surf);text-align:center;}
+.cmp th:first-child{text-align:left;min-width:175px;}
+.cmp td{padding:7px 10px;border-bottom:.5px solid rgba(255,255,255,.04);color:var(--gray-l);text-align:center;vertical-align:middle;}
+.cmp td:first-child{text-align:left;color:var(--off);}
+.cmp tr:hover td{background:rgba(255,255,255,.02);}
+.cmp tr.cat td{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;color:#7dd3f7;background:rgba(9,153,205,.08);text-align:left;letter-spacing:.05em;text-transform:uppercase;padding:9px 10px;}
+.ck{color:var(--cyan);font-weight:700;}
+.cmp-note{font-size:10px;color:var(--gray);margin-top:8px;}
+
+/* CTA */
+.cta-box{background:linear-gradient(135deg,#0F2A50 0%,#0B1929 60%,#0A2010 100%);border:1px solid rgba(9,153,205,.2);border-radius:24px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;margin-bottom:64px;}
+.cta-deco1{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(248,189,23,.08),transparent 70%);top:-80px;right:-80px;pointer-events:none;}
+.cta-deco2{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(9,153,205,.1),transparent 70%);bottom:-60px;left:-60px;pointer-events:none;}
+.cta-inner{position:relative;z-index:1;}
+.cta-badge{display:inline-block;background:rgba(37,211,102,.15);border:.5px solid rgba(37,211,102,.3);color:#4eda87;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:20px;}
+.cta-title{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+.cta-sub{font-size:14px;color:var(--gray);max-width:480px;margin:0 auto 32px;line-height:1.6;}
+.cta-buttons{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;}
+.cta-btn-primary{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;text-decoration:none;padding:16px 32px;border-radius:50px;transition:all .2s;box-shadow:0 8px 32px rgba(37,211,102,.3);}
+.cta-btn-primary:hover{background:#20bf5a;transform:translateY(-2px);box-shadow:0 12px 40px rgba(37,211,102,.4);}
+.cta-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--gray-l);font-size:13px;font-weight:500;text-decoration:none;padding:14px 24px;border-radius:50px;border:.5px solid rgba(255,255,255,.15);transition:all .2s;}
+.cta-btn-secondary:hover{border-color:rgba(255,255,255,.35);color:var(--white);transform:translateY(-1px);}
+.cta-note{margin-top:16px;font-size:12px;color:var(--gray);}
+
+/* FOOTER */
+footer{text-align:center;padding:40px 0 0;border-top:.5px solid var(--bdr);font-size:12px;color:var(--gray);}
+.footer-brand{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:6px;display:flex;align-items:center;gap:10px;justify-content:center;}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-top:14px;flex-wrap:wrap;}
+.footer-links a{color:var(--gray);text-decoration:none;font-size:11px;}
+.footer-links a:hover{color:var(--white);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:0 16px;}
+  .nav-pill{display:none;}
+  .wrap{padding:0 16px 60px;}
+  .hero{grid-template-columns:1fr;gap:24px;}
+  .hero-stats{flex-direction:row;text-align:left;flex-wrap:wrap;gap:20px;}
+  .pkg-grid,.notes-grid{grid-template-columns:1fr;}
+  .cta-box{padding:32px 20px;}
+  .cta-buttons{flex-direction:column;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  .pkg,.pkg-btn,.cta-btn-primary,.cta-btn-secondary{transition:none;}
+  .pkg:hover,.cta-btn-primary:hover,.cta-btn-secondary:hover{transform:none;}
+}
+</style>
+</head>
+<body>
+<div class="bg-deco" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav aria-label="Navigasi utama">
+  <a class="nav-logo" href="#" aria-label="Custompedia">
+    <svg viewBox="260 260 490 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path fill="#f8bd17" d="M509.74,274.01h108.97v309.03h-108.97c-85.28,0-154.51-69.23-154.51-154.51h0c0-85.28,69.23-154.51,154.51-154.51h0Z"/>
+      <path fill="#0999cd" d="M747.75,503.13v.4c0,77.93-63.18,141.11-141.11,141.11h-38.92l-75.03,60.2.76-60.2h-.08v-62.45h125v-219.69c72.44,5.96,129.38,66.64,129.38,140.63h0Z"/>
+      <path fill="#007ec8" d="M618.37,362.5v219.69h-125v-220.17h113.27c3.95,0,7.86.16,11.73.48h0Z"/>
+    </svg>
+    <span class="nav-wordmark">CUSTOMPEDIA</span>
+  </a>
+  <div class="nav-spacer"></div>
+  <span class="nav-pill">Artikel SEO 2026</span>
+  <a class="nav-cta" href="https://wa.me/6282226171071?text=Halo%20Custompedia!%20Saya%20tertarik%20dengan%20layanan%20Artikel%20SEO.%20Bisa%20kita%20diskusikan%20lebih%20lanjut%3F" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat dengan Kami
+  </a>
+</nav>
+
+<div class="wrap">
+<main>
+
+<!-- HERO -->
+<header class="hero">
+  <div>
+    <h1 class="hero-title">Artikel SEO<br>Berbasis Data &amp; AI</h1>
+    <p class="hero-sub">Artikel SEO berbasis data dan AI, dikerjakan bersama tim Custompedia — mulai dari riset keyword &amp; pesaing, penulisan, review tim sebelum terbit, hingga terbit di website Anda dan laporan performa setiap bulan.</p>
+    <ul class="hero-pills">
+      <li class="pill">Langganan bulanan atau tahunan</li>
+      <li class="pill">Langganan tahunan hemat 20%</li>
+      <li class="pill">Review tim sebelum terbit</li>
+      <li class="pill">Laporan bulanan GSC &amp; GA4</li>
+    </ul>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-val">15–60</div><div class="stat-lbl">Artikel per bulan</div></div>
+    <div><div class="stat-val">20%</div><div class="stat-lbl">Hemat langganan tahunan</div></div>
+    <div><div class="stat-val">3</div><div class="stat-lbl">Pilihan paket</div></div>
+  </div>
+</header>
+
+<!-- 01: PACKAGES -->
+<section class="sec" aria-labelledby="sec-paket">
+  <div class="sec-head"><div class="sec-num">01</div><h2 class="sec-title" id="sec-paket">Paket Artikel SEO</h2></div>
+  <div class="info-box ib-blue">Semua paket mendapatkan fitur yang sama: riset keyword &amp; pesaing, penulisan, gambar artikel dengan alt text, review tim sebelum terbit, terbit ke website, laporan performa bulanan dari Google Search Console &amp; GA4, dan dashboard. Yang membedakan hanya jumlah artikel per bulan.</div>
+
+  <div class="pkg-grid">
+    <div class="pkg">
+      <div class="badge b-entry">Untuk Memulai</div>
+      <h3 class="pkg-name">MULAI</h3>
+      <div class="pkg-plat">15 artikel/bulan</div>
+      <div class="pkg-price">Rp1.000.000 <span>/bulan</span></div>
+      <div class="pkg-contract">Bayar bulanan, atau pilih langganan tahunan:</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Tahunan · per bulan</div><div class="px-val">Rp800.000</div></div>
+        <div class="px"><div class="px-lbl">Total per tahun</div><div class="px-val">Rp9.600.000</div></div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li class="hi">15 artikel SEO per bulan</li>
+          <li class="hi">Riset keyword &amp; pesaing</li>
+          <li class="hi">Penulisan berbasis data dan AI</li>
+          <li class="hi">Gambar artikel dengan alt text</li>
+          <li class="hi">Review tim sebelum terbit</li>
+          <li class="hi">Terbit ke website</li>
+          <li class="hi">Laporan performa bulanan (Google Search Console &amp; GA4)</li>
+          <li class="hi">Dashboard</li>
+        </ul>
+        <div class="pkg-note">Biaya pembuatan Rp3.500.000 (sekali di awal).</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn" href="https://wa.me/6282226171071?text=Halo%20Custompedia!%20Saya%20tertarik%20dengan%20paket%20Artikel%20SEO%20Mulai%20%2815%20artikel%2Fbulan%29.%20Bisa%20kita%20diskusikan%20lebih%20lanjut%3F" target="_blank" rel="noopener">Pilih Paket Mulai</a></div>
+    </div>
+
+    <div class="pkg feat">
+      <div class="badge b-pop">⭐ Untuk Bertumbuh</div>
+      <h3 class="pkg-name">TUMBUH</h3>
+      <div class="pkg-plat">30 artikel/bulan</div>
+      <div class="pkg-price">Rp1.800.000 <span>/bulan</span></div>
+      <div class="pkg-contract">Bayar bulanan, atau pilih langganan tahunan:</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Tahunan · per bulan</div><div class="px-val">Rp1.440.000</div></div>
+        <div class="px"><div class="px-lbl">Total per tahun</div><div class="px-val">Rp17.280.000</div></div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li class="hi">30 artikel SEO per bulan</li>
+          <li class="hi">Riset keyword &amp; pesaing</li>
+          <li class="hi">Penulisan berbasis data dan AI</li>
+          <li class="hi">Gambar artikel dengan alt text</li>
+          <li class="hi">Review tim sebelum terbit</li>
+          <li class="hi">Terbit ke website</li>
+          <li class="hi">Laporan performa bulanan (Google Search Console &amp; GA4)</li>
+          <li class="hi">Dashboard</li>
+        </ul>
+        <div class="pkg-note">Biaya pembuatan Rp3.500.000 (sekali di awal).</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-cyan" href="https://wa.me/6282226171071?text=Halo%20Custompedia!%20Saya%20tertarik%20dengan%20paket%20Artikel%20SEO%20Tumbuh%20%2830%20artikel%2Fbulan%29.%20Bisa%20kita%20diskusikan%20lebih%20lanjut%3F" target="_blank" rel="noopener">Pilih Paket Tumbuh</a></div>
+    </div>
+
+    <div class="pkg ent">
+      <div class="badge b-best">Gratis Biaya Pembuatan · Tahunan</div>
+      <h3 class="pkg-name">MAKSIMAL</h3>
+      <div class="pkg-plat">60 artikel/bulan</div>
+      <div class="pkg-price">Rp3.000.000 <span>/bulan</span></div>
+      <div class="pkg-contract">Bayar bulanan, atau pilih langganan tahunan:</div>
+      <div class="price-row">
+        <div class="px bundle"><div class="px-lbl">Tahunan · per bulan</div><div class="px-val">Rp2.400.000</div></div>
+        <div class="px"><div class="px-lbl">Total per tahun</div><div class="px-val">Rp28.800.000</div></div>
+      </div>
+      <div class="pkg-body">
+        <ul class="pkg-list">
+          <li class="hi">60 artikel SEO per bulan</li>
+          <li class="hi">Riset keyword &amp; pesaing</li>
+          <li class="hi">Penulisan berbasis data dan AI</li>
+          <li class="hi">Gambar artikel dengan alt text</li>
+          <li class="hi">Review tim sebelum terbit</li>
+          <li class="hi">Terbit ke website</li>
+          <li class="hi">Laporan performa bulanan (Google Search Console &amp; GA4)</li>
+          <li class="hi">Dashboard</li>
+        </ul>
+        <div class="pkg-note free">Biaya pembuatan Rp3.500.000 (sekali di awal) — gratis dengan langganan tahunan.</div>
+      </div>
+      <div class="pkg-btn-wrap"><a class="pkg-btn btn-green" href="https://wa.me/6282226171071?text=Halo%20Custompedia!%20Saya%20tertarik%20dengan%20paket%20Artikel%20SEO%20Maksimal%20%2860%20artikel%2Fbulan%29.%20Bisa%20kita%20diskusikan%20lebih%20lanjut%3F" target="_blank" rel="noopener">Pilih Paket Maksimal</a></div>
+    </div>
+  </div>
+
+  <div class="info-box ib-gold" style="margin-bottom:0;"><strong>Langganan tahunan hemat 20%.</strong> Biaya pembuatan Rp3.500.000 (sekali di awal). Gratis untuk paket Maksimal dengan langganan tahunan.</div>
+</section>
+
+<!-- 02: WHAT'S INCLUDED -->
+<section class="sec" aria-labelledby="sec-termasuk">
+  <div class="sec-head"><div class="sec-num">02</div><h2 class="sec-title" id="sec-termasuk">Yang Termasuk di Setiap Paket</h2></div>
+  <ul class="notes-grid">
+    <li class="note-card"><div class="note-icon" aria-hidden="true">🔍</div><h3 class="note-title">Riset Keyword &amp; Pesaing</h3><p class="note-body">Topik artikel dipilih dari riset keyword dan analisis konten pesaing di niche Anda, sehingga setiap artikel punya alasan yang jelas.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">✍️</div><h3 class="note-title">Penulisan Berbasis Data &amp; AI</h3><p class="note-body">Artikel disusun dengan bantuan AI dan diarahkan oleh data riset, lalu dikerjakan bersama tim Custompedia agar sesuai dengan brand Anda.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">🖼️</div><h3 class="note-title">Gambar dengan Alt Text</h3><p class="note-body">Setiap artikel dilengkapi gambar beserta alt text yang deskriptif — baik untuk pembaca maupun mesin pencari.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">✅</div><h3 class="note-title">Review Tim Sebelum Terbit</h3><p class="note-body">Tim Custompedia meninjau setiap artikel sebelum diterbitkan, jadi tidak ada artikel yang terbit tanpa dicek.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">🌐</div><h3 class="note-title">Terbit ke Website</h3><p class="note-body">Artikel yang sudah lolos review diterbitkan langsung ke website Anda — Anda tidak perlu mengunggah sendiri.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">📊</div><h3 class="note-title">Laporan Bulanan &amp; Dashboard</h3><p class="note-body">Laporan performa bulanan dari Google Search Console &amp; GA4, ditambah dashboard untuk memantau perkembangan artikel Anda.</p></li>
+  </ul>
+</section>
+
+<!-- 03: COMPARISON TABLE -->
+<section class="sec" aria-labelledby="sec-banding">
+  <div class="sec-head"><div class="sec-num">03</div><h2 class="sec-title" id="sec-banding">Perbandingan Paket</h2></div>
+  <div class="cmp-wrap">
+  <table class="cmp">
+    <caption class="sr-only">Perbandingan paket Artikel SEO: Mulai, Tumbuh, dan Maksimal</caption>
+    <thead>
+      <tr>
+        <th scope="col" style="text-align:left;">Fitur</th>
+        <th scope="col">MULAI</th>
+        <th scope="col" style="border:.5px solid rgba(248,189,23,.3);color:var(--yellow);">TUMBUH</th>
+        <th scope="col">MAKSIMAL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="cat"><td colspan="4">Volume &amp; Harga</td></tr>
+      <tr><td>Artikel per bulan</td><td>15</td><td>30</td><td>60</td></tr>
+      <tr><td>Langganan bulanan</td><td>Rp1.000.000/bulan</td><td>Rp1.800.000/bulan</td><td>Rp3.000.000/bulan</td></tr>
+      <tr><td>Langganan tahunan (per bulan)</td><td>Rp800.000/bulan</td><td>Rp1.440.000/bulan</td><td>Rp2.400.000/bulan</td></tr>
+      <tr><td>Langganan tahunan (total)</td><td>Rp9.600.000/tahun</td><td>Rp17.280.000/tahun</td><td>Rp28.800.000/tahun</td></tr>
+      <tr><td>Biaya pembuatan (sekali di awal)</td><td>Rp3.500.000</td><td>Rp3.500.000</td><td>Rp3.500.000<br><span class="ck">Gratis dengan langganan tahunan</span></td></tr>
+      <tr class="cat"><td colspan="4">Fitur (sama di semua paket)</td></tr>
+      <tr><td>Riset keyword &amp; pesaing</td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td></tr>
+      <tr><td>Penulisan berbasis data dan AI</td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td></tr>
+      <tr><td>Gambar artikel dengan alt text</td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td></tr>
+      <tr><td>Review tim sebelum terbit</td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td></tr>
+      <tr><td>Terbit ke website</td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td></tr>
+      <tr><td>Laporan performa bulanan (GSC &amp; GA4)</td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td></tr>
+      <tr><td>Dashboard</td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td><td><span class="ck" aria-hidden="true">✓</span><span class="sr-only">Termasuk</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="cmp-note">GSC = Google Search Console · GA4 = Google Analytics 4 · Langganan tahunan hemat 20%.</p>
+</section>
+
+<!-- 04: GOOD TO KNOW -->
+<section class="sec" aria-labelledby="sec-info">
+  <div class="sec-head"><div class="sec-num">04</div><h2 class="sec-title" id="sec-info">Perlu Diketahui</h2></div>
+  <ul class="notes-grid">
+    <li class="note-card"><div class="note-icon" aria-hidden="true">📦</div><h3 class="note-title">Fitur Sama, Volume Berbeda</h3><p class="note-body">Mulai, Tumbuh, dan Maksimal mendapatkan fitur yang sama persis. Pilih paket sesuai jumlah artikel yang Anda butuhkan setiap bulan.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">📅</div><h3 class="note-title">Langganan Tahunan</h3><p class="note-body">Langganan tahunan hemat 20%. Contoh: paket Mulai menjadi Rp800.000/bulan (Rp9.600.000/tahun).</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">🛠️</div><h3 class="note-title">Biaya Pembuatan</h3><p class="note-body">Biaya pembuatan Rp3.500.000 (sekali di awal). Gratis untuk paket Maksimal dengan langganan tahunan.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">🔁</div><h3 class="note-title">Review Sebelum Terbit</h3><p class="note-body">Setiap artikel melewati review tim Custompedia sebelum diterbitkan ke website Anda.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">📈</div><h3 class="note-title">Laporan Transparan</h3><p class="note-body">Setiap bulan Anda menerima laporan performa dari Google Search Console &amp; GA4, dan bisa memantau perkembangan lewat dashboard.</p></li>
+    <li class="note-card"><div class="note-icon" aria-hidden="true">🎯</div><h3 class="note-title">Tanpa Janji Ranking</h3><p class="note-body">Posisi di hasil pencarian dipengaruhi banyak faktor di luar konten, jadi kami tidak menjanjikan peringkat tertentu. Fokus kami: artikel berkualitas yang terbit konsisten, dengan data yang transparan.</p></li>
+  </ul>
+</section>
+
+<!-- CTA -->
+<section class="cta-box" aria-labelledby="cta-title">
+  <div class="cta-deco1" aria-hidden="true"></div><div class="cta-deco2" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <div class="cta-badge">Siap memulai?</div>
+    <h2 class="cta-title" id="cta-title">Isi website Anda<br>dengan artikel yang terencana.</h2>
+    <p class="cta-sub">Ceritakan tentang bisnis dan website Anda, kami bantu pilih paket yang paling sesuai. Tanpa komitmen, cukup ngobrol dulu.</p>
+    <div class="cta-buttons">
+      <a class="cta-btn-primary" href="https://wa.me/6282226171071?text=Halo%20Custompedia!%20Saya%20tertarik%20dengan%20layanan%20Artikel%20SEO.%20Bisa%20kita%20diskusikan%20lebih%20lanjut%3F" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat via WhatsApp
+      </a>
+      <a class="cta-btn-secondary" href="mailto:hello@custompedia.agency?subject=Pertanyaan%20%E2%80%94%20Artikel%20SEO&amp;body=Halo%20Custompedia%2C%0A%0ASaya%20tertarik%20dengan%20layanan%20Artikel%20SEO.%20Bisa%20kita%20diskusikan%20lebih%20lanjut%3F%0A%0ATerima%20kasih." target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        hello@custompedia.agency
+      </a>
+    </div>
+    <div class="cta-note">+62 822-2617-1071 · Biasanya membalas dalam 1 jam</div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-brand">
+    <svg width="28" height="28" viewBox="260 260 490 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <path fill="#f8bd17" d="M509.74,274.01h108.97v309.03h-108.97c-85.28,0-154.51-69.23-154.51-154.51h0c0-85.28,69.23-154.51,154.51-154.51h0Z"/>
+      <path fill="#0999cd" d="M747.75,503.13v.4c0,77.93-63.18,141.11-141.11,141.11h-38.92l-75.03,60.2.76-60.2h-.08v-62.45h125v-219.69c72.44,5.96,129.38,66.64,129.38,140.63h0Z"/>
+      <path fill="#007ec8" d="M618.37,362.5v219.69h-125v-220.17h113.27c3.95,0,7.86.16,11.73.48h0Z"/>
+    </svg>
+    CUSTOMPEDIA Creative Group
+  </div>
+  <div>Creative Marketing Agency · Indonesia</div>
+  <div class="footer-links">
+    <a href="https://wa.me/6282226171071?text=Halo%20Custompedia!%20Saya%20tertarik%20dengan%20layanan%20Artikel%20SEO.%20Bisa%20kita%20diskusikan%20lebih%20lanjut%3F" target="_blank" rel="noopener">+62 822-2617-1071</a>
+    <a href="mailto:hello@custompedia.agency?subject=Pertanyaan%20%E2%80%94%20Artikel%20SEO&amp;body=Halo%20Custompedia%2C%0A%0ASaya%20tertarik%20dengan%20layanan%20Artikel%20SEO.%20Bisa%20kita%20diskusikan%20lebih%20lanjut%3F%0A%0ATerima%20kasih." target="_blank" rel="noopener">hello@custompedia.agency</a>
+    <a href="https://instagram.com/custompedia" target="_blank" rel="noopener">@custompedia</a>
+  </div>
+  <div style="margin-top:20px;font-size:10px;opacity:.4;">© 2026 Custompedia Creative Group · Dokumen ini bersifat rahasia</div>
+</footer>
+
+</div>
+</body>
+</html>

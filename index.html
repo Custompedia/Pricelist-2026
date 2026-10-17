@@ -251,6 +251,7 @@ nav {
 .svc-card.c-green:hover { border-color: rgba(34,197,94,0.35); box-shadow: 0 20px 60px rgba(34,197,94,0.08); }
 .svc-card.c-pink:hover { border-color: rgba(244,114,182,0.35); box-shadow: 0 20px 60px rgba(244,114,182,0.08); }
 .svc-card.c-orange:hover { border-color: rgba(251,146,60,0.35); box-shadow: 0 20px 60px rgba(251,146,60,0.08); }
+.svc-card.c-purple:hover { border-color: rgba(167,139,250,0.35); box-shadow: 0 20px 60px rgba(167,139,250,0.08); }
 
 /* top bar accent line */
 .svc-card::before {
@@ -268,6 +269,7 @@ nav {
 .svc-card.c-green::before { background: linear-gradient(90deg, var(--green), transparent); }
 .svc-card.c-pink::before { background: linear-gradient(90deg, var(--pink), transparent); }
 .svc-card.c-orange::before { background: linear-gradient(90deg, #fb923c, transparent); }
+.svc-card.c-purple::before { background: linear-gradient(90deg, #a78bfa, transparent); }
 
 /* deco glow bubble */
 .svc-glow {
@@ -287,6 +289,7 @@ nav {
 .c-green .svc-glow { background: var(--green); }
 .c-pink .svc-glow { background: var(--pink); }
 .c-orange .svc-glow { background: #fb923c; }
+.c-purple .svc-glow { background: #a78bfa; }
 
 .svc-top {
   display: flex;
@@ -310,6 +313,7 @@ nav {
 .c-green .svc-icon { background: rgba(34,197,94,0.12); }
 .c-pink .svc-icon { background: rgba(244,114,182,0.12); }
 .c-orange .svc-icon { background: rgba(251,146,60,0.12); }
+.c-purple .svc-icon { background: rgba(167,139,250,0.12); }
 
 .svc-badge-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
 
@@ -377,6 +381,7 @@ nav {
 .c-green .svc-starting-price { color: var(--green); }
 .c-pink .svc-starting-price { color: var(--pink); }
 .c-orange .svc-starting-price { color: #fb923c; }
+.c-purple .svc-starting-price { color: #a78bfa; }
 
 .svc-cta-btn {
   display: flex;
@@ -404,6 +409,7 @@ nav {
 .c-green .svc-cta-btn { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
 .c-pink .svc-cta-btn { background: rgba(244,114,182,0.12); color: var(--pink); border: 1px solid rgba(244,114,182,0.3); }
 .c-orange .svc-cta-btn { background: rgba(251,146,60,0.12); color: #fb923c; border: 1px solid rgba(251,146,60,0.3); }
+.c-purple .svc-cta-btn { background: rgba(167,139,250,0.12); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
 
 .svc-card.is-draft .svc-cta-btn { opacity: 0.6; }
 
@@ -684,6 +690,7 @@ footer {
 .svc-card:nth-child(3) { animation-delay: .15s; }
 .svc-card:nth-child(4) { animation-delay: .20s; }
 .svc-card:nth-child(5) { animation-delay: .25s; }
+.svc-card:nth-child(6) { animation-delay: .30s; }
 </style>
 </head>
 <body>
@@ -717,7 +724,7 @@ footer {
     <span class="accent">in one place.</span>
   </h1>
   <p class="hero-sub">
-    Full-service creative marketing — from branding and content production to social media management, KOL campaigns, and brand activation. One agency, end-to-end.
+    Full-service creative marketing — from branding and content production to social media management, SEO articles, KOL campaigns, and brand activation. One agency, end-to-end.
   </p>
   <div class="hero-stats">
     <div class="stat-item">
@@ -729,7 +736,7 @@ footer {
       <span class="stat-label">Satisfied clients</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">4</span>
+      <span class="stat-num">5</span>
       <span class="stat-label">Live service pages</span>
     </div>
     <div class="stat-item">
@@ -776,6 +783,38 @@ footer {
         </div>
         <span class="svc-cta-btn">
           View Full Pricing
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <!-- Artikel SEO -->
+    <a href="https://custompedia.github.io/Pricelist-2026/Artikel/" class="svc-card c-purple" target="_blank" lang="id">
+      <div class="svc-glow"></div>
+      <div class="svc-top">
+        <div class="svc-icon">📝</div>
+        <div class="svc-badge-wrap">
+          <span class="badge-live live">Live</span>
+        </div>
+      </div>
+      <div>
+        <div class="svc-name">Artikel<br>SEO</div>
+      </div>
+      <p class="svc-desc">Artikel SEO berbasis data dan AI, dikerjakan bersama tim Custompedia — riset keyword &amp; pesaing, penulisan, review tim sebelum terbit, hingga laporan performa bulanan.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Riset Keyword</span>
+        <span class="svc-tag">15–60 Artikel/Bulan</span>
+        <span class="svc-tag">GSC &amp; GA4</span>
+        <span class="svc-tag">Hemat 20% Tahunan</span>
+        <span class="svc-tag">Langganan Bulanan</span>
+      </div>
+      <div class="svc-footer">
+        <div class="svc-starting">
+          <span class="svc-starting-label">Mulai dari</span>
+          <span class="svc-starting-price">Rp1.000.000 /bulan</span>
+        </div>
+        <span class="svc-cta-btn">
+          Lihat Harga Lengkap
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
